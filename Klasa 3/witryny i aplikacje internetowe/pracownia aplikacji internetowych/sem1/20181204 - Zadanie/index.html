@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Przegląd Zespołów Medycznych.</title>
+    <link rel="stylesheet" href="format.css" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>Przegląd Zespołów Medycznych</h1>
+    <img src="./PESEL/i.png" onclick="changeSize('one')" id="one" class="small" alt=""/>
+    <img src="./PESEL/ii.png" onclick="changeSize('two')" id="two" class="small" alt=""/>
+    <img src="./PESEL/iii.png" onclick="changeSize('three')" id="three" class="small" alt=""/>
+    <p>Kliknij obrazek aby powiększyć tekst</p>
+  </body>
+  <script charset="utf-8">
+    function changeSize(param) {
+
+    image=document.getElementById(param);
+
+    if (image.className == "small") {
+          image.className = "big";
+        } else {
+          image.className = "small";
+        }
+    }
+  </script>
+</html>

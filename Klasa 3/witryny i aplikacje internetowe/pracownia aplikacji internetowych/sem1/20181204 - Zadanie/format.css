@@ -1,0 +1,17 @@
+body {
+  background-color: #b2b2b2;
+}
+
+img.small {
+  width: 150px;
+  height: 100px;
+}
+
+img.big {
+  width: 300px;
+  height: 200px;
+}
+
+h1,p {
+  font-family: Verdana, Arial, "MS Trebuchet", sans-serif;
+}

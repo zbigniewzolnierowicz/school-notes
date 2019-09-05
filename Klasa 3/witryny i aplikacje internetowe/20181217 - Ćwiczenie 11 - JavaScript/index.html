@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS</title>
+  </head>
+  <body>
+    <div id="c"></div>
+    <form name="asd" accept-charset="utf-8">
+      <input type="text" name="liczA" />
+      <input type="text" name="liczB" />
+      <input type="button" onClick="spr();" value="Pokaż"/>
+    </form>
+  </body>
+  <script charset="utf-8">
+    function spr() {
+       var liczA = Number(document.asd.liczA.value);
+       var liczB = Number(document.asd.liczB.value);
+       var wynik = liczA * liczB;
+       document.getElementById("c").innerHTML = wynik
+      }
+  </script>
+</html>

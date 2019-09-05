@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Regex</title>
+  </head>
+  <body>
+    <div id="c"></div>
+    <script charset="utf-8">
+      var kod = prompt("Podaj kod pocztowy z terenu wielkopolski");
+      var wzor = /^[\d]{2}-[\d]{3}$/;
+      if (wzor.test(kod)) {
+        document.write(kod);
+      }
+    </script>
+  </body>
+</html>

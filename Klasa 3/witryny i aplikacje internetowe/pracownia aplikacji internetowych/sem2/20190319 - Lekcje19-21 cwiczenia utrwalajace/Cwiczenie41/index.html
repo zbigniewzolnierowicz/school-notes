@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 41</title>
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 30px;
+        }
+        main {
+            display: flex;
+            flex-direction: row;
+            width: 500px;
+            height: 400px;
+        }
+        main .box {
+            flex: 1;
+            text-align: center;
+        }
+        #row1 {
+            background: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #row2 {
+            display: flex;
+            flex-direction: column;
+            flex: 2;
+        }
+        #row2-1 {
+            background: blue;
+        }
+        #row2-2 {
+            background: yellow;
+        }
+        #row3 {
+            background: green;
+        }
+        .center-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="box center-text" id="row1">
+            <p>Red</p>
+        </div>
+        <div class="box" id="row2">
+            <div class="box center-text" id="row2-1"><p>Blue</p></div>
+            <div class="box center-text" id="row2-2"><p>Yellow</p></div>
+        </div>
+        <div class="box center-text" id="row3"><p>Green</p></div>
+    </main>
+</body>
+</html>

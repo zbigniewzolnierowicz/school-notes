@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="content"></div>
+  <form name="form">
+    <input name="text">
+    <input type="button" value="confirm" onclick="generate()">
+  </form>
+</body>
+  <script>
+    function generate(){
+      var str = document.form.text.value;
+      var element = document.querySelector("#content");
+      var bEl = document.createElement("b");
+      var iEl = document.createElement("i");
+      var iElTextNode = document.createTextNode(str);
+      bEl.appendChild(iEl);
+      iEl.appendChild(iElTextNode);
+      element.appendChild(bEl);
+    }
+  </script>
+</html>

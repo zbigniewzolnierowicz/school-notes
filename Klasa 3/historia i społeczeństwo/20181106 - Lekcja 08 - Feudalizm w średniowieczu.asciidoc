@@ -1,0 +1,8 @@
+= Lekcja 7 - Feudalizm w średniowieczu
+
+feudum::
+	lenno
+lenno::
+	majątek ziemski
+
+Król jest właścicielem całej ziemi swojego państwa. Potem nadaje majątki ziemskie możnowładcom.

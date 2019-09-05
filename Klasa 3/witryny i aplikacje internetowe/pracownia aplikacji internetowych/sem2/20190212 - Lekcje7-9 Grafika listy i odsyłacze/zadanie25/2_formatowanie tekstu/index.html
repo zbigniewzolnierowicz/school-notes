@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadanie 25_2</title>
+</head>
+
+<body>
+    <h1>Tekst 1</h1>
+    <p>Tekst wyświetlany dokładnie tak jak wpisany</p>
+    <pre>
+        program przyklad;
+        var
+            i:byte;
+        begin
+            for i:=1 to 255 do
+            begin
+                write(i);
+                writeln(chr(i));
+            end;
+        end.
+    </pre>
+    <h1>Tekst 2</h1>
+    <p>Można też oczywiście zastosować kilka znaczników do jednego fragmentu tekstu</p>
+    <center>
+        <font size="6" color="red"><b><i>Ten fragment jest napisany czcionką o wielkości 6, pogrubiony i pochylony,
+                    czerwony i wycentrowany</i></b></font>
+    </center>
+    <h2>Linia pozioma</h2>
+    <hr>
+    <h2>Indeksy</h2>
+    <p><i>E=mc<sup>2</sup></i></p>
+    <p><i>(A<sub>1</sub>, ...,A<sub>n</sub>)</i></p>
+    <h1>Tekst 3</h1>
+    <h2>Podział na akapity</h2>
+    <p>Odczyt danych z płyt CD-ROM odbywa się za pomocą odpowiedniego urządzenia, zwanego napędem CD-ROM.
+        W celu zapisania danych na dysku CD należy komputer doposażyć w urządzenie zwane nagrywarką (wypalarką).
+        Zapis odbywa się na specjalnie do tego celu przygotowanych płytach, które posiadają oznaczenie CD-R.
+        Szczególną odmianą są dyski CD-RW (Compact Disk Re-Writable), na których istnieje możliwość wielokrotnego
+        zapisu danych.</p>
+    <p>Ważnym parametrem napędu CD jest, podobnie jak w przypadku dysków, średni czas dostępu, który w obecnie
+        sprzedawanych modelach jest krótszy niż 80 milisekund. Innym istotnym parametrem jest prędkość odtwarzania
+        napędu. Im wyższa prędkość odtwarzania, tym większy transfer danych. Nowoczesne napędy CD osiągają 48-, a nawet
+        52-krotną prędkość odtwarzania (1-krotna prędkość odtwarzania to transfer danych rzędu 150 kB/s). Napędy CD-ROM
+        umożliwiają odczyt danych z płyt CD zawierających dane komputerowe, jak i płyt CD z muzyką.</p>
+    <hr>
+    <h2>Podział na akapity i wiersze</h2>
+    <p>Odczyt danych z płyt CD-ROM odbywa się za pomocą odpowiedniego urządzenia, zwanego napędem CD-ROM.<br>
+        W celu zapisania danych na dysku CD należy komputer doposażyć w urządzenie zwane nagrywarką (wypalarką).<br>
+        Zapis odbywa się na specjalnie do tego celu przygotowanych płytach, które posiadają oznaczenie CD-R.<br>
+        Szczególną odmianą są dyski CD-RW (Compact Disk Re-Writable), na których istnieje możliwość wielokrotnego<br>
+        zapisu danych.</p>
+    <p>Ważnym parametrem napędu CD jest, podobnie jak w przypadku dysków, średni czas dostępu, który w obecnie
+        sprzedawanych modelach jest krótszy niż 80 milisekund.<br>
+        Innym istotnym parametrem jest prędkość odtwarzania napędu.<br>
+        Im wyższa prędkość odtwarzania, tym większy transfer danych.<br>
+        Nowoczesne napędy CD osiągają 48-, a nawet 52-krotną prędkość odtwarzania (1-krotna prędkość odtwarzania to
+        transfer danych rzędu 150 kB/s).<br>
+        Napędy CD-ROM umożliwiają odczyt danych z płyt CD zawierających dane komputerowe, jak i płyt CD z muzyką.</p>
+    <h1>Tekst 4</h1>
+    <p>Wyrównanie tekstu w akapitach.</p>
+    <p>tekst jest automatycznie wyrównywany lewostronnie</p>
+    <p align="right">ten tekst jest wyrównywany prawostronnie</p>
+    <p align="center">ten tekst jest wyśrodkowany</p>
+    <p align="justify">ten tekst jest wyjustowany<br>
+        Odczyt danych z płyt CD-ROM odbywa się za pomocą odpowiedniego urządzenia, zwanego napędem CD-ROM.
+        W celu zapisania danych na dysku CD należy komputer doposażyć w urządzenie zwane nagrywarką (wypalarką).
+        Zapis odbywa się na specjalnie do tego celu przygotowanych płytach, które posiadają oznaczenie CD-R.
+        Szczególną odmianą są dyski CD-RW (Compact Disk Re-Writable), na których istnieje możliwość wielokrotnego
+        zapisu danych.
+        Ważnym parametrem napędu CD jest, podobnie jak w przypadku dysków, średni czas dostępu, który w obecnie
+        sprzedawanych modelach jest krótszy niż 80 milisekund. Innym istotnym parametrem jest prędkość odtwarzania
+        napędu. Im wyższa prędkość odtwarzania, tym większy transfer danych. Nowoczesne napędy CD osiągają 48-, a nawet
+        52-krotną prędkość odtwarzania (1-krotna prędkość odtwarzania to transfer danych rzędu 150 kB/s). Napędy CD-ROM
+        umożliwiają odczyt danych z płyt CD zawierających dane komputerowe, jak i płyt CD z muzyką.</p>
+    <h1>Tekst 5</h1>
+    <p>To jest zwykły tekst</p>
+    <h1>Nagłówek 1</h1>
+    <h2>Nagłówek 2</h2>
+    <h3>Nagłówek 3</h3>
+    <h4>Nagłówek 4</h4>
+    <h5>Nagłówek 5</h5>
+    <h6>Nagłówek 6</h6>
+    <p>to też jest zwykły tekst</p>
+    <h1>Tekst 6</h1>
+    <p>Tekst zwykły</p>
+    <p><b>Tekst pogrubiony</b></p>
+    <p><i>Tekst pochylony</i></p>
+    <p><u>Tekst podkreślony</u></p>
+    <p><u><i><b>Tekst pogrubiony, pochylony i podkreślony</b></i></u></p>
+    <p>Tekst <big>czcionką większą</big> niż zwykła</p>
+    <p>Tekst <small>czcionką mniejszą</small> niż zwykła</p>
+    <p>Tekst napisany<sup>indeksem górnym</sup></p>
+    <p>Tekst napisany<sub>indeksem dolnym</sub></p>
+    <p>Czcionka może mieć wielkość 1..7. Ten fragment tekstu jest napisany<font size="1">Czcionką o wielkości 1</font>,
+        ten napisany jest <font size="2">czcionką o wielkości 2</font>, ten napisany jest <font size="3">czcionką o
+            wielkości 3</font>, ten napisany jest <font size="4">czcionką o wielkości 4</font>, ten napisany jest <font
+            size="5">czcionką o wielkości 5</font>,ten napisany jest <font size="6">czcionką o wielkości 6</font>,ten
+        napisany jest <font size="7">czcionką o wielkości 7</font>.</p>
+    <p>Można też powiększyć lub pomniejszyć tekst w stosunku do zwykłej wielkości czcionki, która w naszym przypadku wynosi 3.<font size="+4">Ten fragment jest powiększony o 4</font>, <font size="-2">a ten jest pomniejszony o 2</font>.</p>
+    <p>
+        Tekst może mieć 16 podstawowych kolorów.
+        <font color="black">black</font>
+        <font color="silver">silver</font>
+        <font color="gray">gray</font>
+        <font color="maroon">maroon</font>
+        <font color="red">red</font>
+        <font color="purple">purple</font>
+        <font color="fuchsia">fuchsia</font>
+        <font color="green">green</font>
+        <font color="lime">lime</font>
+        <font color="olive">olive</font>
+        <font color="yellow">yellow</font>
+        <font color="navy">navy</font>
+        <font color="blue">blue</font>
+        <font color="teal">teal</font>
+        <font color="aqua">aqua</font>
+        <font color="white">white</font>
+    </p>
+</body>
+
+</html>

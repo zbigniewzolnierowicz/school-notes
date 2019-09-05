@@ -1,0 +1,84 @@
+<h1 id="lekcja-8---metody-projektowania-baz-dancych">Lekcja 8 - Metody projektowania baz dancych</h1>
+<h2 id="metoda-od-dołu-do-góry-wstępująca-bottom-up">Metoda od dołu do góry (wstępująca, bottom-up)</h2>
+<ul>
+<li>czyli od pojęć elementarnych do ogółu. Metoda ta nadaje się do projektowania prostych baz dancyh zawierających małą liczbę atrybutów. Taki proces projektowania bazy danych rozpoczyna się od zaidentyfikowania wszystkich atrybutów, a następnie przez analizę</li>
+</ul>
+<h2 id="etapy-projektowania-baz-danych">Etapy projektowania baz danych</h2>
+<h3 id="koncepcyjne-projektowanie-baz-danych">Koncepcyjne projektowanie baz danych</h3>
+<ul>
+<li>to proces konstrukcji modelu danych, który jest niezależny od wszelkich aspektów fizycznych (specyficzny model danych, docelowy SZBD, programy użytkowe, język programowania, platforma sprzętowa)</li>
+</ul>
+<h3 id="logiczne-projektowanie-baz-danych">Logiczne projektowanie baz danych</h3>
+<ul>
+<li>to proces konstrukcji modelu, który jest oparty na specyficznym modelu danych (np. model relacyjny, model obiektów) ale niezależny od konkretnego SZBD i innych aspektów fizycznych.</li>
+</ul>
+<h3 id="fizyczne-projektowanie-baz-danych">Fizyczne projektowanie baz danych</h3>
+<ul>
+<li>to proces tworzenia opisu implementacji bazy danych w pamięci zewnętrznej. Opis ten zawiera bazowe relacje oraz organizowanie plików</li>
+</ul>
+<h2 id="projektowanie-encji.-pierwszy-etap-projektowania-baz-danych.-zanim-obiekt-stanie-się-tabelą-jest-encją">Projektowanie encji. Pierwszy etap projektowania baz danych. Zanim obiekt stanie się tabelą jest encją</h2>
+<ul>
+<li>Zadanniem projektowania baz danych jest odzwierciedlanie obiektów świata rzeczywistego w abstrakcyjne obiekty (encje), które w późniejszym etapie będzie można przekstałcić w tabelę.</li>
+<li>Encja reprezentuje zbiór obiektów opisany tymi samymi cechami (atrybutami, własnościami). Konkretny obiekt świata rzeczywistego jest reprezentowany jako wystąpienie encji (rekord baz danych)</li>
+<li>Jako przykład encji rozważmy następujący mikro-opis fragmentu pewnego świata rzeczywistego: biblioteka. Chcemy przechowywać informacje nt. danych książek: autor, tytuł, rok wydania</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Koncepcja</th>
+<th>Logiczne</th>
+<th>Fizyczne</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nazwa encji</td>
+<td>Tak</td>
+<td>Tak</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Związek encji</td>
+<td>Tak</td>
+<td>Tak</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Atrybuty</td>
+<td></td>
+<td>Tak</td>
+<td>Tak</td>
+</tr>
+<tr class="even">
+<td>Klucze główne</td>
+<td></td>
+<td>Tak</td>
+<td>Tak</td>
+</tr>
+<tr class="odd">
+<td>Klucze obce</td>
+<td></td>
+<td>Tak</td>
+<td>Tak</td>
+</tr>
+<tr class="even">
+<td>Nazwy tabel</td>
+<td></td>
+<td></td>
+<td>Tak</td>
+</tr>
+<tr class="odd">
+<td>Nazwy kolumn</td>
+<td></td>
+<td></td>
+<td>Tak</td>
+</tr>
+<tr class="even">
+<td>Typ danych</td>
+<td></td>
+<td></td>
+<td>Tak</td>
+</tr>
+</tbody>
+</table>

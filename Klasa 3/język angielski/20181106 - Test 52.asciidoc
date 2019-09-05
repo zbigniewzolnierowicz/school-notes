@@ -1,0 +1,32 @@
+= Test 52
+
+. Może będziesz musiał zmienić swoje plany. Będzie to zależało od wyników konferencji.
+.. You might have to change your plans. That will depend on the outcome of the conference. V
+. Przypuszczam że zmylił *[=mislead]* ją kolor ich samochodu. Jest prawie taki jak nasz.
+.. I suppose the color of ther car mislead her. It's almost the same as ours. X (she was misled by the color of their car)
+. Jeśli będziesz rozmawiał z wujkiem Joe, zapytaj, kiedy i gdzie mogę go zobaczyć.
+.. If you talk to uncle Joe, ask him when and where I can see him. V
+. W tym roku przyjeżdża zbyt niewielu czołowych zawodników, aby zapewnić turniejowi atrakcyjność.
+.. This year too little top players are coming to make the tournament attractive. V
+. Gubernator, na którego rozkaz ją zatrzymano, bardzo interesuje się tą sprawą.
+.. The governor, whose order it was to apprehend her, is very interested in this affair. V
+. Najwyższy czas, żeby ktoś jej powiedział, czego nie powinna robić.
+.. It's high time someone told her what she shouldn't do. V
+. Już czwarta. Chłopcy powinni teraz pracować w ogrodzie. Nie mam pojęcia, czemu tego nie robią.
+.. It's 4. The boys should be working in the garden. I have no idea why they aren't doing that. V
+. Im prędzej ona opuści nasze miasto, tym lepiej dla nas.
+.. The sooner she leaves our city, the better for us. V
+. Nie wiem, gdzie jest teraz moja siostrzenica. Od kilku dni nie mogę się z nią skontaktować.
+.. I don't know, where my niece is. I haven't been able to contact her for several days. V
+. Wejdź, bo zamykam drzwi na klucz. Nie chcę, żeby mi przeszkadzano *[=disturb]*, kiedy pracuję.
+.. Get in, I'm locking the door shut. I don't want to be disturbed when I'm working. V
+. Jeśli chodzi o mnie osobiście, kandydat, którego wybraliście w sobotę, jest najgorszy z wszystkich możliwych.
+.. Personally, the candidate you chose on Saturday was the worst out of all of the possible choices. V
+. On już nie przychodzi na nasze spotkania. Boi się, że nie pozwolą mu wyemigrować.
+.. He doesn't come to our meetings anymore. He's afraid they won't let him emmigrate. X (He's afraid of not being allowed to emigrate)
+. Nie podoba mi się to lekarstwo. Od jak dawna musi pan je brać?
+.. I don't like this medicament. Since how long ago do you have to take it?  X (How long have you had to take it?)
+. Wówczas Bob ciągle jeszcze był osobą, bez której nie mogło się zdażyć nic ważnego w naszej firmie.
+.. In the meantime, Bob was still a person without whom nothing important could happen in our firm. V
+. Najpierw upewnij się, że ona przychodzi w tym tygodniu, a potem daj mi znać.
+.. First off make sure she's coming this week, then let me know. V

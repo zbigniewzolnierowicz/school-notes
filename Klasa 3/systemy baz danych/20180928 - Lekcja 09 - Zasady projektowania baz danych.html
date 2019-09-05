@@ -1,0 +1,149 @@
+<h1 id="lekcja-8---zasady-projektowania-baz-danych">Lekcja 8 - Zasady projektowania baz danych</h1>
+<h2 id="projektowanie-modelu-konceptualnego-bazy-danych">Projektowanie modelu konceptualnego bazy danych</h2>
+<p>Model konceptualny nie jest zależny od struktur fizycznych, modelu danych, oprogramowanie, SZBD, języka programowania, etc.</p>
+<p>Do tworzenia medalu graficznego schematu nbazy danych wykorzystywane są diagramy związków encji, z których najpopularniejsze są diagramy ERD <em>(ang. Entity Relationship Diagram)</em>. Pozwalają one na modelowanie struktur danych oraz związków zachodzących między tymi strukturami. Nadają się szczególnie do modelowania relacyjnych baz danych, ponieważ umożliwiają prawie bezpośrednie przekształcenie diagramu w schemat relacyjny.</p>
+<ul>
+<li>określenie występujących zbiorów encji</li>
+<li>określenie atrybutów przypisanych do poszczególnych encji</li>
+<li>określenie dziedziny poszczególnych atrybutów</li>
+<li>ustalenie kluczy podstawowych</li>
+<li>określenie typów występujących związków</li>
+<li>zweryfikowanie utworzonego modelu</li>
+</ul>
+<h2 id="diagramy-związków-encji">Diagramy związków encji</h2>
+<p>Diagramy ERD składają się z trzech rodzajów elementów:</p>
+<ul>
+<li>zbiorów encji</li>
+<li>atrybutów encji</li>
+<li>związków zachodzących między encjami</li>
+</ul>
+<h2 id="encja">Encja</h2>
+<p>Encja to reprezentacja obiektu przechowywanego w bazie danych. Graficzną reprezentacją encji jest prostokąt z nazwą encji zapisaną w liczbie pojedynczej.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Książka</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nr_w_wykazie</td>
+</tr>
+<tr class="even">
+<td>tytuł</td>
+</tr>
+<tr class="odd">
+<td>rok wydania</td>
+</tr>
+<tr class="even">
+<td>autor</td>
+</tr>
+<tr class="odd">
+<td>stan w bibliotece</td>
+</tr>
+</tbody>
+</table>
+<h2 id="związek">Związek</h2>
+<p>Związek jest to powiązanie między dwiema lub kilkoma encjami. Kążdy związek ma dwa końce, do których przypisane są następujące atrybuty:</p>
+<ul>
+<li>nazwa</li>
+<li>liczebność związku</li>
+<li>uczestnictwo w związku; atrybut ten określa, czy związek jest opcjonalny (niewymagany), czy obligatoryjny (wymagany)</li>
+</ul>
+<p>Graficzna reprezentacja związków zachodzących między encjami</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>jeden do jednego</th>
+<th>jeden do wielu</th>
+<th>wiele do wielu</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-+------------+-</code></td>
+<td><code>-+----------&lt;-</code></td>
+<td><code>-&gt;----------&lt;-</code></td>
+</tr>
+<tr class="even">
+<td>po każdej stronie związku bierze udział po jednej instancji encji</td>
+<td>po jednej stronie związku bierze udział po jednej instancji encji, a po drugiej wiele instancji</td>
+<td>po obu stronach związku bierze udział wiele instancji encji</td>
+</tr>
+</tbody>
+</table>
+<p>Graficzna reprezentacja opcjonalności związku</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">związek opcjonalny</th>
+<th style="text-align: center;">związek obligatoryjny</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>----------------o-</code></td>
+<td style="text-align: center;"><code>------------------||-</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">można</td>
+<td style="text-align: center;">wymaga</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jeden-do-jednego">Jeden do jednego</h3>
+<p>Klient MOŻE posiadać NIP, ale NIP WYMAGA klienta.</p>
+<h3 id="jeden-do-wielu">Jeden do wielu</h3>
+<p>Klient składa zamówienie - klient składa zamówienie (lub kilka zamówień), a zamówienie jest składane przez jednego klienta.</p>
+<h3 id="wiele-do-wielu">Wiele do wielu</h3>
+<p>Dostawca dostarcza towar - wiele dostawców dostarcza wiele towarów, wiele towarów jest dostarczanych przez wielu sprzedawców.</p>
+<h3 id="diagramy-chena">Diagramy Chena</h3>
+<p>Diagramy Chena pozwalaą w sposób graficzny przedstawić model projektu bazy danych i związków zachodzących pomiędzy encjami</p>
+<table>
+<thead>
+<tr class="header">
+<th>Kształt</th>
+<th>Odpowiednik</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>prostokąt</td>
+<td>encja</td>
+</tr>
+<tr class="even">
+<td>koło</td>
+<td>atrybut</td>
+</tr>
+<tr class="odd">
+<td>romb</td>
+<td>związek</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notacja-barkera-notacja-oracle">Notacja Barkera (notacja Oracle)</h3>
+<p>W notacji tej w odróżnieniu od notacji Martina związki wymagane oznacza się ciągłą linią związków, natomiast opcjonalne (nie wymagalne) - przerywaną.</p>
+<h3 id="diagram-venna">Diagram Venna</h3>
+<p>Zgodnie z założeniami Venna, encje reprezentowane sa przez owale, wewnątrz których znajdują się instancje.</p>
+<p>Jeśli poprowadzimy poziome linie pomiędzy instancjami dwóch encji, zgodnie ze związkami zachodzącymi w rzeczywistości, w łatwy sposób możemy zilustrować liczebność i uczestnictwo w związku.</p>
+<figure>
+<img src="./Lekcja_8_diagram.png" alt="Diagram do ćwiczenia" /><figcaption>Diagram do ćwiczenia</figcaption>
+</figure>
+<p>Bilet (id_biletu, miejsce, id_rezerwacji, id_lotu, cena, klasa)</p>
+<p>Lot (cel_podrozy, data_wylotu, id_lotu, miejsce_wylotu, nr_samolotu, dlugosc_lotu, nr_pasa_wylot, nr_pasa_ladowanie)</p>
+<p>Klient (imie, nazwisko, pesel, data_urodzenia, kraj, nr_paszportu, id_klienta)</p>
+<p>Rezerwacja (id_rezerwacji, id_klienta, id_biletu, wartość)</p>
+<p>Klient rezerwuje jedną (lub wiele) rezerwacji</p>
+<p>Rezerwacja jest rezerwowana przez jednego klienta</p>
+<p>Rezerwacja dotyczy jednego (lub wielu) biletu</p>
+<p>Bilet dotyczy jednej rezerwacji.</p>
+<p>Bilet dotyczy jednego lotu.</p>
+<p>Jeden lot ma jeden lub wiele biletów.</p>
+<h2 id="zadanie-domowe">Zadanie domowe</h2>
+<p>System zamawiania pizzy</p>
+<p>Pizza z konkretnymi składnikami</p>

@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{inconsolata}
+\usepackage{indentfirst}
+\usepackage{minted}
+\begin{document}
+\title{{\huge Lekcja 22} \\
+{\large Powtórzenie}}
+\author{Zbigniew Żołnierowicz}
+\date{29.03.2019}
+\maketitle
+
+\section{Utworzyć bazę danych o podanym schemacie}
+
+\begin{minted}{sql}
+    CREATE TABLE klienci ({
+        klient_id int,
+        nazwisko_imie varchar(255),
+
+    })
+\end{minted}
+
+\section{Wprowadzić po 2 wiersze do każdej tabeli}
+
+\section{Dodać ograniczenie ilości zamawianych książek (3 szt.)}
+
+\section{Dodać obowiązkowość pola "tytuł"}
+
+\section{Usunąć ograniczenie z zad.\@ 3}
+
+\section{Utwórz perspektywę wyświetlającą wszyskie książki zamówione w dniu}
+
+\end{document}

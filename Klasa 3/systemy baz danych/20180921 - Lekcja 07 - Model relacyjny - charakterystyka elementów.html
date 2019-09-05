@@ -1,0 +1,174 @@
+<h1 id="lekcja-7---model-relacyjny---charakterystyka-elementów">Lekcja 7 - Model relacyjny - charakterystyka elementów</h1>
+<h2 id="zawody">Zawody</h2>
+<p>Chcemy zbierać informacje na temat wyników uzyskanych przez uczniów wybranej szkoły w międzyszkolnych zawodach lekkoatletycznych:</p>
+<ul>
+<li>Imię i nazwisko zawodnika</li>
+<li>Numer startowy</li>
+<li>Wyniki
+<ul>
+<li>bieg</li>
+<li>skok w dal</li>
+<li>rzut oszczepem</li>
+</ul></li>
+<li>Nazwisko opiekuna</li>
+<li>Kategoria wiekowa</li>
+</ul>
+<h2 id="struktura-danych-na-przykładzie-tabeli-zawody">Struktura danych na przykładzie tabeli Zawody</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Numer startowy</th>
+<th>Imię</th>
+<th>Nazwisko</th>
+<th style="text-align: center;">Kategoria</th>
+<th style="text-align: center;">Opiekun</th>
+<th style="text-align: center;">Bieg</th>
+<th style="text-align: center;">Skok</th>
+<th style="text-align: center;">Rzut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Jan</td>
+<td>Kowalski</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">11.4121</td>
+<td style="text-align: center;">6.2331</td>
+<td style="text-align: center;">32.12</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Piotr</td>
+<td>Kola</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">11.39</td>
+<td style="text-align: center;">5.92</td>
+<td style="text-align: center;">37.00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="model-relacyjny---podstawowe-pojęcia">Model relacyjny - podstawowe pojęcia</h2>
+<p>Każda z relacji ma <em>atrybuty</em> (kolumny) opatrzone nazwami. Atrybuty te mają zdefiniowane <em>dziedziny</em>, czyli zbiór dopuszczalnych wartości, np. w atrybucie płeć relacji personel mogą wystąpić tylko wartości M lub K. _Pojęcie dziedziny jest bardzo istotne, gdyż pomaga użytkownikowi zdefiniować, niezależnie od relacji, znaczenie atrybutu.</p>
+<h3 id="schemat-tabeli">Schemat tabeli</h3>
+<p>Nazwa tabeli wraz z listą nazw kolumn (atrybutów) jest <strong>schematem tabel</strong> <em>(ang. table schema)</em>.</p>
+<p>Przykładowy opis schematu:</p>
+<blockquote>
+<p><strong>Zawody</strong> <em>(<strong>numer_startowy</strong>, imie, nazwisko, kategoria, klasa, opiekun, bieg, rzut, skok)</em></p>
+</blockquote>
+<ul>
+<li>Konwencja nazewnictwa
+<ul>
+<li>Tabele z dużej litery</li>
+<li>atrybuty z małej litery</li>
+<li>Nazwy tabel są rzeczownikami w liczbie mnogiej</li>
+<li>W zapisie tabel nie stosujemy polskich liter diaktrycznych</li>
+</ul></li>
+</ul>
+<p>Dla poszczególnych atrybutów łatwo możemy określić typy danych.</p>
+<ul>
+<li>numer_startowy - integer</li>
+<li>imie - char</li>
+<li>nazwisko - char</li>
+</ul>
+<blockquote>
+<p><strong>Zawody</strong> <em>(<strong>numer_startowy</strong>: integer, imie: char, nazwisko: char, kategoria: integer, klasa: integer, opiekun: integer, bieg: time, rzut: float, skok: float)</em></p>
+</blockquote>
+<h2 id="schemat-tabeli-uczniowie-klasy-3d">Schemat tabeli “Uczniowie klasy 3D”</h2>
+<p><strong>Nazwa tabeli</strong>: “Uczniowie klasy 3D”</p>
+<blockquote>
+<p><strong>Uczniowie</strong> <em>(<strong>numer_z_dziennika</strong>, imie: string, nazwisko: string, plec: char, grupa_ang: int, grupa_jez: string, religia: boolean, etyka: boolean, srednia: float, data_urodzenia: date, miejsce_urodzenia: string, pesel: int)</em></p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 4%" />
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 15%" />
+<col style="width: 8%" />
+<col style="width: 13%" />
+<col style="width: 12%" />
+<col style="width: 8%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Numer z dziennika</th>
+<th>Imię</th>
+<th>Nazwisko</th>
+<th style="text-align: center;">Płeć</th>
+<th style="text-align: center;">Grupa języka angielskiego</th>
+<th>Grupa językowa</th>
+<th>Czy chodzi na religię?</th>
+<th>Czy chodzi na etykę?</th>
+<th>Data urodzenia</th>
+<th>Miejsce urodzenia</th>
+<th>PESEL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>30</td>
+<td>Zbigniew</td>
+<td>Żołnierowicz</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">17</td>
+<td>Hiszpański</td>
+<td>Nie</td>
+<td>Tak</td>
+<td>03-11-2000</td>
+<td>Białogard</td>
+<td>00310*****</td>
+</tr>
+</tbody>
+</table>
+<h2 id="schemat-tabeli-komisu">Schemat tabeli komisu</h2>
+<blockquote>
+<p><strong>Komis</strong> <em>(<strong>tablica_rejestracyjna</strong>: string, przebieg: float, marka: string, model: string, data_produkcji: date, pojemosc_zbiornika: float, czy_uzywane: boolean, moc: int, kolor: string, typ_nadwozia: string, czy_bezwypadkowy: boolean, pierwsza_tablica_rejestracyjna: string)</em></p>
+</blockquote>
+<h2 id="schemat-relacyjnej-bazy-danych">Schemat relacyjnej bazy danych</h2>
+<p>W modelu relacyjnym baza danych składa się zazwyczaj z większej ilości tabel. Zbiór wszystkich schematów tabel wchodzących w skład relacyjnego modelu danych nazywamy <strong>schematem relacyjnym bazy danych</strong>.</p>
+<h2 id="właściwości-kolumny-kolumn---kandydatów-na-klucz-główny">Właściwości kolumny (kolumn) - kandydatów na klucz główny</h2>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nazwa</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Trwałość</td>
+<td>Wartość kolumny musi być stale obecna w wierszu, oznacza to, że kolumna (należąca do klucza głównego) nie może przyjmować wartości <code>Null</code>.</td>
+</tr>
+<tr class="even">
+<td>Unikalność</td>
+<td>Wartość ta dla każdego wiersza powinna być unikatowa, ponieważ w niepowtarzalny sposób musi identyfikować każdą krotkę.</td>
+</tr>
+<tr class="odd">
+<td>Stabliność</td>
+<td>Wartość ta nie może się zmieniać.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rodzaje-kluczy">Rodzaje kluczy</h2>
+<p><strong>Klucz prosty</strong> - to taki, który jest jednoelementowy, składa się z jednej kolumny.</p>
+<p><strong>Klucz złożony</strong> - to taki, który jest kilkuelementowy, składa się z więcej niż jednej kolumny.</p>
+<p>Kolumny, które należą do kluczy (używa się ich do jednoznacznej identyfikacji wierszy tabeli), nazywamy <strong>atrybutami podstawowymi</strong>.</p>
+<p>Kolumny nienależące do klucza nazywamy <strong>atrybutami opisowymi</strong>. Te atrybuty zawierają dane, które w danej relacji są przedmiotem opisu.</p>
+<p><strong>Superklucz</strong> <em>(ang. superkey)</em> - to kolumna lub zestaw kolumn jednoznacznie identyfikujących każdą krotkę. Przedmiotem zainteresowań projektantów baz danych jest taki superklucz, który zawiera minimalny zestaw atrybutów jednoznacznie (niepowtarzalnie, unikatowo) identyfikującą wiersz.</p>
+<p><strong>Klucz kandydujący (nadklucz, klucz potencjalny)</strong> - to superklucz zawierający minimalną liczbę kolumn unikatowo charakteryzujące krotki relacji. Innymi słowy to kolumna lub zbiór kolumn, które projektant bazy danych rozważa jako klucz główny.</p>
+<p><strong>Klucz główny</strong> <em>(ang. primary key)</em> - klucz, który został wybrany (przez projektanta) aby jednoznacznie identyfikowa wiersze w relacji.</p>
+<p><strong>Klucz obcy</strong> - kolumna lub zestaw kolumn w jednej tabeli, która pasuje do klucza kandydującego innej lub tej samej tabeli.</p>
+<h2 id="schemat-bazy-danych-opisujący-klientów-banku">Schemat bazy danych opisujący klientów banku</h2>
+<blockquote>
+<p><strong>Klienci_banku</strong> (<strong>numer_klienta</strong>, imie, nazwisko, pesel, zdolnosc_kredytowa, typ_konta)</p>
+</blockquote>

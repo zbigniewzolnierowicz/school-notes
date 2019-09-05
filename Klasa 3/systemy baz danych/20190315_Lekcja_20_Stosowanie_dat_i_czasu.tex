@@ -1,0 +1,167 @@
+\documentclass{article}
+\usepackage{polski}
+\usepackage{minted}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\begin{document}
+\title{Lekcja 20 --- Stosowanie dat i czasu}
+\author{Zbigniew Żołnierowicz}
+\date{15.03.2019}
+\maketitle
+\section{Typy danych}
+Wymagania dotyczące pamięci dla 3 ostatnich typów danych zależne są od użytej dokładności. Dokładność specyfikowana jest w postaci liczby całkowitej z zakresu od 0 do 7 i reprezentuje wielkość ułamkowej części sekundy (liczbę cyfr po przecinku). Jeśli dokładność nie została wyspecyfikowana domyślnie system zakłada wartość 7.
+
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Typ & Pamięć & Zakres dat & Dokładność & Zalecany format \\ \midrule
+datetime & 8 & Od 1 stycznia 1753 do 31 grudnia 9999 & 3 1/3 milisekund & \begin{tabular}[c]{@{}l@{}}`YYYYMMDD hh:mm:ss:nnn'\\ `20090212 12:30:15:123'\end{tabular} \\
+smalldatetime & 4 & Od 1 stycznia 1900 do 6 czerwca 2079 & 1 minuta & \begin{tabular}[c]{@{}l@{}}`YYYYMMDD hh:mm'\\ `20090212 12:30'\end{tabular} \\
+date & 3 & Od 1 stycznia 0001 do 31 grudnia 9999 & 1 dzień & \begin{tabular}[c]{@{}l@{}}`YYYY-MM-DD'\\ `2009--02--12'\end{tabular} \\
+time & 3--5 & Nie dotyczy & 100 nanosekund & \begin{tabular}[c]{@{}l@{}}`hh:mm:ss:nnn'\\ `12:30:15:1234567'\end{tabular} \\
+datetime2 & 6--8 & Od 1 stycznia 0001 do 31 grudnia 9999 & 100 nanosekund & \begin{tabular}[c]{@{}l@{}}`YYYY-MM-DD hh:mm:ss:nnnnnnnn'\\ `2009--02--12 12:30:15:1234567'\end{tabular} \\
+datetimeoffset &  &  &  &  \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+\section{Literały}
+System SQL Server nie zapewnia środków do przedstawienia literału daty i godziny, zamiast tego pozwala wyspecyfikować literał innego typu, który można przekształcić na typ danych daty i godziny.
+
+Najlepszym rozwiązaniem jest stosowanie ciągu znaków do wyrażenia wartości daty i godziny według przykładu:
+\begin{minted}{sql}
+SELECT id, imie, nazwisko, zatrudnienie
+FROM Pracownicy
+WHERE zatrudnienie = '20070212';
+\end{minted}
+
+\section{Bierząca data i godzina}
+
+\begin{minted}{sql}
+SELECT
+  GETDATE() AS [GETDATE]
+  CURRENT_TIMESTAMP AS [CURRENT_TIMESTAMP]
+  SYSDATETIME() AS [SYSDATETIME]
+  SYSDATETIMEOFFSET() AS SYSDATETIMEOFFSET[];
+\end{minted}
+\begin{minted}{sql}
+SELECT
+  CAST (SYSDATETIME() AS DATE) AS [data],
+  CAST (SYSDATETIME() AS TIME) AS [czas];
+\end{minted}
+
+\section{Funkcje daty i czasu}
+
+{\tt YEAR} (data), {\tt MONTH} (data), {\tt DAY} (data) --- dokonują wyodrębnienia z daty, odpowiednio roku, miesiąca oraz dnia.
+
+\begin{minted}{sql}
+SELECT YEAR('2013-02-12') AS Rok,
+       MONTH('2013-02-12') AS Miesiąc,
+       DAY('2013-02-12') AS Dzień;
+\end{minted}
+
+{\tt DATEADD} (datepart, liczba, data) --- dodaje (lub odejmuje) lczbę jednostek daty/czasu określonych za pomocą DATEPART, np.\@ dni (day, dd, d), lat (years, yy, yyyy), miesięcy (month, mm, m), minut (minute, mi, m) itd.\@ od zadanej day.
+{\tt DATEDIFF} (datepart, startdate, enddate) --- różnica pomiędzy dwiema datami (end-start) wyrażona w jednostkach określonych przez datepart. Wiek pracowników:
+\begin{minted}{sql}
+SELECT Imię, Nazwisko, DATEDIFF(yy, DataUrodzenia, GETDATE()) as Wiek
+FROM Pracownicy;
+\end{minted}
+
+{\tt DATEPART} (datepart, data) --- wyciąga określoną parametrem datepart, jednostkę podanej daty.
+\begin{minted}{sql}
+SELECT DATEPART(yy, GETDATE()) as CurrentYear,
+       DATEPART(mm, GETDATE()) as CurrentMonth,
+       DATEPART(dd, GETDATE()) as CurrentDay;
+\end{minted}
+{\tt DATENAME} (datepart, data) --- podobna do datepart, zwraca wartość znakową określonej parametrem datepart, części daty w tym nazwę dnia tygodnia, miesiąca.
+
+\begin{minted}{sql}
+SELECT DATENAME(dw, GETDATE()) AS DzienTygodnia,
+       DATENAME(mm, GETDATE()) AS Niesiac;
+\end{minted}
+
+\section{Przykładowe kwerendy}
+
+\subsection{Wyświetl wszystkich pracowników, którzy zostali zatrudnieni po 12 grudnia 2009 roku.}
+
+\begin{minted}{sql}
+SELECT *
+FROM Pracownicy
+WHERE DataZatrudnienia > '2009-12-12';
+\end{minted}
+
+\subsection{Dla każdego pracownika wyświetl rok, miesiąc, dzień i dzień tygodnia jego urodzenia.}
+
+\begin{minted}{sql}
+SELECT Imie, Nazwisko,
+DATEPART(yy, DataUrodzenia) AS RokUrodzenia,
+DATEPART(mm, DataUrodzenia) AS MiesiacUrodzenia,
+DATEPART(dd, DataUrodzenia) AS DzienUrodzenia,
+DATENAME(dw, DataUrodzenia) AS DzienTygodniaUrodzenia
+FROM Pracownicy;
+\end{minted}
+
+\subsection{Wyświetl wszystkich pracowników urodzonych w 1989 roku.}
+\begin{minted}{sql}
+SELECT *
+FROM Pracownicy
+WHERE YEAR(DataUrodzenia) = '1989';
+\end{minted}
+
+\subsection{Ile lat minęło od 1 stycznia 1990 roku?}
+
+\begin{minted}{sql}
+SELECT DATEDIFF(yy, '1990-01-01', GETDATE());
+\end{minted}
+
+\subsection{Dla każdego pracownika wyświetl imię, nazwisko, wiek oraz ile miesięcy pracuje.}
+
+\begin{minted}{sql}
+SELECT Imie, Nazwisko,
+DATEDIFF(yy, DataUrodzenia, GETDATE()) AS Wiek,
+DATEDIFF(mm, DataZatrudnienia, GETDATE()) AS MiesiecyPracy
+FROM Pracownicy;
+\end{minted}
+
+\subsection{Wyświetl wszystkich pracowników, którzy mają więcej niż 25 lat.}
+
+\begin{minted}{sql}
+SELECT *
+FROM Pracownicy
+WHERE DATEDIFF(yy, DataUrodzenia, GETDATE()) > 25;
+\end{minted}
+
+\subsection{Dla każdego pracownika wyświetl imię, nazwisko, rok urodzenia, rok zatrudnienia oraz wiek, w którym został zatrudniony}
+
+\begin{minted}{sql}
+SELECT Imie, Nazwisko, YEAR(DataUrodzenia) AS RokUrodzenia,
+YEAR(DataZatrudnienia) AS RokZatrudnienia,
+DATEDIFF(yy, DataUrodzenia, DataZatrudnienia) AS WiekZatrudnienia
+FROM Pracownicy;
+\end{minted}
+
+\subsection{Policz średni wiek wszystkich pracowników}
+
+\begin{minted}{sql}
+SELECT AVG(DATEDIFF(yy, DataUrodzenia, GETDATE())) AS SredniWiek
+FROM Pracownicy;
+\end{minted}
+\subsection{Znajdź najpóźniejszą datę urodzenia spośród pracowników}
+\begin{minted}{sql}
+SELECT MAX(DataUrodzenia) AS NajpozniejszeUrodzenie
+FROM Pracownicy;
+\end{minted}
+
+\subsection{Policz średnią wieku aktywnych pracowników w poszczególnych zespołach. Wyświetl te zespoły, w których średnia wieku jest większa niż 27 lat.}
+
+\begin{minted}{sql}
+SELECT Nazwa, AVG(DATEDIFF(yy, DataUrodzenia, GETDATE())) AS SredniaWieku
+FROM Zespoly
+INNER JOIN Pracownicy ON Pracownicy.NrZespolu = Zespoly.Id
+WHERE Aktywny = 1
+GROUP BY NrZespolu
+HAVING AVG(DATEDIFF(yy, DataUrodzenia, GETDATE())) > 27;
+\end{minted}
+\end{document}

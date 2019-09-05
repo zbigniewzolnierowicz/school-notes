@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{inconsolata}
+\usepackage{indentfirst}
+\usepackage{minted}
+\begin{document}
+\title{{\huge Lekcja 22} \\
+{\large Perspektywy}}
+\author{Zbigniew Żołnierowicz}
+\date{29.03.2019}
+\maketitle
+Perspektywa \emph{(ang. views)} jest strukturą logiczną, udostępniającą wybrane informacje przechowywane w relacjach bazy danych.
+
+\section{Własności}
+
+\begin{itemize}
+    \item Definiowana w oparciu o relacje (relacje bazowe) lub inne perspektywy (perspektywy bazowe)
+    \item Nie posiada własnych danych, nie jest materializowana na dysku
+    \item Przechowywana w postaci zapytania
+\end{itemize}
+
+\section{Cele stosowania}
+
+\begin{itemize}
+    \item Ograniczenie dostępu do danych --- zabezpieczenie przed nieautoryzowanym dostępem
+    \item Uproszczenie schematu bazy danych, uproszczenie zapytań
+    \item Uniezależnienie aplikacji od zmian w strukturze bazy danych
+    \item Prezentowanie danych w inny sposób niż dane w relacjach i perspektywach bazowych (m.in.\@ zmiana naz atrybutów, formatów danych, itp.)
+    \item Dodatkowa kontrola poprawności wprowadzanych danych
+\end{itemize}
+
+Perspektywy służą do dostosowania bazy danych do potrzeb róznych grup użytkowników.
+Stanowią widok, perspektywę, z jakiej dana klasa użytkowników widzi bazę danych.
+Różne grupy użytkowników mogą mieć odmienne ``perspektywy'' na dane w bazie danych.
+\pagebreak
+
+(nawiasy kwadratowe oznaczają opcjonalne wartości)
+
+\begin{minted}{sql}
+    CREATE VIEW nazwa_perspektywy [ (kolumna1, kolumna2, ...) ]
+    AS
+    SELECT zapytanie definiujące perspektywę;
+\end{minted}
+
+Jeżeli nie podamy nazw kolumn, zostaną odziedziczone po zapytaniu \mintinline{sql}{SELECT}.
+
+\begin{minted}{sql}
+    CREATE VIEW prac_zesp_30 (id, nazwisko, pensja)
+    AS
+    SELECT id, nazwisko, wynagrodzenie
+    FROM pracownicy WHERE NrZespolu = 30;
+\end{minted}
+
+\section{Ograniczenia}
+
+Każdy system baz danych ogranicza zakres perspektyw, przez które można dokonywać zmian w bazie danych. W odniesieniu do standardu mamy do czynienia z następującymi ograniczeniami:
+
+\begin{itemize}
+    \item W klauzuli \mintinline{sql}{SELECT} nie może być słowa kluczowego \mintinline{sql}{DISTINCT}.
+    \item W klauzuli \mintinline{sql}{FROM} może być tylko jedna nazwa tabeli lub jedna nazwa perspektywy --- spełniająca definiowane kryteria
+    \item Na liście \mintinline{sql}{SELECT} mogą znajdować się tylko nazwy kolumn.
+    \item W klauzuli \mintinline{sql}{WHERE} nie może być podzapytania
+    \item W zapytaniu nie mogą występować klauzule \mintinline{sql}{GROUP BY} i \mintinline{sql}{HAVING}.
+\end{itemize}
+
+Powyższe warunki zapewniają to, aby jednoznacznie był określony wiersz w tabeli, której dotyczy zmiana.
+
+\section{Rodzaje perspektyw}
+
+\subsection{Perspektywy proste}
+
+Perspektywy proste oparte są na jednej relacji bazowej i nie zawierają:
+
+\begin{itemize}
+    \item operatorów zbiorowych
+    \item operatora \mintinline{sql}{DISTINCT}
+    \item funkcji grupowych i analitycznych
+    \item grupowania
+    \item sortowania
+    \item podzapytań w klauzuli \mintinline{sql}{SELECT}
+\end{itemize}
+
+Perspektywy proste mogą służyć do wstawiania, modyfikowania i usuwania krotek z relacji bazowej.
+
+\subsection{Perspektywy złożone}
+
+Perspektywy złożone są oparte na wielu relacjach i perspektywach bazowych i wykorzystują operatory zbiorowe, funkcje, grupowanie, sortowanie, połąćzenia, funkcje analityczne, itd.
+
+Perspektywy złożone służą tylko i wyłącznie do odczytu.
+
+\begin{minted}{sql}
+    CREATE VIEW kobiety(id, nazwisko, wynagrodzenie)
+    AS
+    SELECT id, nazwisko, wynagrodzenie
+    FROM pracownicy
+    WHERE plec = 'K';
+\end{minted}
+
+\begin{minted}{sql}
+    CREATE VIEW place_plec(plec, srednia, maksymalna, liczba)
+    AS
+    SELECT plec, AVG(wynagrodzenie), MAX(wynagrodzenie), COUNT(id)
+    FROM pracownicy
+    GROUP BY plec
+    ORDER BY MAX(wynagrodzenie) DESC;
+\end{minted}
+
+\section{Tworzenie perspektywy z opcją sprawdzania}
+
+W celu zapewnienia ograniczenia danych operowanych przy użyciu perspektywy do danych określonych przez jej warunek \mintinline{sql}{WHERE}, użyteczna jest dodatkowa opcja definicji perspektywy:
+
+\begin{minted}{sql}
+    CREATE VIEW nazwa_perspektywy [ (kolumna1, kolumna2, ...) ]
+    AS
+    SELECT zapytanie definiujące perspektywę
+    WITH CHECK OPTION;
+\end{minted}
+
+Jeżeli została użyta opcja \mintinline{sql}{WITH CHECK OPTION}, to przy wykonywaniu \mintinline{sql}{INSERT} i \mintinline{sql}{UPDATE} następuje sprawdzenie, czy wstawiany bądź modyfikowany wiersz spełnia warunek określony w klauzuli \mintinline{sql}{WHERE}. Jeśli spełnia, operacja jest wykonywana. Jeśli nie, to operacja nie jest wykonywana.
+Gwarantuje to dodatkową ochronę danych zapewniając, że zmiany dokonywane przez użytkowników przez perspektywę są wyłącznie ograniczone do zbioru danych, do których oglądania i modyfikowania jest uprawniony dany użytkownik.
+
+\pagebreak
+
+\section{Usuwanie perspektyw}
+
+Każdą perspektywę można usunąć.
+
+\begin{minted}{sql}
+    DROP VIEW nazwa_perspektywy;
+\end{minted}
+
+Usunięcie perspektywy nie skutkuje usunięciem rekordów z tabeli bazowej. Znika jedynie wirtualny widok, który wcześniej został utworzony. Wydanie polecenia usuwającego tabelę bazową spowoduje, że perspektywa ta staje się niedostępna.
+
+\end{document}

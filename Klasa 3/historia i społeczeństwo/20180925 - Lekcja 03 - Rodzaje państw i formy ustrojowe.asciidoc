@@ -1,0 +1,30 @@
+= Lekcja 3 - Rodzaje państw i formy ustrojowe
+:Author: Zbigniew Żołnierowicz
+:Email: zbigniew.zolnierowicz@gmail.com
+
+[options="header,footer"]
+|====
+3+^| Państwo
+|Ludzie |Terytorium |Władza
+|====
+
+* Formy państw
+** Forma rządów
+*** Głowa państwa
+**** Monarchia
+**** Republika
+*** Relacje między organami władzy
+**** System parlamentarno-gabinetowy (Polska)
+**** System kanclerski (Niemcy)
+**** System parlamentarno-komitetowy (Szwajcaria)
+**** System prezydencki klasyczny
+** Sposób sprawowania władzy
+**** Demokratyczne
+**** Autorytarne
+**** Totalitarne
+** Ustrój terytoriarny
+*** Jednolity
+*** Złożony
+**** Unie
+**** Federacja (Federacja Rosyjska, Republika Federalna Niemiec)
+**** Konfederacja (związek państw, istnieje tylko w teorii)

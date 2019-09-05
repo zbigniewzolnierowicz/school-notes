@@ -1,0 +1,42 @@
+
+Utwórz 3 pliki graficzne, odpowiednio dla każdego zespołu medycznego. Grafiki zapisz w folderze o nazwie PESEL.
+Wymagania dotyczące grafiki
+    Wymagania wspólne dla wszystkich obrazów:
+    a) szerokość 300 px
+    b) wysokość 200 px
+    c) przy górnej krawędzi umieść napis "SZPITAL MEDYCZNY", zielonego koloru
+    Dodatkowe wymagania dla pliku o nazwie i.png:
+    a) tło: brązowe
+    b) przy dolnej krawędzi umieść napis "Zespół I", szarego koloru oraz koło z wypełnieniem czerwonym.
+    Dodatkowe wymagania dla pliku o nazwie ii.png:
+    a) tło: brak - przezroczyste
+    b) przy dolnej krawędzi umieść napis "Zespół II", szarego koloru oraz kwadrat z wypełnieniem zielonym.
+    Dodatkowe wymagania dla pliku o nazwie iii.png:
+    a) tło: gradient przechodzący; od strony lewej - kolor szary, do strony prawej - jasnoniebieski,
+    b) przy dolnej krawędzi umieść napis "Zespół III", szarego koloru oraz trójkąt z wypełnieniem żółtym.
+Zestaw grafik stwórz w edytorze grafiki rastrowej lub wektorowej.
+
+
+Utwórz stronę WWW prezentującą stworzone przez Ciebie grafiki. Strona powinna składać się z dwóch plików: kodu HTML (index.html) oraz arkusza stylu (format.css). Oba pliki zapisz na pulpicie w folderze PESEL.
+Wymagania dotyczące struktury strony internetowej
+    Kodowanie polskich znaków (ISO-8859-2 lub UTF-8).
+    Tło strony: dowolny odcień szarego (wykorzystaj CSS).
+    Czcionka paragrafu: Verdana o rozmiarze 10px (wykorzystaj CSS).
+    Tytuł strony: Przegląd Zespołów Medycznych. Zapisz go w odpowiednim znaczniku części nagłówkowej strony oraz w treści strony jako nagłówek 1
+    Poniżej tytułu wstawione trzy grafiki umieszczone jedna przy drugiej o szerokości 150 px i wysokości 100 px.
+    Kliknięcie w dany obraz otwiera obraz w oryginalnych rozmiarach.
+    Pod obrazami zamieszczony tekst paragrafu "Kliknij obrazek aby powiększyć tekst".
+Do wykonania strony wykorzystaj edytor tekstu, koloryzujący składnię lub edytor WYSIWYG.
+
+
+Wykonaj bazę danych zgodnie z wymaganiami dotyczącymi bazy danych.
+Korzystając z danych zamieszczonych w tabelach 1-4(rysunek1.jpg), wypełnij rekordy wszystkich tabel w bazie danych.
+Po wypełnieniu danych wykonaj:
+    formularz umożliwiający dodawanie zgłoszeń,
+    raport przedstawiający wyjazd zespołu I.
+    projekt kwerendy przedstawiającej zgłoszenia przyjęte przez Joannę Dobrowolską.
+Utworzoną bazę zapisz pod nazwą ratownictwo.accdb do folderu o nazwie PESEL.
+Załącz utworzone wcześniej rysunki do tabeli Zespoly,  w polu zespol_logo.
+Do wykonania bazy danych użyj programu Microsoft Access.
+Wymagania dotyczące bazy danych
+Projekt bazy danych przedstawiony jest na rysunku 1. Utwórz tabele oraz relacje zgodnie z projektem. Pola zawierające nazwy, nazwiska, opisy powinny być typu shortText. Pole zespol_logo jest typu attachment i zawiera odnośniki do stworzonych w  pierwszej części zadania grafik. Klucze obce są typu numerycznego.

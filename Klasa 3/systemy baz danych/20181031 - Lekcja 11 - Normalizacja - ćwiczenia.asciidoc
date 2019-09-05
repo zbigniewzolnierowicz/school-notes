@@ -1,0 +1,15 @@
+= Lekcja 11 - Normalizacja - ćwiczenia
+
+Zarząd budynków komunalnych korzysta z bazy danych o następującym schemacie:
+
+R(pesel_najemcy, pesel_lokatora, imie_najemcy, imie_lokatora, nazwisko_najemcy, nazwisko_lokatora, ulica, nazwa_dzielnicy, adres_urzedu, nr_domu, nr_lokalu)
+
+Najemcy(pesel_najemcy, imie_najemcy, nazwisko_najemcy)
+Lokatorzy(pesel_lokatora, imie_lokatora, nazwisko_lokatora)
+Lokal(ulica, nazwa_dzielnicy, nr_domu, nr_lokalu, pesel_najemcy, pesel_lokatora)
+Dzielnice(ulica, dzielnica, urząd)
+pesel_najemcy -> imię, nazwisko najemcy
+pesel_lokatora -> imię, nazwisko lokatora
+ulica, nr_domu, nr_lokalu -> pesel_najemcy
+ulica -> dzielnica, urząd
+

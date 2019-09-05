@@ -1,0 +1,70 @@
+body {
+    background: #FBEFEF;
+    margin: 0;
+    padding: 0;
+}
+
+#baner {
+    width: 100%;
+    background: #a52a2a;
+    height: 5vh;
+}
+
+#zawartosc {
+    margin: 0 0 0 30vw;
+}
+
+h1, h2 {
+    color: red;
+}
+
+h2 {
+    border-bottom: 3px dotted red;
+}
+
+li, p {
+    font-family: Arial, sans-serif;
+    line-height: 2em;
+}
+
+img {
+    float: left;
+    margin: 0 20px 0 -100px;
+}
+
+#menu {
+    height: 4vh;
+    width: 10vw;
+    position: absolute;
+    top: 5vh;
+    left: 0;
+}
+#menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+#menu li {
+    background: maroon;
+    border: 2px solid maroon;
+    font-size: 2vh;
+}
+
+#menu li a {
+    display: block;
+    padding: 0.5vh 0.5vw;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    background: crimson;
+}
+
+#menu li a:hover {
+    background: red;
+}
+
+hr {
+    background: red;
+    height: 3px;
+    border: none;
+}

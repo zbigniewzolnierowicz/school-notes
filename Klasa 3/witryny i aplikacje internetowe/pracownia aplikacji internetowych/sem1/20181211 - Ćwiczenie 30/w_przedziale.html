@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Zbigniew Żołnierowicz">
+    <meta name="keywords" content="egzamin,HTML,CSS,JavaScript">
+    <meta name="description" content="Przykładowa strona E14">
+    <meta name="robots" content="all">
+    <title>Egzamin E14</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <script src="funkcje_js.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="logo">
+        <a href="index.html"><img src="obrazki/baner.jpg"></img></a>
+      </div>
+      <div class="below-logo">
+        <div class="left">
+          <a href="index.html"><div class="menu"><p>Strona główna</p></div></a>
+          <a href="minimum.html"><div class="menu"><p>Znajdź najmniejszą liczbę</p></div></a>
+          <a href="#"><div class="menu active"><p>Czy liczba jest w przedziale</p></div></a>
+        </div>
+        <div class="right">
+          <h1>Czy podana liczba znajduje się w przedziale prawostronnie domkniętym?</h1>
+          <form action="" method="get" accept-charset="utf-8" class="rightform">
+            <div class="formgroup">
+              <label for="poczatekprzedzialu">Początek przedziału</label>
+              <input type="text" name="poczatekprzedzialu" id="poczatekprzedzialu" value="" />
+            </div>
+            <div class="formgroup">
+              <label for="koniecprzedzialu">Koniec przedziału</label>
+              <input type="text" name="koniecprzedzialu" id="koniecprzedzialu" value="" />
+            </div>
+            <div class="formgroup">
+              <label for="liczba">Liczba</label>
+              <input type="text" name="liczba" id="liczba" value="" />
+            </div>
+            <button>Sprawdź</button>
+          </form>
+        </div>
+      </div>
+        <div class="bottom">
+          <div id="napis" style="left: 9px;">
+            Zabawy matematyczne
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

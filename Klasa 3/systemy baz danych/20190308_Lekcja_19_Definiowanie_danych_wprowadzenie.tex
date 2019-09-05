@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{minted}
+\begin{document}
+
+\title{Lekcja 19 --- Definiowanie danych --- wprowadzenie}
+\author{Zbigniew Żołnierowicz}
+\date{08.03.2019}
+
+\maketitle
+
+\section{Wprowadzenie}
+
+Instrukcje języka DDL służą do manipulowania bazą danych i jej obiektami. Pozwalają one na:
+\begin{itemize}
+  \item Tworzenie nowych obiektów
+  \item Modyfikowanie obiektów już istniejących
+  \item usuwanie obiektów
+\end{itemize}
+Do podstawowych instrukcji języka DDL należą:
+\begin{itemize}
+  \item {\tt CREATE} --- służy do tworzenia nowych obiektów
+  \item {\tt ALTER} --- służy do modyfikacji obiektów już istniejących
+  \item {\tt DROP} --- służy do usunięcia obiektu już istniejącego
+\end{itemize}
+\section{\tt CREATE TABLE}
+
+Przy definiowaniu tabeli należy podać jej nazwę, nazwy jej atrybutów oraz typ danych, które te atrybuty mogą przyjmować. Przykład tworzenia tabeli pokazano poniżej.
+
+\begin{minted}{sql}
+CREATE TABLE Osoba (
+ID_Osoba int NOT NULL,
+Nazwisko char(50) NOT NULL,
+Imie char(20) NOT NULL,
+Telefon int);
+\end{minted}
+
+\section{\tt ALTER TABLE}
+
+Najczęściej polecenie {\tt ALTER TABLE} stosuje się do zmiany schematu relacji. Przykład zastosowania tego polecenia do dodania lub usunięcia kolumny z tabeli:
+
+\begin{minted}{sql}
+ALTER TABLE nazwa_tabeli ADD nazwa_kolumny typ_danych
+\end{minted}
+
+\begin{minted}{sql}
+ALTER TABLE nazwa_tabeli DROP COLUMN nazwa_kolumny
+\end{minted}
+
+\section{\tt DROP TABLE}
+
+W celu usunięcia istniejącej tabeli, należy zastosować polecenie {\tt DROP TABLE}. Usuwa ono również schemat tabeli.
+
+Jego uproszczoną składnię częściową:
+\begin{minted}{sql}
+DROP TABLE nazwa_tabeli
+\end{minted}
+gdzie w nazwie podajemy nazwę obiektu, który chcemy usunąć. Przykładowo:
+\begin{minted}{sql}
+DROP TABLE Osoba;
+\end{minted}
+
+\section{Ograniczenie {\tt PRIMARY KEY}}
+
+Najważniejszym ograniczeniem, jakie możemy przypisać do kolumny, jest klucz {\tt PRIMARY KEY} (pole musi mieć wartości niepuste i unikalne).
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int PRIMARY KEY,
+  Kolumna2 int
+  );
+\end{minted}
+
+\section{Ograniczenie {\tt UNIQUE}}
+
+Podobnie jak klucz główny ograniczenie {\tt UNIQUE} nie pozwala na duplikowanie wartości. Umożliwia jednak wprowadzanie wartości NULL.\@
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int UNIQUE,
+  Kolumna2 int
+  );
+\end{minted}
+
+\section{Ograniczenia}
+
+Specyfikacja ograniczenia nie musi pojawiać się bezpośrednio w definicji kolumny tabeli. Może ono zostac utworzone w dowolnym miejscu zapytania tworzącego tabelę, ale po definicji używanej do utworzenia ograniczenia kolumny.
+W takim przypadku podajemy rodzaj więzów, a w nawiasie określamy kolumnę, której one dotyczą (nazwa ograniczenia nadawana jest przez system).
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int PRIMARY KEY,
+  Kolumna2 int,
+  );
+\end{minted}
+
+Tu system przypisuje nazwę ograniczeniu.
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int,
+  Kolumna2 int,
+  PRIMARY KEY(Kolumna1)
+  );
+\end{minted}
+
+Tu my przypisujemy nazwę temu ograniczeniu.
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int,
+  Kolumna2 int,
+  CONSTRAINT pk PRIMARY KEY(Kolumna1)
+  );
+\end{minted}
+
+W przypadku ograniczenia definiowanego poza definicją kolumny możliwe jest odwołanie się do większej liczby pól.
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int,
+  Kolumna2 int,
+  PRIMARY KEY(Kolumna1, Kolumna2)
+  );
+\end{minted}
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int,
+  Kolumna2 int,
+  CONSTRAINT pk PRIMARY KEY(Kolumna1, Kolumna2)
+  );
+\end{minted}
+
+W przykładzie pokazany został wielokrotny klucz podstawowy określony przez parę kolumn. Oznacza to, że unikalna i niepusta jest para kolumn.
+Należy pamiętać, że można odwoływać się do kolumn, które już zostały zdefiniowane i występują w poleceniu tworzącym tabelę przed miejscem określenia ograniczenia.
+
+Takie same zasady dotyczą ograniczenia ukikalności tworzonego poza definicją kolumny.
+
+Ponieważ ograniczenie {\tt UNIQUE} jest różne od {\tt PRIMARY KEY} tylko w zakresie wartości pustych, pierwsze z nich możemy uczynić równoważne drugiemu przez dodanie ograniczenia {\tt NOT NULL} w definicji właściwej kolumny lub kolumn.
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int,
+  Kolumna2 int,
+  PRIMARY KEY(Kolumna1)
+  );
+\end{minted}
+
+\begin{minted}{sql}
+  CREATE TABLE Nowa (
+  Kolumna1 int NOT NULL,
+  Kolumna2 int,
+  CONSTRAINT un UNIQUE(Kolumna1)
+  );
+\end{minted}
+
+\end{document}

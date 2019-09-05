@@ -1,0 +1,37 @@
+﻿<html>
+
+<head>
+    <title> Selektor 2</title>
+    <style type="text/css">
+        h2 {
+            background-color: #c0c0c0;
+        }
+
+        .podkreslenie {
+            text-decoration: underline;
+        }
+
+        .pochylenie {
+            font-style: italic;
+        }
+
+        /*selektor dziecka*/
+        h2 > .podkreslenie {
+            color: blue;
+            text-decoration: blue underline;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="s2.png">
+    <h2>
+        Zdanie jest napisane stylem
+        <span class="podkreslenie"><span class="pochylenie">
+                nagłówek 2.</span></span>
+        Sformatuj je w arkuszu stylów.
+    </h2>
+
+</body>
+
+</html>

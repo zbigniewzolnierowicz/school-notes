@@ -1,0 +1,69 @@
+= Lekcja 3 - Działalność gospodarcza i formy jej prowadzenia
+
+== Wprowadzenie do przedsiębiorczości - podstawowe pojęcia prawne
+
+* działalność gospodarcza (art. 2 ustawy z dnia 2 lipca 2004 r.) - _zarobkowa_ działalność wytwórcza, budowlana, handlowa, usługowa oraz poszukiwanie, rozpoznawanie i wydobywanie kopalin ze złóż, a także działalność zawodowa, _wykonywana w sposób zorganizowany i ciągły_
+  - tej definicji nie stosuje się do (art. 3):
+    - działalności wytwórczej w rolnictwie w zakresie upraw rolnych oraz chowu i hodowli zwierząt
+    - ogrodnictwa
+    - warzywnictwa
+    - leśnictwa
+    - rybactwa śródlądowego
+    - wynajmowania przez rolników pokoi
+    - sprzedaży posiłków domowych
+    - świadczenia w gospodarstwach rolnych innych usług związanych z pobytem turystycznym
+* zgodnie z ustawą (art. 4) za przedsiębiorcę uznaje się:
+  - osoba fizyczna lub prawna, która we własnym imieniu prowadzi działalność gospodarczą
+  - jednostka organizacyjna niebędąca osobą prawną , której odrębna ustawa przyznaje zdolność prawną, która we własnym imieniu prowadzi działalność gospodarczą
+  - wspólnicy spółki cywilnej w zakresie wykonywanej przez nich działalności gospodarczej
+
+=== Zasady prowadzenia działalności gospodarczej w Polsce
+
+==== Swoboda podejmowania i prowadzenia działalności gospodarczej
+
+Podejmowanie, wykonywanie i zakończenie działalności gospodarczej jest **wolne dla każdego na równych prawach**, z zachowaniem warunków określonych przepisami prawa (zgodnie z art. 6 ustawy z dnia 2 lipca 2004 r. o swobodzie działalności gospodarczej). Organ administracji publicznej nie może żądać ani uzależnić swojej decyzji w sprawie podjęcia, wykonywania lub zakończenia działalności gospodarczej przez zainteresowaną osobę od spełnienia przez nią dodatkowych warunków, w szczególności przedłożenia dokumentów lub ujawnienia danych, nieprzewidzianych przepisami prawa.
+
+==== Ograniczona swoboda podejmowania i prowadzenia działalności gospodarczej dla dziedzin wymagających koncesji
+
+**Koncesja** - akt administracyjny uprawniający do wykonywania ściśle określonej działalności gospodarczej w sposób i na warunkach określonych w przepisach prawa i koncesji wydawanej na ich podstawie. Koncesja ma charakter publicznoprawnego uprawnienia podmiotowego i z tej przyczyny, co do zasady wyłączona jest z obrotu cywilnoprawnego. Stanowi ona wyjątek od wyrażonej w art. 20 Konstytucji RP zasady wolności prowadzenia działalności gospodarczej. Zasadą jest że udzielenie, odmowa udzielenia, zmiana i cofnięcie koncesji lub ograniczenie jej zakresu należy do ministra właściwego ze względu na przedmiot działalności gospodarczej wymagającej uzyskania koncesji.
+
+.Przedmioty działalności wymagające uzyskania koncesji
+
+- poszukiwanie lub rozpoznawanie złóż kopalin, wydobywanie kopalin ze złóż, bezzbiornikowe magazynowanie substancji oraz składowanie odpadów w górotworze, w tym w podziemnych wyrobiskach górniczych
+- wytwarzanie i obrót materiałami wybuchowymi, bronią i amunicją oraz wyrobami i technologiami o przeznaczeniu wojskowym lub policyjnym
+- wytwarzanie, przetwarzanie, magazynowanie, przesyłanie, dystrybucja i obrót paliwami i energią
+- ochrona osób i mienia
+- rozpowszechnianie programów radiowych i telewizyjnych
+- przewozy lotnicze
+
+==== Działalność gospodarcza objęta obowiązkiem uzyskania zezwolenia
+
+*Zezwolenie* - _akt dopuszczenia przedsiębiorcy do wykonywania określonej działalności gospodarczej_
+
+.Przykłady działalności gospodarczej objętych obowiązkiem uzyskania zezwolenia
+
+. Sprzedaż detaliczna i hurtowa napojów alkoholowych (ustawa o wychowaniu w trzeźwości)
+. Wytwarzanie i import produktów leczniczych
+. Odbieranie odpadów komunalnych od właścicieli nieruchomości
+. Działalność w zakresie gier losowych (ustawa o grach i zakładach wzajemnych)
+. podmioty prawa bankowego (ustawa prawo bankowe)
+. Podmioty objęte prawem telekomunikacyjnym (ustawa prawo telekomunikacyjne)
+. Podmioty działające na podstawie prawa o działalności ubezpieczeniowej (ustawa prawo ubezpieczeniowe)
+. podmioty działające w oparciu o unormowania pośrednictwa ubezpieczeniami (ustawa o pośrednictwie ubezpieczeniowym)
+
+==== Działalność gospodarcza objęta obowiązkiem uzyskania licencji
+
+Licencja - akt upoważniający do prowadzenia działalności gospodarczej w danym przedmiocie po spełnieniu wymogów formalnych niezbędnych do jego prowadzenia. licencje zasadniczo wymagane są teraz na gruncie 3 przedmiotów działalności:
+
+* transportu drogowego (taksówki)
+* transportu kolejowego
+* pracy syndyka
+
+==== Zasada swobody umów
+
+Zasada swobody umów - strony zawierające umowę mogą ułożyć stosunek prawny według swojego uznania, byleby jego treść lub cel nie sprzeciwiały się właściwości (naturze) stosunku, ustawie ani zasadom współżycia społecznego. Zasada ta realizuje się w kilku podstawowych uprawnieniach:
+
+* swobodzie decyzji co do zawarcia umowy
+* swobodzie decyzji co do wyboru drugiej strony umowy
+* swobodzie kształtowania treści umowy
+* swobodzie wyboru formy umowy

@@ -1,0 +1,28 @@
+Utwórz stronę internetową sklepu komputerowego w układzie pokazanym w pliku strona.jpg. Wszystkie pliki umieść w katalogu PESEL
+"Menu nawigacyjne", "Treść strony" oraz "Nowości" powinny mieć różny odcień koloru niebieskiego. Czcionka strony - Arial, rozmiar 20 px, kolor navy. Minimalna wysokość strony: 720 px.
+
+W menu nawigacyjnym umieścić trzy odnośniki do podstron składowych
+o nazwach: Strona główna, Gazetka promocyjna, Zalogowany klient, Kontakt. Po najechaniu myszką, odsyłacze mają zmieniać kolor na czerwony.
+
+Wykonać logo sklepu i umieścić w nagłówku strony. Obrazek powinien pokazywać schemat komputera znajdujący się w pliku komputer.png, mieć przeźroczyste tło oraz napis "Super komputery w super cenie". Wymiary: szerokość 1000 px, wysokość 120 px. Nagłówek ma być odsyłaczem do strony głównej.
+
+W części "Nowości" należy umieścić 3 miniaturki obrazków "grafika/laptop1.jpg", "grafika/laptop2.jpg", "grafika/laptop3.jpg" w układzie jedno zdjęcie pod drugim. Zjęcie wskazane myszką powiększa się do oryginalnych rozmiarów, uzyskując żółte tło.
+
+Strona główna
+Tutaj zamieść krótki opis sklepu
+
+Gazetka promocyjna
+Ma zawierać galerię zdjęć z automatycznym generowaniem pokazu zdjęć znajdujących się w folderze "grafika/pokaz"
+
+Zalogowany klient
+Strona otwiera się po podaniu loginu i hasła. Loginy i hasła są zaszyfrowane poprzez sha1() i znajdują się w pliku uzytkownicy.txt
+W każdym wierszu znajduje się login i hasło jednego klienta połączone w jeden ciąg znaków. Jeden z użytkowników, to "klient" posiadający hasło "klient123". Funkcję sprawdzającą poprawność podanego loginu i hasła oraz inne potrzebne funkcje, zdefiniować w pliku funkcje_php.php. Po udanym logowaniu pojawia się napis "Witaj login"(w naszym przypadku - "Witaj klient"), w przeciwnym przypadku napis "Błędny login lub hasło!".
+
+Kontakt
+Ma zawierać dane adresowe sklepu oraz pojedyncze zdjęcie  "grafika/palac_kultury.jpg"
+
+W stopce umieść informacje z jakiego oprogramowania korzystałeś projektując witrynę oraz datę jej wykonania. Rozmiar czcionki stopki: 12 px,  odstęp czcionki: 5 px, czcionka pogrubiona, tekst wyśrodkowany.
+
+Podczas wykonywania zadania przestrzegaj zasad organizacji pracy, BHP.
+Czas na wykonanie zadania wynosi 150 minut.
+

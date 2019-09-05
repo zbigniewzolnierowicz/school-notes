@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{inconsolata}
+\usepackage{indentfirst}
+\usepackage{booktabs}
+\usepackage{minted}
+\usepackage{graphicx}
+\begin{document}
+\title{{\huge Lekcja 23} \\
+{\large Transakcje}}
+\author{Zbigniew Żołnierowicz}
+\date{29.03.2019}
+\maketitle
+\section{Transakcja}
+Transakcja jest sekwencją logicznie powiązanych operacji na bazie danych oraz obiektach rzeczywistych,
+która przeprowadza bazę danych z jednego stanu spójnego w inny stan spójny.
+O transakcjach mówimy w kontekście współużytkowania danych przez wielu użytkowników i powstawania ewentualnych wzajemnych konfliktów
+Samo czytanie danych (bez ich modyfikacji) nie powoduje konfliktów.
+Przyczyną powstawania konfliktów są modyfikacje danych w środowisku wielu użytkowników.
+System zarządzania bazą danych powinien rozwiązać potencjalne konflikty powstające przy przetwarzaniu transakcji.
+\section{Wymagania stawiane transakcjom}
+\Large{\textbf{ACID} - \textbf{A}tomicity, \textbf{C}onsistency, \textbf{I}solation, \textbf{D}urability.}
+\normalsize
+\begin{description}
+    \item[Niepodzielność {\em (Atomicity)}] Albo wszystkie modyfikacje wchodzące w skład transakcji są wykonywane, albo żadna.
+    \item[Spójność {\em (Consistency)}] Wszystkie transakcje muszą zachować spójność i integralność bazy danych.
+    \item[Izolacja {\em (Isolation)}] Jeśli transakcja modyfikuje dane, to te dane mogą być czasowo niespójne, dlatego muszą być niedostępne dla innych transakcji dopóty, dopóki transakcja nie skończy ich używać.
+    \item[Trwałość {\em (Durability)}] Gdy transakcja się kończy, to wszystkie zmiany przez nią dokonane muszą zostać w pełni utrwalone - nawet w przypadku awarii sprzętu.
+\end{description}
+\pagebreak
+\section{Właściwości transakcji}
+Transakcja to jedna modyfikacja lub seria modyfikacji bazy danych traktowana tak jakby była to jedna modyfikacja.
+Jeśli modyfikacje zachodzą, to wszystkie zachodzą w jednej chwili.
+Użytkownicy mogą zobaczyć stan bazy danych przed transakcją lub po jej zakończeniu, ale nigdy w trakcie.
+\section{Przykłady transakcji i zagrożeń}
+\begin{itemize}
+    \item Rezerwacja miejsca w samolocie --- możliwe dwukrotne sprzedanie tego samego miejsca
+    \item Zwiększenie pensji 300 pracowników --- możliwa awaria sprzętu w trakcie zapisu na dysk
+\end{itemize}
+\section{Zatwierdzanie transakcji}
+W języku {\tt SQL} do zatwierdzenia transakcji służy instrukcja {\tt COMMIT}.
+Do odwołania transakcji służy polecenie {\tt ROLLBACK}.
+W standardzie języka {\tt SQL} nie ma instrukcji zaczynającej transakcję.
+
+SQL Server umożliwia przeprowadzanie transakcji w 3 trybach.
+\subsection{\em AutoCommit}
+Każde polecenie {\tt SQL} stanowi odrębną transakcję.
+\subsection{\em Explicit}
+Transakcję trzeba rozpocząć poleceniem \mintinline{sql}{BEGIN TRANSACTION} i zakończyć poleceniem \mintinline{sql}{COMMIT} lub \mintinline{sql}{ROLLBACK}.
+\subsection{\em Implicit}
+Transakcja rozpoczyna się automatycznie po wykonaniu 1 polecenia {\tt SQL} i trzeba ją zakończyć jawnie poleceniem \mintinline{sql}{COMMIT} lub \mintinline{sql}{ROLLBACK}.
+\pagebreak
+\section{Izolacja transakcji - język {\tt SQL}}
+W języku SQL określono 4 poziomy izolacji transakcji.
+W celu zdefiniowania poziomów izolacji transakcji określono 3 rodzaje nieprawidłowych odczytów.
+Poziom izolacji transakcji określa dozwolone dla danego poziomu nieprawidłowe odczyty.
+Im wyższy poziom izolacji, tym mniej dopuszczalnych nieprawidłowych odczytów.
+Im wyższy poziom izolacji, tym wolniejsza praca systemu zarządzania bazą danych.
+Dopuszczenie nieprawidłowychodczytów przyspiesza pracę systemu zarządzania bazą danych w porównaniu z najwyższym poziomem izolacji --- szeregowym.
+\subsection{Nieprawidłowe odczyty}
+\subsubsection{Brudny odczyt (\emph{Dirty Read})}
+Pierwsza transakcja modyfikuje wiersz, a druga go czyta, zanim zmiana została zatwierdzona przez instrukcję \mintinline{sql}{COMMIT}. Jeśli pierwsza transakcja została anulowana, zmiana nie miała miejsca i druga transakcja przeczytała wiersz, który naprawdę nigdy nie istniał.
+\subsubsection{Odczyt bez powtórzeń (\emph{Non-repeatable read})}
+Pierwsza transakcja czyta wiersz. Druga go usuwa lub modyfikuje i wykonuje \mintinline{sql}{COMMIT} przed pierwszą. Teraz pierwsza tranakcja mogłaby przeczytać ten sam wiersz jeszcze raz i otrzymać inne wyniki.
+\subsubsection{Odczyt widmo (\emph{Phantom})}
+Pierwsza transakcja odczytuje wiersze spełniające predykat. Druga wstawia wartości (instrukcja \mintinline{sql}{INSERT}) lub je modyfikuje (instrukcja \mintinline{sql}{UPDATE}) tak, że one również spełniają predykat. Następne wykonanie tego samego zapytania przez pierwszą transakcję da inne wyniki.
+\begin{table}
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llll@{}}
+    \toprule
+    \textbf{Poziom izolacji} & \textbf{Brudny odczyt} & \textbf{Odczyt bez powtórzeń} & \textbf{Odczyt widmo} \\ \midrule
+    {\tt READ UNCOMMITED} & TAK & TAK & TAK \\
+    {\tt READ COMMITED} & NIE & TAK & TAK \\
+    {\tt REPEATABLE READ} & NIE & NIE & TAK \\
+    {\tt SERIALIZABLE} & NIE & NIE & NIE \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Poziomy izolacji i dozwolone odczyty}
+    \label{poziomy-izolacji}
+    \end{table}
+\end{document}

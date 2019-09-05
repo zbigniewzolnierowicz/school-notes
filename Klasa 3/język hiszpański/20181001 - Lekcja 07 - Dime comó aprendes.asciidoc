@@ -1,0 +1,27 @@
+= Lección 7 - Dime cómo aprendes
+Zbigniew Żołnierowicz <zbigniew.zolnierowicz@gmail.com>
+
+dime::
+  tryb rozkazujący od dice
+dice::
+  mówić
+
+zad. 7 s. 16
+
+* memorizar muchas palabras/frases y palabras
+* escribir textos
+* leer textos/periódicos en versión original/en voz alta
+* repetir todas los palabras con amigos
+* chatear con un nativo
+* repetir frases y palabras
+* hacer un intercambio
+* ver películas en versión original
+* buscar en internet/en el diccionario
+* pegar periódicos/textos en las paredes de casa
+
+|===
+2+^|En qué situaciones las usa?
+|polaco | lengua materna
+|inglés | estudios
+|italiano |
+|===

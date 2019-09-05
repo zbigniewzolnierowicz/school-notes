@@ -1,0 +1,41 @@
+= Lekcja 5 - Republika rzymska i jej obywatele
+
+W republice rzymskiej głową władzy jest dwaj konsulowie, o kadencji rocznej.
+
+W roku 509 r. p.n.e. wygnano Tarkwiniusza Pysznego, ostatniego króla Rzymu i ustanowiono republikę.
+
+republika::
+	od łacińskiego *res publica* - rzecz publiczna
+
+W czasach wojen wprowadzano rządy absolutne dyktatora, jednak taka władza mogła trwać max. pół roku.
+
+Wprowadzono rząd konsulów oraz senat.
+
+Patrycjusze::
+	Najwyższa warstwa społeczna w Rzymie, jedynie patrycjusze mogli sprawować urzędy
+Plebejusze::
+	Średnia warstwa społeczna w Rzymie
+Proletariusze::
+	Najbiedniejsza warstwa społeczna w Rzymie, posiadają tylko potomstwo.
+
+
+[options="header"]
+|====================================
+|Urzędy |Kompetencje i dodatkowe informacje
+|Dyktator |pełnia władzy; był powoływany na wniosek senatu na okreś sześciu miesięcy w wyjątkowych sytuacjach, np. w razie zewnętrznego zagrożenia państwa lub wewnętrznych niepokojów
+|Konsulowie |sprawowanie najwyższej władzy, dowodzenie wojskiem, nadzór nad armią, finansami i sądownictwem
+|Pretorzy |władza wojskowa, utrzymywanie porządku w mieście, szerokie uprawnienia sądownicze i cywilne
+|Cenzorzy |przeprowadzanie spisów majątkowych, sporządzanie list senatorów, realizacja przedsięwzięć publicznych; wybierani na 18 miesięcy
+|Edylowie |utrzymywanie porządku i bezpieczeństwa w mieście oraz nadzór nad dostawami zboża dla jego mieszkańców, organizacja igrzysk
+|Kwestorzy |udzielanie pomocy konsulom w zakresie zarządzania finansami
+|Trybuni ludowi |wybierany jedynie z plebejuszy, nie patrycjuszy; prawo weta wobec decyzji urzędników (z wyjątkiem dyktatora), ochrona interesów plebejuszy, prawo aresztowania urzędników; mieli zagwarantowaną nietykalność
+|====================================
+
+* Luty, 44 r. p.n.e. - władza dyktatora dożywotnio przyznana Juliuszowi Cezarowi
+** Następcą zostaje przybrany syn Oktawian (później Augustus).
+* 33 r. p.n.e.: bitwa Marka Aureliusza z Oktawianem, Oktawian wygrywa, przyjmuje przydomek "Cezar" oraz "Augustus"
+* 313 r. n.e.: chrześcijaństwo dominującą religią
+* 395 r. n.e.: rozpad cesarstwa na wschodnie i zachodnie
+* 476 r. n.e.: upadek Rzymu zachodniego
+* 1453 r. n.e.: upadek Rzymu wschodniego
+

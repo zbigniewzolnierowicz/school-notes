@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Formularz</title>
+		<style type="text/css" media="screen">
+			span:last-child {
+				color: blue;
+			}
+			strong:only-of-type {
+				color: red;
+			}
+			span:only-child {
+				color: yellow;
+			}
+			input:disabled {
+				border-color: green;
+				border-style: solid;
+				border-width: 3px;
+			}
+			input:enabled {
+				color: blue;
+			}
+			input:checked {
+				border: 10px solid yellow;
+			}
+			:not(span) {
+				color: green;
+			}
+			:root {
+				font-size:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>by <span>Beholster's</span> eye, <span>Dragun's</span> tooth, <span>Gungeon's</span> wind <span>do whisper one truth</span></p>
+		<h1>body the <span>floor</span> bullet through the roof </h1>
+		<p>ammo <strong>willing</strong>, past <span>killing</span>, gun shall shoot</p>
+		<form action="submit" method="get" accept-charset="utf-8">
+			<label>Ulubione warzywo:</label>
+			<input type="text" disabled value="zablokowane">
+			<br>
+			<label>Ulubiony owoc:</label>
+			<input type="text" value="odblokowane">
+			<br>
+			<input type="checkbox" checked>obieram skórkę
+			<br>
+			<input type="checkbox">myję w gorącej wodzie
+		</form>
+	</body>
+</html>

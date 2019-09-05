@@ -1,0 +1,78 @@
+= Lekcja 10 - Normalizacja
+
+Normalizacja jest jednym z etapów projektowania schematu relacyjnej bazy danych.
+
+Normalizacja jest procesem polegającym na weryfikowaniu i zgodności relacji z warunkami postaci normalnej i, w razie potrzeby, na dekompozycji tej relacji do mniejszych relacji spełniających te warunki.
+
+== Problemy ze złym schematem
+
+* redundancja - powtarzanie informacji
+* anomalia wstawiania
+** Nie można dodać nowego kursu, dopóki ktoś się na niego nie zapisze
+* anomalia modyfikacji
+** zmiana adresu Karola Nowaka - wymaga modyfikacji wielu wierszy
+** grozi utratą spójności danych
+* anomalia usuwania
+
+== Cel normalizacji
+
+* Celem normalizacji jest wyeliminowanie *redundancji* i *anomalii*. Normalizacja polega na dekompozycji tabel aż do otrzymania pożądanej postaci. Zdefiniowano: 1, 2, 3, 4, 5, 6 postać normalną oraz postać normalną Boyce-Codda.
+
+== Proces normalizacji
+
+Proces normalizacji musi posiadać trzy dodatkowe własności:
+* Własnośc zachowania atrybutów - żaden atrybut nie zostanie zagubiony w trakcie procesu normalizacji.
+* Własność zachowania informacji - dekompozycja relacji nie prowadzi do utraty informacji.
+* Własność zachowania zależności - wszystkie zależności funkcyjne są reprezentowane w pojedynczych schematach relacji.
+
+== Pierwsza postać normalna - 1NF
+
+Schemat relacji R znajduje się w pierwszej postaci normalnej (1NF, 1PN), jeżeli wartości atrybutów są atomowe (niepodzielne). Schemat w 1NF posiada klucz podstawowy.
+
+== Zależność funkcyjna
+
+Definicja::
+	Niech U będzie skończonym zbiorem atrybutów. **Zależnością funkcyjną** nazywmy każdy napis o postaci X -> Y. Mówimy wówczas, że:
+	* Y zależy funkcyjnie od X
+	lub, że
+	* X wyznacza funkcyjnie Y.
+
+== Atrybuty kluczowe i niekluczowe
+
+Atrybuty należące do któregoś z kluczy (kandydujących) nazywamy **atrybutami kluczowymi**. Atrybuty, które nie należą do *żadnego* klucza nazywamy **atrybutami niekluczowymi**.
+
+IMPORTANT: Podstawą normalizacji jest analiza zależności funkcyjnych między atrybutami kluczowymi a niekluczowymi, a także zależności między atrybutami niekluczowymi. Wynik tej analizy uwzględnia się w procesie normalizacji.
+
+== Druga postać normalna
+
+.Pełna zależność funkcyjna
+
+Niech X i Y będą rozłacznymi zbiorami atrybutów. Mówimy, że Y jest *w pełni funkcyjnie zależny od X* lub, *że istnieje pełna zależnośc funkcyjna z X do Y* i nie jest zależny od żadnego właściwego podzbioru zbioru X.
+
+.Definicja drugiej postaci normalnej
+
+Schemat relacyjny R = (U, F) jest w 2PN, jeśli każdy niekluczowy atrybut A <- U jest w pełni funkcyjnie zależny od każdego klucza tego schematu. Każdy schemat, którego klucz jest jednoelementowy jest w drugiej postaci normalnej.
+
+|===
+|PESEL |Imię |Nazwisko |Miasto |Kurs |Data |Status
+|===
+
+* Klucz podstawowy: {PESEL, Kurs, Data}
+** Atrybuty kluczowe: pesel, kurs, data
+** Atrybuty niekluczowe: imię, nazwisko, miasto, status
+
+.Pytanie
+Czy wszystkie atrybuty niekluczowe w pełni funkcyjnie zależą od klucza podstawowego?
+
+== Przechodnie zależności funkcyjne
+
+.Definicja
+
+Atrybut A jest przechodnio zależny od klucza K w schemacie relacyjnym R = (U, F), jeśli istnieje zbiór atrybutów nie będący kluczem i taki, że:
+
+* A nie jest podzbiorem X
+* X wyznacza A
+
+== Trzecia postać normalna (3NF)
+
+Schemat jest w trzeciej postaci normalnej, jeżeli jest w drugiej postaci normalnej i żaden niekluczowy atrybut nie jest przechodnio zależny od żadnego klucza schematu.

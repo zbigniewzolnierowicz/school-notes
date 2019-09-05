@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--head{{{-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ćwiczenie 09 - 2018/12/06</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--}}}-->
+    <style>
+body {
+  background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+}
+* {
+  color: white;
+  font-family: Bahnschrift, monospace;
+}
+#e, #p {
+  background-image: linear-gradient(-90deg, red, yellow);
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="">
+        <div class="form-group">
+          <label for="e">E-mail</label>
+          <input type="email" name="e" id="e" value="" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="p">Password</label>
+          <input type="text" name="p" id="p" value="" class="form-control" />
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="c" id="c">Zapamiętaj
+        </div>
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-warning btn-large">Twix</button>
+          <button type="button" class="btn btn-danger btn-large">Mars</button>
+          <button type="button" class="btn btn-info btn-large">Knoppers</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style type="text/css" media="screen">
+div {
+  width: 100px;
+  height: 100px;
+}
+#a1 {
+  background: #FF0000;
+}
+#a2 {
+  background: #00FF00;
+}
+#a3 {
+  background: #0000FF;
+}
+#toggler {
+  background: #b8b8b8;
+}
+#tresc {
+  background: #8b8b8b;
+}
+    </style>
+  </head>
+  <body>
+    <div id="pasek">Tekst</div>
+    <p>Klik!</p>
+    <p>Klik!</p>
+    <p>Klik!</p>
+    <p>Klik!</p>
+    <div id="a1"></div>
+    <div id="a2"></div>
+    <div id="a3"></div>
+    <div id="toggler"></div>
+    <div id="tresc"></div>
+  </body>
+  <script charset="utf-8">
+
+    $(function() {
+
+$(document).ready(function() {
+  $("#a1").hide();
+  $("p").dblclick(function(){
+    $(this).fadeToggle("fast");
+    });
+  $("#pasek").click(function() {
+    $("#a1").fadeIn()
+    $("#a2").fadeOut("slow")
+    $("#ac").fadeToggle(1000)
+  })
+  .dblclick(function() {
+    $("body").children("div, p").fadeIn();
+  })
+
+  $("#toggler").click(function() {
+    $("#tresc").slideToggle()
+  });
+
+});
+
+    });
+  </script>
+</html>

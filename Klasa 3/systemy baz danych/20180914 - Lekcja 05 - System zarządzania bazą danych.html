@@ -1,0 +1,37 @@
+<h1 id="lekcja-5---system-zarządzania-bazą-danych">Lekcja 5 - System zarządzania bazą danych</h1>
+<p><strong>System Zarządzania Bazą Danych</strong> <em>(ang. <strong>D</strong>ata<strong>b</strong>ase <strong>M</strong>anagement <strong>S</strong>ystem)</em> pełni funkcję pośrednika pomiędzy zapisanymi danymi a użytkownikiem bądź programem chcącym z tych danych skorzystać.</p>
+<p>System zarządzania bazą danych musi posiadać mechanizmy, które pozwalają administrować zbiorami danych umieszczonymi w bazie, zapewniają bezpieczeństwo i integralność danych, umożliwiają dostęp do danych za pomocą SQL, zapewniają wielodostępowość oraz pozwalają na autoryzację dostępu do danych.</p>
+<h2 id="trójwarstwowa-architektura-szbd">Trójwarstwowa architektura SZBD</h2>
+<p>System zarządzania bazą danych jest pośrednikiem (buforem) pomiędzy programami użytkowymi, użytkownikiem końcowym i bazą danych.</p>
+<p>W 1976 ANSI-SPARC zaproponował trzypoziomową architekturę SZBD:</p>
+<ul>
+<li><strong>poziom zewnętrzny (użytkownika)</strong> - opisuje jak użytkownicy widzą dane,</li>
+<li><strong>poziom koncepcyjny (pojęciowy)</strong> - opisuje widok wszystkich danych w bazie. Poziom ten opisuje logiczny widok baz danych, bez szczegółów dotyczących realizacji,</li>
+<li><strong>poziom wewnętrzny (fizyczny)</strong> - opisuje sposób przechowywania danych oraz metody dostępu do nich.</li>
+</ul>
+<p>Pomiędzy warstwami istnieją dwa poziomy odwzorowania przekładające się na dwa poziomy niezależności danych:</p>
+<ul>
+<li><strong>logiczna niezależność danych</strong> - oznacza niewrażliwość schematów zewnętrznych na zmiany w schemacie koncepcyjnym,</li>
+<li><strong>fizyczna niezależność danych</strong> - oznacza niewrażliwośc schematu koncepcyjnego na zmiany w schemacie fizycznym</li>
+</ul>
+<h2 id="funkcje-szbd">Funkcje SZBD</h2>
+<ul>
+<li>Funkcje CRUD <em>(Create, Read, Update, Delete)</em></li>
+<li>Obsługa słownika danych - przechowywanie metadanych (danych o danych)</li>
+<li>Zarządzanie transakcjami</li>
+<li>Sterowanie współbieżnością</li>
+<li>Odtwarzanie po awarii</li>
+<li>Kontrola uprawnień użytkownika</li>
+<li>Komunikacja danych (wymiana danych w systemie technologii informacyjnej)</li>
+<li>Wymuszanie więzów integralności</li>
+<li>Udostępnianie narzędzi do administrowania bazą danych (do importowania, eksportowania, monitorowania operacji, monitorowania wydajności)</li>
+</ul>
+<h2 id="zadania-szbd---podane-przez-codda-w-roku-1982">Zadania SZBD - podane przez Codd’a w roku 1982</h2>
+<h2 id="zadanie-domowe-5-przykładów-szbd">Zadanie domowe: 5 przykładów SZBD</h2>
+<ul>
+<li><strong>Microsoft SQL Server</strong> - napisany przez Microsoft, pierwsza wersja to SQL Server 1.0, napisana dla systemu operacyjnego IBM OS/2 w 1989. Obecnie, najnowszą wersją jest Microsoft SQL Server 2017, wydane 2 października 1989.</li>
+<li><strong>MySQL</strong> - system zarządzania bazami danych rozwijany przez szwedzką firmę MySQL AB, która w 16 stycznia 2008 została wykupiona przez Sun Microsystems, a ta 27 stycznia 2010 roku przez Oracle. Wydawany albo na licencji komercyjnej albo GNU GPL. Pierwsze wydanie zostało wypuszczone 23 maja 1995, najnowsza stabilna wersja to wersja 8.0.11, wydana 19 kwietnia 2018 roku.</li>
+<li><strong>MariaDB</strong> – system zarządzania bazami danych stworzona przez grupę (głównie) byłych pracowników MySQL AB, pod przewodnictwem Michaela Wideniusa, współtwórcy MySQL. Pierwsze wydanie nastąpiło 22 stycznia 2009, a obecna najnowsza wersja stabilna to 10.3.9 wydana 15 sierpnia 2018 roku.</li>
+<li><strong>MongoDB</strong> - system zarządzania bazą danych wydawany przez MongoDB Inc. pod licencją GNU AGPL. Pierwsze wydanie nastąpiło w roku 2009, a aktualna wersja stabilna to 3.4.10, wydana 31 października 2017 roku.</li>
+<li><strong>PostgreSQL</strong> - jeden z najpopularniejszych systemów zarządzania bazami danych, na początku opracowany przez Uniwersytet Kalifornijski w Berkley, obecnie przez PostgreSQL Global Development Group. Pierwsze wydanie miało miejsce 1 maja 1995, a aktualna wersja stabilna to wersja 10.5 wydana 9 sierpnia 2018 roku.</li>
+</ul>

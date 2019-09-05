@@ -1,0 +1,13 @@
+= Lekcja 18 - ¿Que hiciste ayer?
+
+dar un paseo::
+	iść na spacer
+
+|=============
+| yo
+| tú
+| el/ella/usted
+| nosotros
+| vosotros
+| se
+|==============

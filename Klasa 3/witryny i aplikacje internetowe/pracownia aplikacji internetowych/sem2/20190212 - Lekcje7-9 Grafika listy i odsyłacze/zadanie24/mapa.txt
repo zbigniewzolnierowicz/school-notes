@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Mapa odsy³aczy</title>
+<meta charset="UTF-8"> 
+</head>
+<body>  
+
+<!--poni¿ej wstawiony jest obraz, który zadeklarowano jako mapa odsy³aczy-->
+<img src="obrazki/grafika1.jpg" width="400" height="200" border="0" align="middle" alt="mapa odsy³aczy" usemap="#mapa">
+
+<!--poni¿ej okreœlone bêd¹ interkatywne obszary mapy w ró¿nych kszta³tach-->
+<map name="mapa">
+
+<!--poni¿ej wpisz obszar w kszta³cie prostok¹ta z hiper³¹czem do strony intrenetowej wp.pl-->
+
+
+<!--poni¿ej wpisz obszar w kszat³cie okrêgu z hiper³¹czem do poczty elekt.-->
+
+
+<!--poni¿ej wpisz jeszcze jeden obszar w kszta³cie trójk¹ta, który po klikniêciu otworzy plik html z zadania 20-->
+
+
+<!--znacznik koñca interkatywnych obszarow mapy-->
+</map>
+</body>
+</html>

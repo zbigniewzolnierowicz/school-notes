@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="250mm"
+   height="250mm"
+   viewBox="0 0 250 250"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="25092018 - Ćwiczenie 14.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="58.571429"
+     inkscape:cy="525.71429"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="847"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-47)">
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ff6600;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10.69999981;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path10"
+       sodipodi:type="arc"
+       sodipodi:cx="125.7857"
+       sodipodi:cy="167.43454"
+       sodipodi:rx="103.56547"
+       sodipodi:ry="103.56547"
+       sodipodi:start="1.5707963"
+       sodipodi:end="3.0524001"
+       d="M 125.7857,271.00001 A 103.56547,103.56547 0 0 1 22.631905,176.65957"
+       sodipodi:open="true" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ff6600;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10.69999981;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path10-7"
+       sodipodi:type="arc"
+       sodipodi:cx="125.78571"
+       sodipodi:cy="167.43454"
+       sodipodi:rx="103.56548"
+       sodipodi:ry="103.56548"
+       sodipodi:start="3.488406"
+       sodipodi:end="4.712389"
+       d="M 28.386453,132.23236 A 103.56548,103.56548 0 0 1 125.78572,63.869057"
+       sodipodi:open="true" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#070700;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10.69999981;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path10-5"
+       sodipodi:type="arc"
+       sodipodi:cx="-125.78571"
+       sodipodi:cy="167.43452"
+       sodipodi:rx="103.56548"
+       sodipodi:ry="103.56548"
+       sodipodi:start="1.5707963"
+       sodipodi:end="4.712389"
+       d="m -125.78571,271.00001 a 103.56548,103.56548 0 0 1 -89.69034,-51.78274 103.56548,103.56548 0 0 1 0,-103.56549 103.56548,103.56548 0 0 1 89.69034,-51.782739"
+       sodipodi:open="true"
+       transform="scale(-1,1)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.78589439px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';letter-spacing:11.34268188px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.44464734"
+       x="22.649208"
+       y="169.942"
+       id="text849"><tspan
+         sodipodi:role="line"
+         id="tspan847"
+         x="22.649208"
+         y="169.942"
+         style="font-size:42.68614578px;letter-spacing:11.34268188px;stroke-width:0.44464734">DESIGN</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.36588478px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';letter-spacing:26.45833397px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68414712"
+       x="37.682892"
+       y="194.6678"
+       id="text853"><tspan
+         sodipodi:role="line"
+         id="tspan851"
+         x="37.682892"
+         y="194.6678"
+         style="letter-spacing:15.875px;stroke-width:0.68414712">studio</tspan></text>
+  </g>
+</svg>

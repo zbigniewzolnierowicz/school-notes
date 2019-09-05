@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>20190220</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Zadanie 1</h1>
+    <input type="button" value="Click" id="zad1">
+    <p id="1">Oto tekst oraz... </p>
+    <h1>Zadanie 2</h1>
+    <input type="button" value="Click" id="zad2">
+    <p id="2">Ten tekst będzie niebieski</p>
+    <h1>Zadanie 3</h1>
+    <input type="button" value="Click" id="zad3">
+    <p id="3">Ten tekst będzie pogrubiony.</p>
+  </body>
+  <script charset="utf-8">
+    $(document).ready(function() {
+      $("#zad1").click(function() {
+        $("#1").append(" dodatkowy tekst!");
+      });
+      $("#zad2").click(function() {
+        $("#2").css({color: "blue"});
+      });
+      $("#zad3").click(function() {
+        $("#3").css("font-weight", "700");
+      });
+    });
+  </script>
+</html>

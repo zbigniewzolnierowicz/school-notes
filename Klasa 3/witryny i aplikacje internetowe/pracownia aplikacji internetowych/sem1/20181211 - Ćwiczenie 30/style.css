@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
+.main {
+  display: block;
+  width: 900px;
+  height: auto;
+  margin: auto;
+  border: 1px solid black;
+}
+
+.logo {
+  width: 900px;
+  height: 100px;
+  text-align: center;
+  margin: 0;
+}
+
+.left {
+  float: left;
+  width: 30%;
+  height: 300px;
+  background-color: white;
+}
+
+.right {
+  float: right;
+  width: 60%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #FFFFFF;
+  color: navy;
+  overflow: hidden;
+}
+
+.bottom {
+  background-color: #FFFF00;
+  height: 24px;
+  clear: both;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+
+.menu {
+  height: 100px;
+  background: linear-gradient(90deg, lightblue, white);
+}
+
+.active, .menu:hover {
+  background: linear-gradient(90deg, yellow, white);
+}
+
+.menu p {
+  margin: 0;
+  position: relative;
+  top: 40%;
+  left: 10px;
+  font-size: 20px;
+  color: navy
+}
+
+a {
+  text-decoration: none;
+}
+
+img:hover {
+  opacity: .6;
+}
+
+.formgroup {
+  margin: 30px 0 30px 0;
+}
+
+.rightform {
+  float: left;
+  text-align: right;
+}
+
+form {
+  padding-bottom: 5%
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+#napis, #heading {
+  position: relative;
+}

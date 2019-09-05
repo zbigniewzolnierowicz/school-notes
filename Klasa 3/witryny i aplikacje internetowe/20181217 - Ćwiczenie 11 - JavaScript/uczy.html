@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Będę się pilnie uczył</title>
+    <style type="text/css" media="screen">
+div {
+  margin: 3em;
+}
+    </style>
+  </head>
+  <body>
+    <div id="for"></div>
+    <div id="while"></div>
+    <div id="dowhile"></div>
+  </body>
+  <script>
+    var i;
+var text = "Będę się pilnie uczył";
+for (i = 0; i < 20; i++) {
+  document.querySelector("#for").innerHTML += text + "<br>";
+}
+i = 0;
+while (i < 20) {
+  document.querySelector("#while").innerHTML += text + "<br>";
+  i++;
+}
+i = 0;
+do {
+  document.querySelector("#dowhile").innerHTML += text + "<br>";
+  i++;
+} while (i < 20);
+  </script>
+</html>

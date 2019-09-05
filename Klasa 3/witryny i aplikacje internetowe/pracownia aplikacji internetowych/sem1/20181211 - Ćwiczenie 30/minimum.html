@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Zbigniew Żołnierowicz">
+    <meta name="keywords" content="egzamin,HTML,CSS,JavaScript">
+    <meta name="description" content="Przykładowa strona E14">
+    <meta name="robots" content="all">
+    <title>Egzamin E14</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <script src="funkcje_js.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="logo">
+        <img src="obrazki/baner.jpg"></img>
+      </div>
+      <div class="below-logo">
+        <div class="left">
+          <a href="index.html"><div class="menu"><p>Strona główna</p></div></a>
+          <a href="#"><div class="menu active"><p>Znajdź najmniejszą liczbę</p></div></a>
+          <a href="w_przedziale.html"><div class="menu"><p>Czy liczba jest w przedziale</p></div></a>
+        </div>
+        <div class="right">
+          <h1>ZNAJDŹ MINIMUM</h1>
+          <form action="" method="get" accept-charset="utf-8" class="leftform" id="form">
+            <div class="formgroup">
+<input type="text" name="pierwszaliczba" id="liczba1" value="" />
+<label for="pierwszaliczba">Pierwsza liczba</label>
+            </div>
+            <div class="formgroup">
+<input type="text" name="drugaliczba" id="liczba2" value="" />
+<label for="drugaliczba">Druga liczba</label>
+            </div>
+            <div class="formgroup">
+<input type="text" name="trzecialiczb" id="liczba3" value="" />
+<label for="trzecialiczba">Trzecia liczba</label>
+            </div>
+            <input type="button" onClick = "getMinimum('form')" value="Najmniejsza liczba to" />
+          </form>
+          <h3 id="output"></h3>
+        </div>
+      </div>
+        <div class="bottom">
+          <div id="napis" style="left: 9px;">
+            Zabawy matematyczne
+          </div>
+        </div>
+    </div>
+  </body>
+  <script charset="utf-8">
+  </script>
+</html>

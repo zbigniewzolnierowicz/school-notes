@@ -1,0 +1,15 @@
+_minted*
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.synctex.gz
+!Klasa 3/systemy baz danych/pracownia baz danych/*.pdf
+!Klasa 3/systemy baz danych/pracownia baz danych/*/*.pdf
+!Klasa 3/systemy baz danych/pracownia baz danych/*/*/*.pdf
+*.dbf
+*.zip
+__latexindent_temp.tex
+*.au
+**/Thumbs.db

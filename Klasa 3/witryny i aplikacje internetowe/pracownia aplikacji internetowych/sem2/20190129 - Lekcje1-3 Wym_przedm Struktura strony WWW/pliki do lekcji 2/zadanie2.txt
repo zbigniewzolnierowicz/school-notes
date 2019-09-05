@@ -1,0 +1,13 @@
+﻿<!DOCTYPE HTML>
+<html>
+  <head>
+    umieść tutaj deklarację strony kodowej
+    umieść tutaj tytuł strony
+    umieść tutaj opis swojej strony
+    umieść tutaj słowa kluczowe
+    umieść tutaj autora strony
+    zezwól robotom sieciowym na pełną analizę Twojej witryny
+   </head>
+  <body>
+  </body>
+</html>

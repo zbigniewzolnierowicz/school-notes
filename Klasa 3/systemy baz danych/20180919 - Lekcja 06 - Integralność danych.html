@@ -1,0 +1,58 @@
+<h1 id="lekcja-6---integralność-danych">Lekcja 6 - Integralność danych</h1>
+<p>Integralność bazy danych to odpowiednie mechanizmy zabezpiezające przed skutkami:</p>
+<ul>
+<li>przypadkowych błędów logicznych</li>
+<li>konfliktów we współbieżym dostępie do danych</li>
+<li>awarii oprogramowania i sprzętu komputerowego</li>
+</ul>
+<p>System integralny to taki, który <strong>dostarcza nam wiarygodne dane</strong> i jest zabezpieczony przed nieautoryzowaną modyfikacją informacji.</p>
+<p>Systemy baz danych <strong>powinny zapewniać</strong> możliwość sprawdzania i ewentualnej korekty wprowadzanych danych oraz powinny zawierać odpowiednie mechanizmy zapewniające prawidłowe przetwarzanie danych.</p>
+<p>Proces ochrony integralności obejmuje:</p>
+<ul>
+<li>kontrolę danych wejściowych oraz synchronizację dostępu do danych,</li>
+<li>poprawianie czyli korektę danych, cofanie i odtwarzanie stanu bazy,</li>
+<li>archiwizację poprzez tworzenie kopii bazy oraz zapisów działania systemu,</li>
+<li>testowanie czyli sprawdzanie poprawności zawartości bazy</li>
+</ul>
+<h2 id="integralność-danych">Integralność danych</h2>
+<p><strong>Integralność danych</strong> oznacza, że baza danych stanowi odzwierciedlenie rzeczywistości. Integralność danych określamy również mianem <strong>spójności danych</strong>. Spójność danych związana jest z ich dokładnością - dane dokładnie odzwierciedlają modelowaną rzeczywistość. Dane muszą być poprawne i zgodne ze schematem bazy danych.</p>
+<p><strong><em>Integralność</em></strong> to zapewnienie <strong>kompletności, poprawności i wiarygodności</strong> danych zgromadzonych w bazie.</p>
+<p>Pojęcie integralności obejmuje:</p>
+<ul>
+<li><strong>integralność statyczną</strong>
+<ul>
+<li>Źródłem naruszenia <strong>integralności statycznej są błędy logiczne</strong> w danych oraz brak poprawnie skonstruowanego schematu bazy danych.</li>
+</ul></li>
+<li><strong>integralność transakcyjną</strong>
+<ul>
+<li>Zagrożeniem <strong>integralności transakcyjnej są awarie oprogramowania i sprzętu oraz współbieżny dostęp do danych</strong>.</li>
+</ul></li>
+</ul>
+<h2 id="integralność-statyczna">Integralność statyczna</h2>
+<p>Integralność statyczna dotyczy poprawnie zaprojektowanego schematu bazy danych jak również spełnienia ograniczeń nałożonych na wartości atrybutów opisujących obiekty w bazie.</p>
+<p>Istnieją <strong>cztery typy integralności danych</strong> konieczne do wdrożenia w trakcie procesu projektowania bazy danych. Trzy typu integralności danych opierają się na różnych aspektach struktury bazy danych. Typ czwarty opiera się na sposobie spojrzenia na dane i ich wykorzystania w ortanizacji.</p>
+<h3 id="integralność-semantyczna">Integralność semantyczna</h3>
+<p><strong>Integralność semantyczna</strong> <em>(inaczej zwana integralnością na poziomie pola czy też integralnością domeny)</em> zapewnia odpowiednią strukturę każdego pola, odpowiednią ważność wartości występujących w każdym polu, ich spójność i dokładność, a także to, że pola tego samego typu są spójnie zdefiniowane w całej bazie danych.</p>
+<p><strong>Jeżeli wartości danych spełniają wcześniej zdefiniowane i nałożone ograniczenia wówczas mówimy, że zachowana jest integralność semantyczna.</strong></p>
+<p>Zapewnienie integralności semantycznej ma na celu zabezpieczenie danych przed celową lub przypadkową błędną modyfikacją danych, a więc odrzucenie wszelkich akcji powodujących niespójność bazy lub uruchomienie akcji, które przywracają poprawność i spójność bazy.</p>
+<p>Integralność można wymusić w sposób <strong>deklaratywny poprzez więzy integralności</strong> oraz w sposób <strong>proceduralny poprzez tzw. wyzwalacze</strong> <em>(ang. triggers)</em>.</p>
+<p><strong>Więzy integralności są to pewne warunki, które muszą być spełnione</strong> poprzez określony podzbiór danych w bazie. Warunki te muszą pozostać prawdziwe przy każdej operacji modyfikacji w bazie danych. Każda operacja naruszająca te więzy musi zostać anulowana. Typowy przykład narzuconych ograniczeń: wartości atrybutów w danej tabeli muszą pochodzić z określonej dziedziny.</p>
+<h3 id="integralność-encji">Integralność encji</h3>
+<p><strong>Integralnością encji, czyli integralność na poziomie tabeli</strong> zapewnia brak duplikowanych wierszy (krotek) oraz to, że pole (pola) identyfikujące każdą krotkę w tabeli jest unikatowe i nigdy nie zawiera wartości <code>Null</code>.</p>
+<p>Integralność encji zapewnia się na etapie definiowania schematu bazy danych przez zdefiniowanie klucza głównego.</p>
+<h3 id="integralność-referencyjna">Integralność referencyjna</h3>
+<p><strong>W systemie bazy danych tablice powiązane są między sobą kluczami.</strong> Powiązania te realizowane są przez <strong>klucze główne <em>(ang. primary key)</em></strong> i tzw. <strong>klucze obce <em>(ang. foreign key)</em></strong></p>
+<p>Powiązania między kluczami encji pociągają za sobą konieczność określania reguł postępowania w wypadku wykonywania operacji na tabelach nadrzędnych w stosunku do innych tabel.</p>
+<p>To właśnie <strong>integralność referencyjna określa stany w jakich może znajdować się wartość klucza obcego w danej tabeli</strong>. Wartość klucza obcego w danej tabeli musi być albo równa wartości klucza głównego w tabeli z nią powiązanej lub ewentualnie przyjąć wartość <code>Null</code>.</p>
+<h3 id="integralność-biznesowa">Integralność biznesowa</h3>
+<h2 id="podział-na-więzy-integralności-statycznej-i-dynamicznej">Podział na więzy integralności statycznej i dynamicznej</h2>
+<p>Więzy integralności dzielimy na statyczne i dynamiczne. Więzy <strong>statyczne</strong> muszą być spełnione w bieżącym i następnym stanie bazy.</p>
+<p>Więzy <strong>dynamiczne</strong>, czy inaczej <strong>temporalne</strong>, określają poprawność danych w odniesieniu do historii stanów przechowywanych w bazie.</p>
+<p>Dynamiczne więzy integralności to więzy, które w przeciwieństwie do statycznych więzów integralności obejmujących pojedynczy stan bazy, obejmują sekwencję stanów bazy danych.</p>
+<h2 id="model-temporalny">Model temporalny</h2>
+<p><strong>Model temporalny to model uwzględniający czas rejestracji danych oraz rzeczywisty czas zajścia zdarzeń.</strong></p>
+<p>Temporalne więzy integralności określają poprawność danych zarówno dla bieżącego stanu bazy danych jaki i stanów poprzednich i przyszłych. Ogólnie są one przydatne wszędzie tam, gdzie sa istotne zależności czasowe między danymi. Np. można zadać taki warunek:</p>
+<blockquote>
+<p>Pensja pracownika nie może wzrosnąć o więcej niż 10% w ciągu 2 kolejnych posiedzeń zarządu.</p>
+</blockquote>
+<p>W bazach statycznych możliwe jest tylko sprawdzenie warunku, czy np. pensja pracownika nie może wzrosnąć jednorazowo o więcej niż 10%.</p>

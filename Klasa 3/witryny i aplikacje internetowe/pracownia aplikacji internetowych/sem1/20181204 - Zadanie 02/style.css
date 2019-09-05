@@ -1,0 +1,54 @@
+body {
+  min-height: 720px;
+  height: 720px;
+}
+
+* {
+  font: normal normal normal 1em Arial, sans-serif;
+}
+
+main {
+  height: 80%;
+}
+
+.sidebar {
+  float: left;
+  width: 20%;
+  background: #FF0000;
+  height: 100%;
+}
+
+.article {
+  float: left;
+  margin: 0 auto;
+  width: 60%;
+  height: 100%;
+  background: #00FF00;
+}
+
+.images {
+  float: left;
+  width: 20%;
+  height: 100%;
+  background: #0000FF;
+}
+
+header {
+  background: #FFFF00;
+  height: 10%;
+  margin: auto 0;
+  clear: both;
+}
+footer {
+  background: #FF00FF;
+  height: 10%;
+  width: 100%;
+  clear: both;
+  float: left;
+  text-align:
+}
+
+h1 {
+  font-family: Verdana, Arial, "MS Trebuchet", sans-serif;
+  font-size: 2em;
+}

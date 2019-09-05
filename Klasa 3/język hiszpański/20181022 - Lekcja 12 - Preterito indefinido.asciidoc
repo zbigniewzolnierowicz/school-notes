@@ -1,0 +1,54 @@
+= Lekcja 12 - Pretérito indefinido
+
+|=========
+|-ar | -eir; -ir
+|-é | -í
+|-aste | -iste
+|-ó | -ió
+|-amos | -imos
+|-asteís |-isteis
+|-aron | -ieror
+|========
+
+ganó::
+	wygrywać
+superó::
+	pobić
+fue::
+	być/iść (jeżeli np.: fui a casa)
+pintó::
+	malować
+recibió::
+	otrzymywać
+escaló::
+	wspiąć się
+descubrió::
+	odkryć
+
+.1/22
+
+* recibió
+* superó
+* descubrió
+* escaló
+* pintó
+* ganó
+* fue
+
+.zad. 3
+
+3::
+	La semana pasada habló José Manuel
+4::
+	Anoche cenó mis padres
+5::
+	El año pasado pasó las vacaciones a Grecia
+6::
+	El lunes Juan Antonio Salió
+7::
+	Anoche bebó demasiado
+8::
+	En 1989 compró casa en la playa
+9::
+	El sábado comó restaurante tailandés
+

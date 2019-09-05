@@ -1,0 +1,59 @@
+<h1 id="lekcja-4---system-bazy-danych">Lekcja 4 - System bazy danych</h1>
+<h2 id="główne-elementy">Główne elementy</h2>
+<ul>
+<li>dane</li>
+<li>sprzęt</li>
+<li>oprogramowanie</li>
+<li>użytkownicy</li>
+</ul>
+<h2 id="architektura-systemu-baz-danych">Architektura systemu baz danych</h2>
+<p>Interakcja programu użytkownika (aplikacji) z bazą danych odbywa się za pomocą języka SQL. Użytkownik komunikuje się z bazą danych za pomocą aplikacji, a aplikacja komunikuje się z bazą danych za pomocą poleceń SQL.</p>
+<p>Stosujemy dwa sposoby komunikacji z bazą danych:</p>
+<h3 id="architektura-klient-serwer">Architektura klient-serwer</h3>
+<p>W architekturze klient-serwer serwer pełni rolę DBMS, natomiast klientami mogą być aplikacje poziomu zewnętrznego.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Klient</th>
+<th>Serwer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Obsługuje interfejs użytkownika</td>
+<td>Akceptuje i przetwarza żądania do bazy danych od klientów</td>
+</tr>
+<tr class="even">
+<td>Akceptuje wprowadzane dane i spawdza ich poprawność składniową</td>
+<td>Sprawdza uprawnienia</td>
+</tr>
+<tr class="odd">
+<td>Obsługuje sterowanie w aplikacji</td>
+<td>Zapewnia nienaruszalność więzów integralności</td>
+</tr>
+<tr class="even">
+<td>Tworzy żądanie do bazy danych i przesyła je do serwera</td>
+<td>Realizuje przetwarzanie zapytań/aktualizacji i przekazuje odpowiedzi klientom</td>
+</tr>
+<tr class="odd">
+<td>Przekazuje odpowiedź z powrotem do użytkownika</td>
+<td>Konserwuje katalog systemowy</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Obsługuje współbieżny dostęp</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Realizuje odzyskiwanie danych po awarii</td>
+</tr>
+</tbody>
+</table>
+<h4 id="architektura-klient-serwer-rozproszona">Architektura klient-serwer rozproszona</h4>
+<p>W architekturze klient-serwer rozproszonej każda maszyna może przechowywać dane i być serwerem dla jednych klientów, natomiast klientem dla innych. Każda maszyna wspiera cały SZBD.</p>
+<h3 id="architektura-3-warstwowa">Architektura 3-warstwowa</h3>
+<p>Każdy użytkownik nie ma dostępu bezpośrednio do aplikacji, ale przez stronę internetową ma dostęp do serwera aplikacji, ten z kolei do SZBD, a ten do bazy danych.</p>

@@ -1,0 +1,32 @@
+= Test 53
+
+. Słuchaliśmy go z wielką przyjemnością. On wie wszystko o historii bankowości w Zjednoczonym Królestwie.
+.. We listened to him with great pleasure. He knows everything about the history of banking in the United Kingdom. *V*
+. Ile pieniędzy musiałeś mu pożyczyć? A czy wiesz, kiedy będzie mógł ci oddać?
+.. How much money did you have to lend him? And do you know when he'll be able to give it back? *V*
+. Widziałeś? On od razu wypił całą butelkę. Musiałeś mu powiedzieć, gdzie ona jest.
+.. Did you see that? He drank *(entire bottle)* the whole bottle right away. *(You had to have told him where she is.)* Did you have to tell him where it was? *X*
+. Pan Adams nie lubi, żeby go tytułować pułkownikiem. Woli, żeby go nazywać doktorem.
+.. Mister Adams doesn't like being addressed colonel. He prefers being called a doctor. *V*
+. Ponieważ nikt nie zadawał żadnych pytań, Thomson mówił dalej.
+.. Since no one asked any questions, Thomson kept talking. *V*
+. Musiała mieć masę czasu. Wyszła z domu za pięć dziesiąta i wcale nie zdawała się spieszyć.
+.. She must've had lots of time. She left home at 5 to ten and she didn't seem to be in a hurry at all. *V*
+. Czy pamiętasz Nancy Ryder? Dziewczynę, dla której napisaliśmy tę śmieszną piosenkę?
+.. Do you remember Nancy Ryder? The girl for whom we wrote that silly song? *V*
+. Zobacz co napisałem. Czy to zmusi starego do rezygnacji z zaproszenia Alice?
+.. Look what *(I wrote)* I've written. Can this make the old man *(refuse to invite)* give up inviting Alice? *X*
+. Jej nowa książka jest znacznie gorsza od poprzedniej. Ale nie nazwałbym jej najgorszą książką roku.
+.. Her new book is much worse than the last one. But I wouldn't call it the worst book of the year. *V*
+. Nawet jeśli jest za mało szklanek, mamy jeszcze trochę pieniędzy i możemy dokupić.
+.. Even if *(there's too little)* there are too few glasses, we still have some money left and we could buy some. *X*
+. Czy on ci nie mówił, od kiedy Ewa dla niego pracuje?
+.. *(Has he not told you)* Did he not tell you since when Eve is working for him? *X*
+. Nie zapomnij o jednym: jeśli cokolwiek źle pójdzie, ani twój brat ani twoi kuzyni nie będą mogli ci pomóc.
+.. Don't forget one thing: if anything were to go wrong, neither your brother nor your cousins will be able to help you. *V*
+. Nie wiem, co o tym myśleć. Mary mówi, że czekała dłużej niż pół godziny, co nie może być prawdą.
+.. I don't know what to think of it. Mary said, that *(she's been waiting for more)* she waited longer than half an hour, which can't be true. *X*
+. "Spójrz na tego człowieka na ulicy. Zdaje się na kogoś czekać." "Nie, on nie czeka. Jest naszym nowym strażnikiem."
+.. "Look at that man in the street. He seems to be waiting for someone." "No, he's not waiting. He's our new guard." *V*
+. Musieliśmy pozwolić Adamowi i jego dziewczynie pojechać na ten koncert do Bristol. Gdyby nie, i tak by pojechali.
+.. We had to let Adam and his girlfriend go to that concert in Bristol. If we had not, they would've gone anyways.*V*

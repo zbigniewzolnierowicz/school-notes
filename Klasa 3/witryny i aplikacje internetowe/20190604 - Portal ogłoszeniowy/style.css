@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    background: maroon;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    display: block;
+    margin: 0;
+    height: 10vh;
+}
+
+h1 {
+    display: block;
+    position: relative;
+    top: 0;
+    margin: 0
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    background: brown;
+    height: 100%;
+    width: 40%;
+}
+
+article {
+    background: burlywood;
+    height: 100%;
+    width: 60%;
+}
+
+aside img {
+    width: 50%;
+    height: auto;
+    padding: 2em;
+}
+
+aside table {
+    border: 2px red dotted;
+    align-self: center;
+    width: 90%;
+    text-align: center;
+}
+
+aside table * {
+    border: 2px red dotted;
+}
+
+aside table tbody tr:first-of-type td:last-of-type {
+    width: 200px;
+}
+
+aside ol {
+    list-style-type: upper-roman;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div>Czy to zniknie?</div>
+    <div></div>
+    <p>Kliknij na mnie</p>
+    <p></p>
+  </body>
+  <script>
+    $(function() {
+
+      $("p")
+        .click(function() {
+          $("div").hide();
+        })
+        .dblclick(function() {
+          $("div").show();
+        })
+
+    });
+  </script>
+</html>

@@ -1,0 +1,23 @@
+= Lección 6 - Los consejos
+
+- costar - kosztować (też kosztować wysiłek)
+- aconsejar - radzić
+- dar consejos - dawać radę
+- es muy difícil - jest bardzo trudne
+- son muy difíciles - są bardzo trudne
+- mejor - najlepiej
+
+[options="header,footer"]
+|=======================
+|Hace|Desde|Desde hace
+|w czasie od kiedyś do teraz |od kiedyś i nadal może trwać |kiedyś
+|=======================
+
+. *Desde* | hace enero vivo en Poznań;
+. Trabajo aquí desde *hace* | desde 3 años;
+. La empreso funciona *desde* | hace 1985
+. Desde hace | *Hace* 5 años vivía en X.
+
+.Zadanie domowe
+
+str. 16 z. 7A

@@ -1,0 +1,9 @@
+- PSD
+  - kompresja: Brak lub RLE lub ZIP
+  - nagłówek: posiada
+  - paleta: posiada
+  - zastosowanie: pliki robocze programu Photoshop
+  - plusy:
+    - przechowuje dużo informacji potrzebnych Photoshopowi
+  - minusy:
+    - poza Photoshopem format praktycznie bezużyteczny

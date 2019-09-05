@@ -1,0 +1,252 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{inconsolata}
+\usepackage{minted}
+\begin{document}
+\title{Lekcja 21 --- DDL --- Kontynuacja}
+\author{Zbigniew Żołnierowicz}
+\date{20.03.2018}
+\maketitle
+\section{Klauzula {\tt DEFAULT}}
+Gdy system nie otrzyma bezpośrednio podanej wartości dla kolumny, szuka klauzuli {\tt DEFAULT} i stosuje określoną w niej wartość. Może być ona: 
+\begin{itemize}
+  \item Literałem odpowiedniego typu danych
+  \item Wartością zwracaną przez system (np. bieżący czas, aktualną datę)
+\end{itemize}
+Jeżeli nie podamy klauzuli {\tt DEFAULT}, a kolumna akceptuje wartości {\tt NULL}, system jako wartość domyślną zastosuje {\tt NULL}. Jeżeli także to nie jest możliwe, pojawi się komunikat o błędzie.
+\section{Ograniczenie {\tt CHECK}}
+Ograniczenie {\tt CHECK} sprawdza, czy wiersze tabeli spełniają wyrażenie logiczne i odrzuca te wiersze, dla których warunek ma wartość {\tt FALSE}. Gdy warunek ma wartość {\tt TRUE} lub {\tt UNKNOWN}, wiersz jest akceptowany.
+
+Za pomocą ograniczenia {\tt CHECK} często sprawdza się, czy wartość należy do jakiegoś przedziału (np.\mintinline{sql}{CHECK (rabat BETWEEN 1 AND 10)}) lub czy wartość kolumny należy do określonego zbioru (np. \mintinline{sql}{CHECK(płeć IN 0,1,9)})
+\section{Klauzula {\tt REFERENCES}}
+Ograniczenie referencyjne - definiuje zależność między relacjami. Klucz obcy w relacji musi wskazywać na klucz podstawowy lub unikalny w {\tt wskazywanej\_tabeli}.
+Klucz obcy dopuszcza wartości puste, chyba że zostaną wyeliminowane przez inne ograniczenia.
+
+Składnia (dla jednego atrybutu)
+\begin{minted}{sql}
+  CREATE TABLE nazwa_tabeli (
+  nazwa_kolumny typ_danych
+  (CONSTRAINT nazwa) REFERENCES nazwa_wskazywanej_tabeli(wskazywana_kolumna)
+  );
+\end{minted}
+
+\begin{minted}{sql}
+  CREATE TABLE pracownicy (
+  ...,
+  NrZespolu int REFERENCES Zespoły(IdZesp),
+  ...
+  );
+\end{minted}
+
+Definicja klucza obcego z dwoma atrybutami.
+
+Założenie: klucz podstawowy w tabeli wskazywanej {\tt POMIESZCZENIA} składa się z atrybutów o nazwach: symbol\_budynku i numer\_pomieszczenia.
+
+\begin{minted}{sql}
+  (
+  budynek CHAR(10),
+  nr_pomieszczenia DECIMAL(3),
+  ...
+  CONSTRAINT fk_pomieszczenia
+  FOREIGN KEY(budynek, nr_pomieszczenia)
+  REFERENCES pomieszczenia(symbol_budynku, numer_pomieszczenia)
+  )
+\end{minted}
+
+\section{Operacje związane z referencjami}
+
+\subsection{ON DELETE}
+
+\subsection{\tt ON DELETE CASCADE}
+
+Razem z wierszem tabeli nadrzędnej zostają usunięte wszystkie wiersze tabeli podrzędnej, w których wartości klucza obcego wskazują na usuwany wiersz (pod warunkiem, że usunięcie tych wierszy jest możliwe bez naruszenia innych więzów referencyjnych).
+
+\subsection{\tt ON DELETE SET NULL}
+
+Przy usuwaniu wiersza, do którego są odwołania przez wartości kluczy obcych, następuje wstawienie wartości \mintinline{sql}{NULL} jako wartości klucza obcego.
+
+\subsection{\tt ON DELETE SET DEFAULT}
+
+Przy usuwaniu wiersza, do którego są owołania przez wartości kluczy obcych, następuje wstawienie wartości domyślnej jako kolumny, jako wartości klucza obcego. Jeśli nie ma jawnej wartości domyślnej, \mintinline{sql}{NULL} staje się domyślną wartością domyślną kolumny.
+
+\subsection{\tt ON DELETE NO ACTION}
+
+Przy usuwaniu wiersza, do którego są odwołania przez wartości kluczy obcych, podnoszony jest błąd, a polecenie \mintinline{sql}{DELETE} jest wycofywane. Jest to domyślne ustawienie.
+
+\subsection{\tt ON UPDATE CASCADE}
+
+Razem z wierszem tabeli nadrzędnej zostają zaktualizowane wszystkie wiersze tabeli podrzędnej.
+
+\subsection{\tt OP UPDATE SET NULL}
+
+Po modyfikacji wiersza wstawiany jest \mintinline{sql}{NULL}.
+
+\subsection{\tt ON UPDATE SET DEFAULT}
+
+Po modyfikacji wiersza wstawiany jest \mintinline{sql}{DEFAULT}.
+
+\subsection{\tt ON UPDATE NO ACTION}
+
+Po modyfikacji wiersza pojawia się błąd.
+
+\section{Autonumeracja}
+
+\begin{minted}{sql}
+  IDENTITY(seed, increment)
+\end{minted}
+
+Gdzie {\tt seed} to pierwsza wartość wstawiona do kolumny, a {\tt increment} to wartość przyrostu kolejnej wartości.
+Jeżeli {\tt seed} i {\tt increment} nie zostały zadeklarowane, przyjmą domyślne wartości (1,1).
+
+\begin{minted}{sql}
+  CREATE TABLE (
+  id_zespołu IDENTITY(1,1) PRIMARY KEY
+  );
+\end{minted}
+
+\section{Przykłady}
+
+\subsection{Dodawanie nowej kolumny do istniejącej tabeli}
+
+\begin{minted}{sql}
+  ALTER TABLE nazwa_tabeli
+  ADD nazwa_kolumny typ_danych DEFAULT wartość_domyślna ograniczenia;
+\end{minted}
+
+\subsection{Zmiana typu danych kolumny w istniejącej tabeli}
+
+\begin{minted}{sql}
+  ALTER TABLE nazwa_tabeli
+  ALTER COLUMN nazwa_kolumny typ_danych;
+\end{minted}
+
+\subsection{Usunięcie kolumny z istniejącej tabeli}
+
+\begin{minted}{sql}
+  ALTER TABLE nazwa_tabeli
+  DROP COLUMN nazwa_kolumny;
+\end{minted}
+
+\section{Zmiana więzów spójności}
+
+Zmiana więzów spójności zawze sprowadza się do modyfikacji tabeli, w której więzy istnieją,
+lub mają zostać dodane. Nie istnieje możliwość użycia instrukcji \mintinline{sql}{CREATE},
+\mintinline{sql}{DROP}, \mintinline{sql}{DROP} w zastosowaniu bezpośrednio do węzłów.
+
+\begin{minted}{sql}
+  ALTER TABLE nazwa_tabeli
+  DROP CONSTRAINT nazwa_ograniczenia;
+\end{minted}
+
+\section{Zadania}
+
+\subsection{Utwórz tabelę Szkoły o następujących kolumnach i ograniczeniach}
+
+\begin{minted}{sql}
+  CREATE TABLE Szkoły (
+  Id NUMERIC(4),
+  Nazwa VARCHAR(100),
+  Adres VARCHAR(100),
+  Budzet NUMERIC(10,2),
+  Zalozona DATE,
+  CONSTRAINT pk_Id PRIMARY KEY(Id),
+  CONSTRAINT un_Nazwa UNIQUE(Nazwa)
+  ); 
+\end{minted}
+\subsection{Utwórz tabelę Projekty o następujących kolumnach i ograniczeniach}
+
+\begin{minted}{sql}
+  CREATE TABLE Projekty (
+  Id NUMERIC(4),
+  Opis VARCHAR(20)
+  CONSTRAINT un_Opis UNIQUE NOT NULL,
+  Data_rozpoczecia DATE DEFAULT GETDATE(),
+  Data_zakonczenia DATE,
+  CHECK(Data_zakonczenia > Data_rozpoczecia),
+  Fundusz VARCHAR(7,2),
+  CONSTRAINT pk_Id PRIMARY KEY(Id),
+  );
+\end{minted}
+
+\subsection{Utwórz tabelę Pracownicy, Miasta, DawniPracownicy, Zespoły z kluczami obcymi}
+
+\begin{minted}{sql}
+  CREATE TABLE Miasta (
+    Id NUMERIC(4) IDENTITY(1,1),
+    Nazwa VARCHAR(20),
+    CONSTRAINT pk_Id PRIMARY KEY(Id),
+    CONSTRAINT nn_Nazwa NOT NULL(Nazwa)
+  );
+\end{minted}
+
+\begin{minted}{sql}
+  CREATE TABLE Zespoły (
+    Id NUMERIC(4) IDENTITY(1,1),
+    Nazwa VARCHAR(20),
+    Kierownik NUMERIC(4),
+    Miasto NUMERIC(4),
+    CONSTRAINT pk_Id PRIMARY KEY(Id),
+    CONSTRAINT nn_Nazwa NOT NULL(Nazwa),
+    CONSTRAINT fk_Miasto_MiastaId FOREIGN KEY (Miasto)
+    REFERENCES Miasta(Id)
+  );
+\end{minted}
+
+\begin{minted}{sql}
+  CREATE TABLE DawniPracownicy (
+    Id Numeric(4),
+    Imię VARCHAR(20),
+    DrugieImię VARCHAR(20),
+    Nazwisko VARCHAR(20),
+    Płeć CHAR(1) CHECK IN("K", "M", NULL)
+    Wynagrodzenie NUMERIC(4),
+    NrZespołu NUMERIC(4),
+    CONSTRAINT pk_Id PRIMARY KEY(Id),
+    CONSTRAINT nn_Imię NOT NULL(Imię),
+    CONSTRAINT nn_Nazwisko NOT NULL(Nazwisko),
+    CONSTRAINT fk_NrZespołu_ZespołyId FOREIGN KEY (NrZespołu)
+    REFERENCES Zespoły(Id)
+  ); 
+\end{minted}
+
+\begin{minted}{sql}
+  CREATE TABLE Pracownicy (
+    Id Numeric(4),
+    Imię VARCHAR(20),
+    DrugieImię VARCHAR(20),
+    Nazwisko VARCHAR(20),
+    Płeć CHAR(1) CHECK IN("K", "M", NULL)
+    Wynagrodzenie NUMERIC(4),
+    NrZespołu NUMERIC(4),
+    Aktywny NUMERIC(1) CHECK IN(0, 1) DEFAULT 0,
+    CONSTRAINT pk_Id PRIMARY KEY(Id),
+    CONSTRAINT nn_Imię NOT NULL(Imię),
+    CONSTRAINT nn_Nazwisko NOT NULL(Nazwisko),
+    CONSTRAINT nn_Aktywny NOT NULL(Aktywny),
+    CONSTRAINT fk_NrZespołu_ZespołyId FOREIGN KEY (NrZespołu)
+    REFERENCES Zespoły(Id)
+  ); 
+\end{minted}
+\pagebreak
+\begin{minted}{sql}
+  ALTER TABLE Zespoły
+  CREATE CONSTRAINT fk_Kierownik_PracownicyId FOREIGN KEY (Kierownik)
+  REFERENCES Pracownicy(Id);
+\end{minted}
+\subsection{Wprowadź nową osobę zatrudnioną dzisiaj. Jan Kowalski, zarabiający 100 zł.}
+\begin{minted}{sql}
+  INSERT INTO Pracownicy (Imię, Nazwisko, Wynagrodzenie)
+  VALUES ('Jan', 'Kowalski', 100);
+\end{minted}
+\subsection{Przypisz domyślną wartość 3 dla identyfikatora miasta w zespołach}
+\begin{minted}{sql}
+  ALTER TABLE Zespoły
+  ALTER COLUMN Miasto DEFAULT 3;
+\end{minted}
+\subsection{Usuń klucz obcy z tabeli Zespoły}
+\begin{minted}{sql}
+  ALTER TABLE Zespoły
+  DROP CONSTRAINT fk_Miasto_MiastaId;
+\end{minted}
+\end{document}

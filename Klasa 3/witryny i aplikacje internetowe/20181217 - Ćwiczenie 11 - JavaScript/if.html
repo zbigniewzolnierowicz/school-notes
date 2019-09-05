@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS</title>
+  </head>
+  <body>
+    <h1>if</h1>
+  </body>
+  <script charset="utf-8">
+    var a = prompt("Wprowadź pierwszą liczbę: ");
+    var b = prompt("Wprowadź drugą liczbę: ");
+    if (a == null || b == null) {
+      document.write("<h3>Proszę odświeżyć stronę i wpisać liczby poprawine</h3>")
+    }
+    else if (a == b) {
+      document.write("Liczba " + a + " jest równa liczbie " + b + ".");
+    } else if (a > b) {
+      document.write("Liczba " + a + " jest mniejsza od liczby " + b + ".");
+    } else {
+      document.write("Liczba " + a + " jest większa od liczby " + b + ".");
+    }
+  </script>
+</html>

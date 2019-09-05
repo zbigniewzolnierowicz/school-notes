@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="content"></div>
+</body>
+  <script>
+    var content = document.querySelector("#content");
+for(i = 0; i < 10; i++) {
+  var text = document.createElement("p");
+  text.innerHTML="Text number " + i;
+  content.appendChild(text);
+}
+  </script>
+</html>

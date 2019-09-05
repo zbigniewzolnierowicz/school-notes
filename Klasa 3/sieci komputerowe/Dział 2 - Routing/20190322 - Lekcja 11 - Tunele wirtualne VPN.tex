@@ -1,0 +1,243 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{indentfirst}
+\usepackage{tgcursor}
+\usepackage{inconsolata}
+\usepackage[T1]{fontenc}
+\usepackage[english,polish]{babel}
+\usepackage[utf8]{inputenc}
+\begin{document}
+\title{
+{\huge Lekcja 11} \\
+{\large Tunele wirtualne VPN}
+}
+\author{Zbigniew Żołnierowicz}
+\date{22.03.2019}
+\maketitle
+\section{\tt VPN}
+{\tt VPN} \emph{(ang. Virtual Private Network)} polega na tworzeniu tuneli komunikacyjnych
+w istniejącej sieci w celu stworzenia sieci wirtualnej. 
+Wydzielana jest osobna wirtualna przestrzeń adresowa.
+Tunel jest przezroczysty dla komunikujących się węzłów.
+VPN pozwala utworzyć sieć prywatną za pomocą sieci publicznej (np.\@ internetu),
+łączącą różne siedziby firmy lub organizacji, często odległe geograficznie.
+
+W sieci publicznej należy się liczyć z potencjalnyumi naruszeniami poufności,
+integralności i autentyczności transmitowanych danych. W celu realizacji bezpiecznego połączenia
+tunel chroni się za pomocą kryptografii.
+Dane przesyłane tunelem mogą też być kompresowane.
+VPN działa w trzeciej warstwie (sieciowej) modelu ISO/OSI.
+
+Na potrzeby wirtualnej sieci prywatnej tworzona jest osobna tablica routingu.
+\section{Rodzaje architektury sieci {\tt VPN}}
+\subsection{Tunel komputer-komputer}
+Tunel komputer-komputer (ang. \emph{host-to-host} lub \emph{client-to-client}) to tunel, gdzie
+końcami tunelu są pojedyncze stanowiska, wyposażone w odpowiednie oprogramowanie lub sprzęt do
+szyfrowania transmisji pomiędzy nimi.
+\subsection{Tunel sieć-sieć}
+Tunel sieć-sieć (ang. \emph{net-to-net} lub \emph{site-to-site}) to tunel, gdzie końcami tunelu
+są pojedyncze węzły międzysieciowe, np.\@ dedykowane urządzenia szyfrujące, routery brzegowe
+z modułami kryptograficznymi. Szyfrowana może być cała transmisja wychodząca z sieci lokalnych
+lub tylko wybrane usługi. Transmisja odbywająca się wewnątrz poszczególnych sieci nie jest
+szyfrowana.
+\subsection{Tunel komputer-sieć}
+Tunel komputer-sieć (ang. \emph{host-to-net} lub \emph{client-to-site}) to tunel, gdzie jednym
+z końców tunelu jest pojedyncze stanowisko, które uzyskuje dostęp do zasobów pewnej sieci
+lokalnej, np.\@ korporacyjnej. Cała komunikacja lub wybrany ruch (wybrane usługi) poddawane są
+szyfrowaniu. Jest to model typowy dla środowisk pracy zdalnej.
+\section{\tt IPsec}
+{\tt IPsec} oferuje:
+\begin{itemize}
+  \item Uniwersalny tunel wirtualny w warstwie sieciowej
+  \item wzajemne uwierzytelnianie
+  \item szyfrowanie datagramów IP
+\end{itemize}
+Jest wymaganą częścią {\tt IPv6} i ma 2 tryby pracy: transportowy i tunelowy.
+\subsection{Tryb transportowy}
+Pole danych niosące ramkę protokołu wyższej warstwy, np. {\tt TCP}, {\tt UDP}, {\tt ICMP}, itd.,
+może zostać podpisane - do datagramu dodawany jest nagłówek {\tt AH}
+(ang. \emph{authentication header}). Pole danych może też zostać
+zaszyfrowane --- do datagramu dodawany jest wtedy nagłówek {\tt ESP}
+(ang. \emph{Encapsulating Security Payload})
+\subsection{Tryb tunelowy}
+Cały oryginalny datagram IP, łącznie z nagłówkiem, jest podpisywany lub szyfrowany. Do datagramu
+dodawane są odpowiednie nagłówki: {\tt AH}, {\tt ESP} i nowy nagłówek {\tt IP}.
+\pagebreak
+\subsection{Authentication Header {\tt (AH)}}
+Authentication Header zapewnia integralność zawartości datagramu i uwierzytelnianie źródła
+pochodzenia datagramu. Działa na wierzchu IP, używając numeru protokołu 51.
+
+\begin{description}
+  \item[Sequence Number] Monotonicznie zwiększana wartość, chroniąca przed atakiem powtórzeniowym.
+  \item[Authentication Data] zawiera podpisany skrót zawartości.
+\end{description}
+
+Funkcja skrótu, oprócz pola danych, obejmuje też stałe pola nagłówka (zarówno w trybie transportowym,
+jak i tunelowym). Ewentualna fragmentacja datagramu musi być wykonana wcześniej (podpisywany jest
+każdy fragment oddzielnie.)
+
+\begin{table}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \multicolumn{1}{|l|}{Next Header (0 - 8)} & \multicolumn{1}{l|}{Payload Length (9 - 16)} & \multicolumn{1}{l|}{Reserved (16 - 31)} \\ \midrule
+    \multicolumn{3}{|l|}{Security parameters Index} \\ \midrule
+    \multicolumn{3}{|l|}{Sequence Number} \\ \midrule
+    \multicolumn{3}{|l|}{Authentication Data} \\ \bottomrule
+  \end{tabular}
+  \caption{Authentication Header}
+  \label{AH}
+\end{table}
+
+\subsection{Encapsulating Security Payload({\tt ESP})}
+
+{\tt ESP} zapewnia integralność i poufność zawartości datagramu oraz uwierzytelnianie źródła pochodzenia datagramu.
+Działa na wierzchu IP, używając numeru protokołu 50.
+Można używać tylko samego szyfrowania \emph{(ang. encryption-only)} --- niezalecane lub uwierzytelniania \emph{(ang. authentication-only.)}
+Nie chroni zawartości nagłówka IP (choć w trybie tunelowym chroni nagłówek oryginalnego datagramu.)
+Payload data, pad length - wypełnienie dla szyfrów blokowych.
+
+\begin{table}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{Security Parameters Index} \\ \hline
+    \multicolumn{3}{|c|}{Sequence Number} \\ \hline
+    \multicolumn{3}{|c|}{Opaque Transform Data} \\ \cline{2-3} 
+    (padding) & Pad Length & Next Header \\ \hline
+  \multicolumn{3}{|c|}{\begin{tabular}[c]{@{}c@{}}Authentication Data\\ (opcjonalnie)\end{tabular}} \\ \hline
+  \end{tabular}
+  \caption{Encapsulating Security Payload}
+  \label{ESP}
+\end{table}
+\pagebreak
+\subsection{{\tt AH} i {\tt ESP}}
+
+Możliwe jest połączenie {\tt AH} i {\tt ESP}. Przykładowo, najpierw szyfrowane są dane za pomocą {\tt ESP},
+a następnie cały datagram jest podpisywany za pomocą {\tt AH}. Alternatywnie, najpierw wyznacza się nagłówek {\tt AH} i umieszcza się go w datagramie,
+
+a następnie szyfruje w całości z użyciem {\tt ESP} (tuneluje).
+
+\subsection{Security Parameters Index}
+
+\emph{Security Parameters Index} ({\tt SPI}) identyfikuje parametry bezpieczeństwa.
+W połączeniu z adresem {\tt IP} identyfikuje asocjację bezpieczeństwa {\tt SA} \emph{(ang. security association)} używaną dla danego datagramu.
+{\tt SA} tworzy pewnego rodzaju kanał wirtualny.
+
+\subsection{Asocjacja bezpieczeństwa}
+
+Asocjacja bezpieczeństwa to zbiór parametrów charakteryzujących bezpieczną komunikację między nadawcą, a odbiorcą (kontekst):
+
+\begin{itemize}
+  \item algorytm {\tt AH}
+  \item klucze {\tt AH}
+  \item algorytm szyfrowania {\tt ESP}
+  \item klucze szyfrujące {\tt ESP}
+  \item dane inicjujące algorytm szyfrowania
+  \item algorytm uwierzytelniania {\tt ESP}
+  \item klucze algorytmu uwierzytelniania {\tt ESP}
+  \item czas ważności kluczy
+  \item czas ważności asocjacji
+  \item adresy IP mogące współdzielić asocjację
+  \item etykieta poziomu bezpieczeństwa
+  \begin{itemize}
+    \item poufne
+    \item tajne
+    \item ściśle tajne
+  \end{itemize}
+\end{itemize}
+
+Parametry asocjacji bezpieczeństwa nie są przesyłane przez sieć --- przesyłany jest tylko numer {\tt SPI}.
+Asocjacja bezpieczeństwa jest jednokierunkowa --- w każdym kierunku może być używany inny zestaw parametrów.
+
+\subsection{Schemat działania stacji {\tt IPsec}}
+
+\begin{enumerate}
+  \item Sprawdź, czy i w jaki sposób wychodzący pakiet ma być zabezpieczony:
+  \begin{itemize}
+    \item sprawdź politykę bezpieczeństwa w {\tt SPD} \emph{(ang. Security Policy Database)}
+    \item jeśli polityka bezpieczeństwa każe odrzucić pakiet, odrzuć pakiet
+    \item jeśli pakiet nie musi być zabezpieczany, wyślij pakiet.
+  \end{itemize}
+  \item Ustal {\tt SA}, które powinno być zastosowane do pakietu:
+  \begin{itemize}
+    \item odszukaj {\tt SA} w bazie {\tt SAD} \emph{(ang. SA Database)} lub
+    \item jeśli nie ma jeszcze odpowiedniego {\tt SA}, uzyskaj odpowiednie {\tt SA}.
+  \end{itemize}
+  \item Zabezpiecz pakiet, wykorzystując algorytmy, parametry i klucze zawarte w {\tt SA}:
+  \begin{itemize}
+    \item stwórz nagłówek {\tt AH}, {\tt ESP};
+    \item jeśli tryb tunelowy, stwórz nowy nagłówek {\tt IP};
+  \end{itemize}
+  \item Wyślij pakiet.
+\end{enumerate}
+
+\subsection{Zarządzanie kluczami {\tt IPsec}}
+
+{\tt IPsec} nie definiuje sposobów zarządzania i dystrybucji kluczy.
+Klucze mogą być przypisane do użytkownika lub do komputera.
+
+Sposoby dystrybucji kluczy:
+\begin{itemize}
+  \item Wyznaczenie wszystkich kluczy przez administratora (małej sieci lokalnej);
+  \item Wykorzystanie istniejących systemów dystrybucji, np. Kerberosa;
+  \item Specjalizowane protokoły dla serwerów kluczy (niezależne od {\tt IPsec}), np. {\tt SKIP} (\emph{Sun}), {\tt Photuris}, {\tt IKE} \emph{(Internet Key Exchange)};
+  \item Integracja serwerów kluczy z usługami katalogowymi, np. {\tt DNSsec}, {\tt LDAP}
+\end{itemize}
+
+\subsubsection{Protokoły zarządzania kluczami {\tt IPsec}}
+
+Służą do wzajemnego uwierzytelniania podmiotów nawiązujących asocjację {\tt IPsec} i do uzgadniania kluczy na potrzeby kanałów {\tt SA}.
+Obie te funkcje realizowane są na podstawie skonfigurowanych na stałe danych uwierzytelniających:
+\begin{itemize}
+  \item Hasło wspólne dla pary stacji \emph{(ang. shared secret)}
+  \item certyfikaty {\tt X.509}
+  \item klucze {\tt PGP}
+\end{itemize}
+
+Niektóre implementacje ({\tt SKIP}, {\tt Photuris}) umożliwiają wyłącznie uwierzytelnianie na podstawie haseł.
+Popularny protokół {\tt IKE} obsługuje natomiast wszystkie wyżej wymienione metowy i umożliwia jeszcze prywatne rozszerzenia.
+
+\section{Protokół {\tt IKE} \emph{(Internet Key Exchange)}}
+
+Obejmuje dwa składniki:
+\begin{itemize}
+  \item {\tt ISAKMP} \emph{(Internet Security Association and Key Management Protocol)} --- faktyczny protokół negocjacji parametrów {\tt IPsec};
+  \item {\tt Oakley} --- kryptograficzny protokół wymiany kluczy za pomocą schematu Diffiego-Hellmana.
+\end{itemize}
+
+{\tt ISAKMP} stanowi trzon całości i z tego powodu nazwy tej używa się niekiedy zamiennie z {\tt IKE}.
+Protokół {\tt ISAKMP} korzysta z portu {\tt UDP} (port 500).
+
+Wymiana kluczy następuje dwuetapowo:
+
+\begin{itemize}
+  \item ustalenie tożsamożci komunikujących się węzłów i utworzenie bezpiecznego kanału (tzw. {\tt ISAKMP SA}), utrzymywanego przez cały czas trwania sesji;
+  \item właściwa negocjacja parametrów asocjacji
+\end{itemize}
+
+Uwierzytelnianie może być realizowane na dwa sposoby:
+\begin{itemize}
+  \item Każda para węzłów ma ustalone wspólne hasło, które służy do obliczania kluczy metodą Diffiego-Hellmana; oznacza to konieczność konfigurowania haseł na wszystkich węzłach, co jest istotnym ograniczeniem i może okazać się zbyt pracochłonne w przypadku dużych sieci;
+  \item Zastosowanie kluczy publicznych podpisanych przez nadrzędny urząd certyfikujący {\tt CA} (np.\@ certyfikatów {\tt X.509}); wolne od ograniczeń ręcznej definicji haseł.
+\end{itemize}
+
+Protokół {\tt ISAKMP} jest łatwo rozszerzalny, można zdefiniować własny zestaw szyfrów i własne mechanizmy uwierzytelniania.
+
+\subsection{{\tt IKE} i {\tt PKI} \emph{(Public Key Infrastructure)}}
+
+Protokół {\tt IKE} pozwala wykorzystać możliwości {\tt PKI}. Po nawiązaniu komunikacji, ale przed uzgodnieniem {\tt ISAKMP SA}, węzeł może zweryfikować autentyczność certyfikatu drugiej strony dzięki podpisowi {\tt CA}.
+
+W skrajnym przypadku węzeł nie musi nic wiedzieć o innych węzłach, z którymi będzie się łączył, lub które będą się łączyć z nim.
+
+Wymaga to jedynie lokalnego dostępu (zainstalowania w tym węźle) klucza publicznego urzędu {\tt CA} --- będzie to jeden i ten sam klucz na wszystkich węzłach. Znacznie ułatwia to realizację złożonych topologii.
+\pagebreak
+\subsection{\tt IKE}
+Umożliwia automatyczną renegocjację kluczy kryptograficznych co określony interwał czasu.
+W przypadku złamania bierzącego klucza dane zaszyfrowane poprzednimi kluczami nie są narażone.
+
+Cecha ta, określana jako \emph{Perfect Forward Security}, chroni przed sytuacją, gdy atakujący zapisuje wszystkie przechwycone w przeszłości dane w nadziei, że kiedyś uda mu się zdobyć klucz do ich rozszyfrowania.
+Implementacja jest obligowana, aby w przypadku renegocjacji klucza poprzedni klucz został usunięty z pamięci.
+Wówczas włamywacz nie znajdzie go nawet w przypadku opanowania systemu operacyjnego węzła.
+\section{{\tt PPTP} i {\tt MPTP}}
+\section{\tt L2TP}
+\section{\tt SSL}
+\end{document}

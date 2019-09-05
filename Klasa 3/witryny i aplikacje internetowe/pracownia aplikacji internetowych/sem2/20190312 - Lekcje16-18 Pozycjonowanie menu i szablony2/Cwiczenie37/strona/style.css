@@ -1,0 +1,147 @@
+* {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+body {
+    text-align: center;
+    background: #eeffff;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+#container_index {
+    border: 2px solid navy;
+    background: url(obrazki/snow_ridge.png);
+    padding: 20px 100px;
+    width: 30%;
+}
+
+table {
+    margin: 0 auto;
+    padding: 0;
+    border: 2px solid navy;
+    background: navy;
+}
+
+td {
+    width: 80px;
+}
+
+.EEFFFF {
+    background: #eeffff;
+}
+
+.navy {
+    color: white;
+    border: 2px solid navy;
+}
+
+#container_a {
+    text-align: left;
+    width: 750px;
+}
+
+#container_a>ol {
+    list-style-type: lower-roman;
+}
+
+.menu {
+    display: block;
+    float: left;
+    margin: 0 auto;
+    width: 400px;
+    height: 100%;
+}
+
+.menu img {
+    display: block;
+    margin: 20px auto;
+}
+
+#table_a {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+}
+
+#table_a td {
+    background: white;
+    border: 1px solid black;
+    width: 100%;
+    padding: 0px 20px;
+    font-size: 1.5em;
+}
+
+#kolory_a {
+    width: 50px;
+    margin: 0 auto;
+}
+
+.kolory p {
+    text-align: center;
+    font-weight: bold;
+    color: navy;
+}
+
+#kolory_a table {
+    background: none;
+    border: 3px outset rgb(95, 184, 184);
+    border-collapse: collapse;
+}
+
+#kolory_a table td {
+    border: 3px outset rgb(95, 184, 184);
+}
+
+#kolory_a .navy {
+    background: navy;
+}
+
+#header_b {
+    position: absolute;
+    clear: both;
+}
+
+#header_b h1 {
+    padding-left: 50%;
+    text-align: left;
+    color: navy;
+}
+
+#container_b {
+    text-align: left;
+    padding: 20px;
+    color: blue;
+}
+
+#container_b li {
+    color: navy;
+}
+
+#container_b img {
+    display: block;
+    margin: 0 auto;
+}
+
+#kolory_b {
+    border: 3px outset rgb(95, 184, 184);
+    background: none;
+}
+
+#kolory_b td {
+    border: 3px inset #eeffff;
+    width: fit-content;
+    padding: 5px;
+}
+
+.blue {
+    background: blue;
+    color: white;
+}
+
+#kolory_b .navy {
+    background: navy;
+    color: white;
+}

@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage{polski}
+\usepackage{indentfirst}
+\usepackage[utf8]{inputenc}
+\begin{document}
+\title{Lekcja 10 --- Port mirroring i VoIP}
+\author{Zbigniew Żołnierowicz}
+\date{15.03.2019}
+\maketitle
+\section{Port mirroring}
+\textbf{Port mirroring}, inaczej {\tt SPAN} \emph{(Switched Port Analyzer)},
+to metoda monitorowania ruchu w sieci. Po włączeniu funkcji portu mirroring
+przełącznik wysyła kopię wszystkich pakietów sieciowych widocznych na jednym porcie
+(lub całej sieci {\tt VLAN}) do innego portu, w którym można przeanalizować pakiet.
+\section{Zasada działania}
+Przesyła pakiety z portu odbierającego \emph{(source)} do portu analizującego
+\emph{(destination)}. Można ustawić, czy monitoruje się
+wszystkie pakiety, tylko przychodzące \emph{(ingress)} lub
+tylko wychodzące \emph{(egress)}.
+\section{Pojęcie {\tt VoIP}}
+{\tt VoIP} \emph{Voice over IP} to technologia, która umożliwia przesyłanie głosu przy pomocy
+łączy dedykowanych lub internetowych sieci które wykorzystują protokoły {\tt IP},
+równorzędnie nazywana jest telefonią internetową lub telefonią {\tt IP}.
+
+W trakcie rozmowy przez {\tt IP} głos zostaje zamieniony na wersję cyfrową,
+następnie skompresowany i podzielony na pakiety. Po tej zamianie komplet
+pakietów jest przesyłany poprzez sieć internetową wraz z innymi informacjami.
+U odbiorcy cały proces jest powielany jednak w odwrotnym kierunku. W wyniku
+tych zabiegów otrzymujemy zwykły głos. Do zastosowania nadaje się każda sieć {\tt IP}.
+Jedyny wymóg to komutacja pakietów.
+
+Żeby połączenie {\tt VoIP} mogło być zrealizowane potrzebne są odpowiednie
+urządzenia lub oprogramowanie.
+\pagebreak
+\section{Elementy {\tt VoIP}}
+\subsection{Bramka systemu {\tt VoIP}}
+Jest odpowiedzialna w trybie rzeczywistym za połączenie sieci IP do innych typów sieci.
+Jej interfejs zapewnia skuteczną wymianę danych między różnymi formatami
+transmisji danych i procedur telekomunikacyjnych. Przykładowe działanie bramki
+to współdziałanie z centralą telefoniczną {\tt PBX}
+lub zwykłą telefonią {\tt PSTN} lub {\tt ISDN}.
+\subsection{Serwery, routery}
+Stosowane są do tworzenia prywatnych sieci głosowych i nadzorowania w danej sieci transmisji
+rozmów, kontroli dostępowego pasma, do routowania zgłoszeń, autoryzacji
+użytkowników, a także przyjmowania i odrzucania zgłoszeń w strefie.
+\subsection{Telefony}
+Oprogramowanie zainstalowane na komputerze \emph{(softphone'y)},
+lub dedykowane urządzenia działające bezpośrednio w sieciach IP.
+Dzięki nim wykonujemy połączenia w sieci {\tt VoIP}.
+\subsection{Protokoły, kodeki dla systemu}
+Są to zestawy standardów kompresujących i dekompresujących dźwięk,
+a także przesyłania pakietów i komunikację urządzeń w celu wymiany danych.
+\section{Protokoły {\tt VoIP}}
+{\tt VoIP} czyli telefonia internetowa wykorzystuje dwa typy protokołów:
+\begin{description}
+    \item[Protokół sygnalizacyjny] Jego zadanie to pośrednictwo w komunikacji urządzeń {\tt VoIP}.
+    \item[Protokół transportujący] Jego zadaniem jest odpowiednia kontrola nad \\
+    przesyłanymi pakietami głosowymi.
+\end{description}
+\pagebreak
+\subsection{Protokoły IP}
+\begin{itemize}
+    \item {\tt SIP}
+    \item {\tt LTP}
+    \item {\tt H.323}
+    \item {\tt MGCP}
+    \item {\tt SCCP}
+    \item {\tt IAX}
+    \item {\tt Megaco}
+    \item {\tt SIMPLE}
+    \item {\tt RTP}
+    \item {\tt STUN}
+    \item {\tt ENUM}
+    \item {\tt TRIP}
+    \item {\tt T.37}
+    \item {\tt T.38}
+    \item {\tt COPS}
+    \item {\tt PINT}
+    \item {\tt SCTP}
+\end{itemize}
+\pagebreak
+\subsubsection{\tt SIP}
+Protokół {\tt SIP} \emph{(Session Initiation Protocol)}, jest protokołem sygnałowym,
+działającym w aplikacjach. Służy on do ustalania adresów IP i numerów portów
+wykorzystywanych w trakcie sesji multimedialnej.
+
+{\tt SIP} to nie jest protokół transportowy (nie służy do transmisji danych),
+a same pakiety danych nie są kierowane tą samą trasą co pakiety SIP.
+Istnieje jednak mechanizm umożliwiający przesyłanie zdjęć, danych z wizytówek
+lub stron internetowych łącznie z pakietami sygnalizacyjnymi.
+
+{\tt SIP} posiada ograniczenia i kończy się jego rola na sygnalizacji bez kontroli
+przesyłu danych. Zamysłem koncepcji {\tt SIP} jest prosta, przejrzysta warstwa
+telekomunikacyjna, umożliwiająca współpracę jednostek internetowych oraz usług dodatkowych
+zbudowanych nad tą warstwą.
+
+Jedną z zalet protokołu {\tt SIP} jest fakt, iż jest on znacznie mniej skomplikowany
+i przypomina protokoły {\tt HTTP}/{\tt SMTP}. Identyfikacja terminali końcowych odbywa się z
+wykorzystaniem adresów podobnych do adresów e-mail: {\tt użytkownik@domena:port},
+domyślnym portem jest 5060.
+Dlatego też większość sprzętu {\tt VoIP} jest stworzona na podstawie standardu {\tt SIP};
+podczas gdy starszy sprzęt {\tt VoIP} został stworzony ze standardem {\tt H.232}.
+\subsubsection{\tt VoIP - H.323}
+{\tt H.323} to standard opracowany i zaakceptowany przez {\tt ITU}, który oznacza zbiór
+protokołóœ do prowadzenia multimedialnej komunikajci (głos, obraz, wiadomości tekstowe)
+przez sieci komputerowe. {\tt H.323} jest stosunkowo przestarzałym protokołem i obecnie
+jest zastępowany przez {\tt SIP} \emph{(ang. Session Initiation Protocol)}, protokół
+inicjowania sesji.
+
+Pierwszą wersję standardu przyjęto w 1997 roku. {\tt H.323} zaliczane jest do szeregu
+standardów telekomunikacyjnych określanych jako {\tt H.23X}.
+
+Typoszereg ten opisuje połączenia multimedialne w najróżniejszych sieciach, włączając w to
+{\tt PSTN} i {\tt ISDN}.
+
+W roku 1998 została zatwierdzona wersja tego standardu opisującą sposób tworzenia połączeń
+multimedialnych w sieciach WAN.
+\subsection{Protokół {\tt ITU}}
+\begin{itemize}
+    \item {\tt SS7}
+    \item {\tt ISUP} --- standard związany z {\tt ITU}: {\tt P.1010}
+\end{itemize}
+\subsection{Inne}
+\begin{itemize}
+    \item {\tt OSP}
+    \item {\tt PacketCable}
+\end{itemize}
+W większości rozwiązań w transporcie pakietów wykorzystywane są protokoły {\tt RTP}.
+Są to protokoły transportowe trybu czasu rzeczywistego.
+Dominujące protokoły to {\tt H.323} i {\tt SIP}.
+\end{document}

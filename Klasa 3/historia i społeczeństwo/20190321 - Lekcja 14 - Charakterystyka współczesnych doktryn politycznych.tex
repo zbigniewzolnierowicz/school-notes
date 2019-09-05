@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[english,polish]{babel}
+\usepackage[utf8]{inputenc}
+\let\oldquote\quote
+\let\endoldquote\endquote
+\renewenvironment{quote}[2][]
+  {\if\relax\detokenize{#1}\relax
+     \def\quoteauthor{#2}%
+   \else
+     \def\quoteauthor{#2~---~#1}%
+   \fi
+   \oldquote}
+  {\par\nobreak\smallskip\hfill(\quoteauthor)%
+   \endoldquote\addvspace{\bigskipamount}}
+\begin{document}
+\title{
+    {\huge Lekcja 14} \\
+    {\large Charakerystyka współczesnych doktryn politycznych}
+}
+\author{Zbigniew Żołnierowicz}
+\date{21.03.2019}
+\maketitle
+\section{Konserwatyzm}
+\subsection{Człowiek}
+Człowiek ma dążyć do zachowania istniejącego ładu, ustalonego przez \emph{religię, tradycję, historię}.
+Bóg jest stwórcą świata, a człowiek - stworzony przez boga - ma stać na straży tego porządku.
+\subsection{Religia}
+Religia źródłem systemu wartości.
+\subsection{Rodzina}
+Rodzina to pierwotny wzór społeczeństwa hierarchicznego.
+\subsection{Społeczeństwo}
+Społeczeństwo to organizm, którego narządy są zróżnicowane i każdy odgrywa swoją rolę.
+Powinno być różnorodne i hierarchiczne (duża rola elit).
+\subsection{Własność}
+Własność prywatna.
+\subsection{Ład społeczny}
+Sprzeciw wobec wszelkim rewolucjom, gwałtowne zmiany są wbrew naturze człowieka.
+\section{Katolicka nauka społeczna}
+\subsection{Człowiek}
+Człowiek odkrywa Boga w człowieku i człowieka w Bogu. Istnieje życie doczesne i życie wieczne.
+Prawa człowieka wynikają z godności osoby ludzkiej i przysługują człowiekowi bezwzględnie.
+\subsection{Zasada solidarności i solidaryzmu społecznego}
+Zasada solidarności i solidaryzmu społecznego, czyli uporządkowanej zgody w dążeniu do wspólnego dobra.
+\begin{quote}{Leon XIII, encyklika \emph{Rerum novarum}.}
+    "Ani kapitał bez pracy, ani bez kapitału praca nie może istnieć."
+\end{quote}
+\subsection{Własność}
+Własność prywatna, ograniczona rola państwa w gospodarce.
+\subsection{Ład społeczny i pokój}
+Ład społeczny i pokój zależą od zachowania porządku ustawionego przez Boga.
+\section{Liberalizm}
+\subsection{Człowiek}
+Człowiek jako jednostka jest wartością nadrzędną.
+\emph{Racjonalistyczna i indywidualistyczna koncepcja człowieka.}
+\subsection{Wolność}
+Jest podstawową wartością, rozumianą jako swoboda działania.
+Nierozerwalnie łączy się ona z odpowiedzialnością za podejmowane granice.
+\begin{quote}{Alexis de Tocqueville}
+    Granice wolności jednostki wyznacza wolność drugiego człowieka.
+\end{quote}
+\subsection{Równość}
+Równość jest rozumiana jako równość wobec praw natury. Ludzie rodzą się równi i
+mają równe prawa do korzystania z wolności; jedni z niej korzystają, inni nie.
+Jest to sprawiedliwe. Nie istnieje coś takiego jak ``sprawiedliwość społeczna''.
+\begin{quote}{Autor nieznany}
+    "Mają ci, którzy chcą mieć; ci, którzy się o to troszczą."
+\end{quote}
+\subsection{Społeczeństwo}
+Społeczeństwo jest sumą jednostek lub grup społecznych o przeciwstawnych interesach.
+\subsection{Państwo}
+Państwo ma pełnić rolę ``nocnego stróża''; Programy socjalne są przejawem nierównego traktowania
+obywateli przez państwo, które nagradza nieudaczników.
+\begin{quote}{Autor nieznany}
+    Co lepiej dać biedakowi: rybę czy wędkę?
+    Odpowiedź liberała: ``Każdy z nas dysponuje wędką, dlatego państwo nie powinno rozdawać ryb tym,
+    którzy nie potrafią łowić lub po prostu nie chcą iść na ryby.''
+\end{quote}
+\section{Socjaldemokracja}
+\subsection{Człowiek}
+Człowiek jest głęboko osadzony w społeczeństwie, pojmowany nieco idealistycznie. Gdy ponosi klęski,
+winy upatruje się w złym porządku społecznym.
+
+\emph{Brak sprawiedliwości społecznej}
+\subsection{Społeczeństwo}
+Społeczeństwo złożone z klas o przeciwstawnych interesach, konieczne jest zapewnienie praw socjalnych
+potrzebującym.
+\subsection{Równość}
+Od XX w.\@ nacisk na równość szans, równy start życiowy (np.\@ powszechny dostęp do nauki).
+\subsection{Wolność}
+Wolność jest pojęciem problematycznym; jeśli własność prywatna pociąga za sobą przymus ekonomiczny
+to wolność jest pustym frazesem; współcześnie socjaldemokraci są bliscy pojmowaniu wolności przez
+liberałów.
+\subsection{Państwo}
+Możliwy i konieczny interwencjonizm państwowy.
+\subsection{Własność}
+Początkowo ideałem była własność społeczna, dziś uznaje się wyższość własności prywatnej. Ideałem
+byłoby, gdyby produkcja produkcja opierała isę na zasadach kapitalizmu, a podział dóbr - socjalizmu.
+\end{document}

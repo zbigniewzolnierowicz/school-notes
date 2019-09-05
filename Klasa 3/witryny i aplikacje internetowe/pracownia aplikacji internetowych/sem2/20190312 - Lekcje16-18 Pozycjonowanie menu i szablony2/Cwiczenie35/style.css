@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-sherif;
+    /*czcionka*/
+    font-size: 16px;
+    /*rozmiar czcionki*/
+    color: white;
+    /*kolor czcionki*/
+    line-height: 30px;
+    /*wysokość linii tekstu*/
+    text-align: center;
+    /*tekst wycentrowany*/
+}
+
+a {
+    color: white;
+    /*biała czcionka odsyłaczy*/
+    text-decoration: none;
+    /*bez podkreślenia*/
+    display: block;
+    /*dzięki temu a wypełni obszar rodzica*/
+}
+
+a:hover {
+    color: yellow;
+    /*kolor czcionki po najechaniu kursorem myszki*/
+}
+
+ol {
+    list-style: none;
+    /*likwidujemy marker listy*/
+}
+
+ol ul {
+    display: none;
+    /*ul przynależne ol jest niewidoczne*/
+    margin: 0;
+    /*marginesy zewnętrzne*/
+    padding: 0;
+    /*marginesy wewnętrzne*/
+}
+
+li {
+    width: 150px;
+    /*długość pól menu*/
+    background: #0c5a0c;
+    /*kolor pól menu*/
+    cursor: default;
+    /*nad tekstem pozostaje jako strzałka*/
+    border-top: 1px solid yellow;
+    /*górna krawędź pola*/
+    border-bottom: 1px solid yellow;
+    /*lewa krawędź pola*/
+}
+
+li:hover,
+li a:hover {
+    background: green;
+    /*kolor tła po najechaniu kursorem myszki*/
+}
+
+ol li {
+    float: left;
+    /*pola główne ustawiają się w jednej linii*/
+}
+
+ol>li:hover>ul {
+    display: block;
+    /*ul przynależne li:hover jest widoczne*/
+    list-style: none;
+    /*likwidujemy marker listy*/
+}
+
+ul li {
+    margin-left: -1px;
+    /*marginesy zewnętrzne od lewej*/
+    width: 170px;
+    /*długość pól podmenu*/
+}

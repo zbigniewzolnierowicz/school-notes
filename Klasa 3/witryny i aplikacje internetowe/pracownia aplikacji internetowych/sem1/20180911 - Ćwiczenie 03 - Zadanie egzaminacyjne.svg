@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2018 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="800mm" height="200mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 800 200"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID0" horiz-adv-x="667" font-variant="normal" class="str0" style="fill-rule:nonzero" font-weight="400">
+	<font-face 
+		font-family="Arial">
+		<font-face-src>
+			<font-face-name name="Arial"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="A" horiz-adv-x="667" d="M-1.49953 0l274.666 716 104.167 0 291.501 -716 -107.836 0 -82.8311 217 -301.501 0 -77.6664 -217 -100.499 0zm205.999 294.001l244 0 -74.6674 198.499c-22.4986,60.3326 -39.5008,110.168 -51.3326,149.499 -9.83338,-46.6639 -23.0003,-92.4973 -39.5008,-137.832l-78.4998 -210.166z"/>
+   <glyph unicode="E" horiz-adv-x="667" d="M78.9987 0l0 716 517.002 0 0 -83.999 -422.002 0 0 -220 395.002 0 0 -84.0018 -395.002 0 0 -244 439.001 0 0 -83.999 -534.002 0z"/>
+   <glyph unicode="K" horiz-adv-x="667" d="M73.0006 0l0 716 95.0003 0 0 -354.999 355.666 354.999 128.333 0 -300.333 -290.333 313.333 -425.667 -124.999 0 -254.832 361.332 -117.167 -113.332 0 -248 -95.0003 0z"/>
+   <glyph unicode="M" horiz-adv-x="832" d="M74.999 0l0 716 142.001 0 169.333 -506.834c15.6671,-47.1656 27,-82.4995 34.166,-105.999 8.16661,25.9994 20.999,64.3322 38.3329,114.834l172.335 497.999 126.833 0 0 -716 -91.0006 0 0 599 -209.001 -599 -85.3313 0 -206.668 610.001 0 -610.001 -91.0006 0z"/>
+   <glyph unicode="T" horiz-adv-x="610" d="M259.001 0l0 632.001 -236.001 0 0 83.999 567 0 0 -83.999 -236.001 0 0 -632.001 -94.9974 0z"/>
+   <glyph unicode="Y" horiz-adv-x="667" d="M278.833 0l0 303.332 -275.998 412.667 113.998 0 141.5 -216.666c26.3338,-40.1669 50.8337,-80.3338 73.1678,-120.501 21.8324,37.4995 48.3335,79.5004 79.1659,126.167l138.668 211 110.5 0 -286.001 -412.667 0 -303.332 -95.0003 0z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Arial";font-variant:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .str0 {stroke-width:56.6929;stroke-miterlimit:22.9256}
+    .str1 {stroke:#2B2A29;stroke-width:2;stroke-miterlimit:22.9256}
+    .fil2 {fill:#FEFEFE}
+    .fil0 {fill:#EBECEC}
+    .fil1 {fill:#2B2A29}
+    .fnt0 {font-weight:normal;font-size:35.2778px;font-family:'Arial'}
+   ]]>
+  </style>
+ </defs>
+ <rect class="fil0" width="800" height="200"/>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g transform="matrix(0.95 0 0 1 -92.9645 40)">
+   <text x="400" y="100"  class="fil1 str1 fnt0">MATEMATYKA</text>
+  </g>
+  <ellipse class="fil2 str1" cx="69.6444" cy="118.9887" rx="49.6444" ry="21.0113"/>
+  <polygon class="fil2 str1" points="203.1622,57.4757 225.7937,98.7378 248.4253,140 203.1622,140 157.899,140 180.5306,98.7378 "/>
+  <ellipse class="fil2 str1" cx="730.3556" cy="118.9887" rx="49.6444" ry="21.0113"/>
+  <polygon class="fil2 str1" points="596.8375,57.4757 574.206,98.7378 551.5744,140 596.8375,140 642.1007,140 619.4691,98.7378 "/>
+ </g>
+</svg>
