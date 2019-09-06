@@ -4,11 +4,13 @@ using namespace std;
 
 int main() {
     ifstream fin ("input.txt");
-    int sum;
-    for (; !fin.eof();) {
-        fin >> x;
-        cout<<x * x<<endl;
+    int sum = 0;
+    int num;
+    for (;!fin.eof();) {
+        fin >> num;
+        sum += num;
     }
+    cout<<"Sum: "<<sum<<endl;
     fin.close();
     return 0;
 }
