@@ -2,6 +2,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[polish,english]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{lscape}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{float}
@@ -70,19 +71,19 @@ Dojście do władzy totalitarystycznych doktryn politycznych, przez biedę powoj
 \subsection{Podaj nazwiska twórców przypisanych do wymienio\-nych nurtów, przykładowe tytuły ich dzieł oraz informacje o sposobie przekazu i obrazie świata}
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
-% \usepackage{graphicx}
-\begin{table}[H]
+% \usepackage{lscape}
+\begin{landscape}
+    \begin{table}[H]
     \centering
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}|l|l|l|l|l|@{}}
-    \toprule
-    \textbf{Nazwa nurtu}   & \textbf{Nazwiska twórców}  & \textbf{Tytuły dzieł}          & \textbf{Sposób przekazu} & \textbf{Obraz świata} \\ \midrule
-    \textit{dadaizm}       & Marcel Duchamp             &                                &                          &                       \\ \midrule
-    \textit{kubizm}        & Pablo Picasso              & ``Panny z Awinionu''           &                          &                       \\ \midrule
-    \textit{surrealizm}    & Salvador Dali, Luis Be\~nuel &                                &                          &                       \\ \midrule
-    \textit{futuryzm}      &                            &                                &                          &                       \\ \midrule
-    \textit{ekspresjonizm} &                            & ``Nosferatu - Symfonia Grozy'' &                          &                       \\ \bottomrule
-    \end{tabular}%
-    }
+        \begin{tabular}{@{}|l|l|l|l|l|@{}} 
+        \toprule
+            \emph{Nazwa nurtu} & \emph{Nazwiska twórców} & \emph{Tytuły dzieł} & \emph{Sposób przekazu} & \emph{Obraz świata} \\ \midrule
+            \textbf{dadaizm} & Marcel Duchamp & \begin{tabular}[c]{@{}l@{}}``Fontanna'',\\ ``Mona Lisa z wąsem''\end{tabular} & ``ready-made'' & antyestetyzm \\ \midrule
+            \textbf{kubizm} & Pablo Picasso, Władimir Majakowski & ``Panny z Awinionu'' & geometria & odrzucenie formy ludzkiej \\ \midrule
+            \textbf{surrealizm} & \begin{tabular}[c]{@{}l@{}}Salvador Dali,\\ Luis Benuel,\\ Guillaume Apollinaire,\\ André Breton,\\ René Magritte\end{tabular} & \begin{tabular}[c]{@{}l@{}}``Pies andaluzyjski'',\\ ``Kaligramy'',\\ ``Płonąca żyrafa''\end{tabular} & język pozarozumowy & absurd \\ \midrule
+            \textbf{futuryzm} & \begin{tabular}[c]{@{}l@{}}Filippo Tommaso Marinetti,\\ Władimir Majakowski,\\ Stanisław Młodożeniec,\\ Tytus Czyżewski,\\ Bruno Jasieński\end{tabular} & \begin{tabular}[c]{@{}l@{}}``But w butonierce'',\\ ``Mechaniczny ogród'',\end{tabular} & ruch & przeczucie katastrofy \\ \midrule
+            \textbf{ekspresjonizm} & F. W. Murnau & ``Nosferatu - Symfonia Grozy'' &  & chwilowość \\ \bottomrule
+        \end{tabular}
     \end{table}
+\end{landscape}
 \end{document}
