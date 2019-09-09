@@ -1,0 +1,78 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,english,polish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage{float}
+\usepackage{indentfirst}
+\useunder{\uline}{\ul}{}
+\usepackage[utf8]{inputenc}
+\begin{document}
+\title{{\huge Lekcja 02} \\
+    {\large Jak komputer wykonuje program?}}
+\author{Zbigniew Żołnierowicz}
+\date{09.09.2019}
+\maketitle
+\textbf{Program} komputerowy to ciąg symboli tworzących instrukcje, opisujących realizowane obliczenia zgodnie z przyjętymi regułami, zwanymi językiem programowania.
+
+\textbf{Aplikacja} to program lub zbiór programów realizujących określone działania (np. Microsoft Office Word)
+\section{Języki kompilowalne i interpretowalne}
+\subsection{Języki wysokiego poziomu}
+\begin{itemize}
+    \item Abstrakcyjne (np. języki obiektowe)
+    \item Niezależne od architektury
+    \item Łatwe do zrozumienia przez człowieka
+\end{itemize}
+\subsection{Języki niskiego poziomu}
+\begin{itemize}
+    \item Ściśle związane z bieżącą architekturą
+    \item Trudne do zrozumienia przez człowieka
+\end{itemize}
+\subsection{Translator}
+\textbf{Translator} to program komputerowy, który przekształca kod w pewnym określonym języku programowania na kod w innym języku programowania (zwykle tego samego lub wyższego poziomu). Proces takiego przekształcenia nazywamy \textbf{translacją}.
+\pagebreak
+\subsection{Języki kompilowalne}
+\textbf{Kompilator} to program komputerowy, który przekształca kod w pewnym określonym języku programowania wyższego poziomu na kod w języku programowania niższego poziomu. Proces takiego przekształcenia nazywamy \textbf{kompilacją}. W szczególności, kompilator może przekształcać kod w danym języku programowania na kod w języku maszynowym.
+
+Każdy język programowania, dla którego istnieje kompilator nazywamy językiem kompilowalnym.
+\subsubsection{Przykłady języków kompilowalnych}
+\begin{itemize}
+    \item C
+    \item C++
+    \item C\#
+    \item Java
+    \item Język assemblera
+\end{itemize}
+Uwaga: każdy kompilator jest translatorem, ale nie kazdy translator jest kompilatorem.
+\subsection{Assembler}
+\textbf{Assembler} to kompilator, który przekształca kod w języku assemblera na kod w języku maszynowym. Proces takiego przekształcenia nazywamy \textbf{assemblacją}.
+\subsection{Kompilacja}
+\textbf{Kompilacją} nazywamy również ciąg procesów przekształcających kod źródłowy w plik wykonywalny, gotowy do uruchomienia na maszynie. Standardowy proces kompilacji składa się z czterech kroków.
+\begin{enumerate}
+    \item[\textbf{Krok 1}]\emph{Prekompilacja}: Pliki z kodem źródłowym są przygotowywane do etapu kompilacji
+    \item[\textbf{Krok 2}]\emph{Kompilacja}: Pliki z kodem źródłowym są kompilowane do języka assemblera.
+    \item[\textbf{Krok 3}]\emph{Assemblacja}: Pliki z kodem źródłowym w języku assemblera przetwarzane są na język maszynowy.
+    \item[\textbf{Krok 4}]\emph{Linkowanie}: Program zwany linkerem łączy wszystkie pliki w jeden plik wykonywalny.
+\end{enumerate}
+\pagebreak
+\subsection{Języki interpretowalne}
+\textbf{Interpreter} to program komputerowy, który analizuje, interpretuje i natychmiast wykonuje kod w pewnym określonym języku programowania. Proces ten nazywamy interpretacją.
+
+Każdy język programowania, dla którego istnieje interpreter nazywamy \textbf{językiem interpretowalnym} (skryptowym). Źródło zawierające kod w języku interpretowalnym nazywamy \emph{skryptem}.
+
+\subsubsection{Przykłady języków interpretowalnych}
+\begin{itemize}
+    \item Python
+    \item JavaScript
+    \item Ruby
+    \item Shell script
+    \item PHP
+\end{itemize}
+\subsection{Debugger}
+\textbf{Debugger} to program komputerowy służący do dynamicznej analizy działania innych programów. Analiza ta, obejmująca obserwację wykonywanych instrukcji i zawartości zmiennych, pozwala zidentyfikować błędy występujące w badanym programie.
+\subsection{Aplet}
+\textbf{Aplet} to program komputerowy osadzony na stronie internetowej, uruchamany (np. aplet uruchamiany w wirtualnym środowisku Javy) lub interpretowany (np. kod w języku JavaScript) przez przeglądarkę internetową.
+\section{Zadanie domowe}
+Czym jest ``cykl życia aplikacji''?
+\end{document}
