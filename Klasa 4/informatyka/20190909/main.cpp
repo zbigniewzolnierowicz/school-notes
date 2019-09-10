@@ -18,16 +18,10 @@ int main() {
     int num;
     while(!fin.eof()) {
         fin >> num;
-        if (!isPrime(num)) {
-            fout<<num;
-        } else {
-            fout<<num<<endl;
-            fout<<"\t"<<floor(sqrt(num))<<endl;
-            if (!isPrime(floor(sqrt(num)))) {
-                fout<<"\tIs prime."<<endl;
-            }
+        fout<<num<<endl;
+        if (isPrime(floor(sqrt(num)))) {
+            fout<<"\tIs prime."<<endl;
         }
-        fout<<endl;
     }
     fin.close();
     fout.close();
