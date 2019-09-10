@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20190910 - Ćwiczenie 5</title>
+</head>
+
+<body>
+    <div id="output"></div>
+</body>
+<script>
+    let query = prompt("Wybierz figurę:\nprostokąt,\nkwadrat,\nkoło,\ntrapez");
+    let output = document.querySelector("#output");
+    console.log(query);
+    let a;
+    let b;
+    let h;
+    let a_out = document.createElement("p");
+    let b_out = document.createElement("p");
+    let h_out = document.createElement("p");
+    let field_out = document.createElement("p");
+    switch (query) {
+        case "prostokąt":
+            a = parseInt(prompt("Podaj bok a"));
+            a_out.innerHTML = `a = ${a} cm`;
+            b = parseInt(prompt("Podaj bok b"));
+            b_out.innerHTML = `b = ${b} cm`;
+            field_out.innerHTML = `P = ${a * b} cm^2`;
+            output.appendChild(a_out);
+            output.appendChild(b_out);
+            output.appendChild(field_out);
+            break;
+
+        case "kwadrat":
+            a = parseInt(prompt("Podaj bok a"));
+            a_out.innerHTML = `a = ${a} cm`;
+            field_out.innerHTML = `P = ${a * a} cm^2`;
+            output.appendChild(a_out);
+            output.appendChild(field_out);
+            break;
+        case "koło":
+            a = parseInt(prompt("Podaj promień"));
+            a_out.innerHTML = `a = ${a} cm`;
+            field_out.innerHTML = `P = ${(Math.PI * (a * a))} cm^2`;
+            output.appendChild(a_out);
+            output.appendChild(field_out);
+            break;
+        case "trapez":
+            a = parseInt(prompt("Podaj podstawę a"));
+            a_out.innerHTML = `a = ${a} cm`;
+            b = parseInt(prompt("Podaj podstawę b"));
+            b_out.innerHTML = `b = ${b} cm`;
+            let h = parseInt(prompt("Podaj wysokość"));
+            h_out.innerHTML = `h = ${h} cm`;
+            field_out.innerHTML = `P = ${(a +b) * h} cm^2`;
+            output.appendChild(a_out);
+            output.appendChild(b_out);
+            output.appendChild(h_out);
+            output.appendChild(field_out);
+            break;
+        default:
+            field_out.innerHTML = "Podałeś niewłaściwą figurę.";
+            output.appendChild(field_out);
+            break;
+    }
+</script>
+
+</html>

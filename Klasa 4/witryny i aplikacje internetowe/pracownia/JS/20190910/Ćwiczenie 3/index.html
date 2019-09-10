@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pole trapezu</h1>
+    <p id="a">Podstawa a = </p>
+    <p id="b">Podstawa b = </p>
+    <p id="h">Wysokość h = </p>
+    <p id="output">Pole = </p>
+</body>
+<script>
+    let a_output = document.querySelector("#a");
+    let b_output = document.querySelector("#b");
+    let h_output = document.querySelector("#h");
+    let output = document.querySelector("#output");
+    let a = parseInt(prompt("Podaj podstawę a"));
+    let b = parseInt(prompt("Podaj podstawę b"));
+    let h = parseInt(prompt("Podaj wysokość"));
+    a_output.innerHTML += `${a} cm`;
+    b_output.innerHTML += `${b} cm`;
+    h_output.innerHTML += `${h} cm`;
+    output.innerHTML += `${((a+b)*h).toString()} cm^2`;
+</script>
+</html>
