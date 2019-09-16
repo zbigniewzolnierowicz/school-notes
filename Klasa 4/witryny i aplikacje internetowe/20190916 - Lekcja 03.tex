@@ -1,0 +1,62 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,english,polish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage{float}
+\usepackage{indentfirst}
+\useunder{\uline}{\ul}{}
+\usepackage[utf8]{inputenc}
+\begin{document}
+\title{{\huge Lekcja 03} \\
+    {\large }}
+\author{Zbigniew Żołnierowicz}
+\date{16.09.2019}
+\maketitle
+\section{Analiza i projektowanie}
+Zamawiający oprogramowanie i wykonujący je uzgadniają szczegóły dotyczące wspólnych celów. Ustalone wtedy zostają wykorzystane technologie. Powstaje specyfikacja funkcjonalna, czyli dokładny opis funkcjonalności, jakie ma udostępnić aplikacja i procedur, którym ma podlegać.
+\section{Implementacja}
+Implementacja to realizacja funkcjonalności w procesie programowania, budowa wykorzystywanych baz danych i debuggowanie powstałego kodu.
+\section{Testowanie i weryfikacja}
+\begin{itemize}
+    \item Testowanie może się odbywać fragmentami
+    \item Sprawdzenie zgodności z dokumentacją projektową (weryfikacja) i prawidłowości działania
+    \item Sprawdzenie odporności nabłędy użytkownika
+    \item Blisko warunków produkcyjnych 
+\end{itemize}
+\section{Dokumentacja}
+\subsection{Dokumentacja projektu}
+Zawiera opis projektu, wymogi, np. kontrakt, specyfikacja funkcjonalna i/lub harmonogram płac.
+\subsection{Dokumentacja programistyczna}
+Opisuje ona zasady działania utworzonego kodu.
+\subsection{Dokumentacja użytkownika}
+Opisuje zasady użytkowania aplikacji.
+\section{Wdrożenie}
+\begin{itemize}
+    \item Instalacja aplikacji w środowisku produkcyjnym (uruchomieniowym)
+    \item Migracja danych ze starych aplikacji
+    \item Szkolenie użytkowników
+\end{itemize}
+\section{Wsparcie i utrzymanie}
+\begin{itemize}
+    \item Naprawa błędów niewykrytych w czasie testów
+    \item Wsparcie użytkowników
+    \item Aktualizacja oprogramowania (np. dostosowanie do zmian w prawie)
+\end{itemize}
+\section{Zadanie}
+\begin{itemize}
+    \item aplikacja na telefon
+    \item uczeń wybiera przedmiot
+    \item wybiera rozdział
+    \item wpisuje krótki opis
+    \item dopóki nie odznaczy że zrobi, to jest permanentne powiadomienie
+\end{itemize}
+\subsection*{Dokumentacja programistyczna}
+\subsubsection*{Dobrane technologie}
+\begin{itemize}
+    \item Angular + NativeScript
+    \item Dane są przechowywane Google Firebase
+    \item Powiadomienia push są obsługiwane przez Google Firebase Cloud Messaging
+\end{itemize}
+\end{document}
