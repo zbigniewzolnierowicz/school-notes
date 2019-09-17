@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 8a</title>
+</head>
+<body>
+</body>
+<script>
+    let n = parseInt(prompt("Podaj n"));
+    let accumulator = 1;
+    let output = document.createElement("p");
+    let index = 1;
+    while (index <= n) {
+        accumulator *= index;
+        index++;
+    }
+    output.innerHTML = accumulator;
+    document.body.appendChild(output);
+</script>
+</html>

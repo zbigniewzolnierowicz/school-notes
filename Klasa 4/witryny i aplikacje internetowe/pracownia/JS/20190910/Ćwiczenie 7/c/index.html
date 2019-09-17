@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 7b</title>
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="output">
+    </table>
+</body>
+<script>
+    let outputTable = document.querySelector("#output");
+    let index = 10;
+    do {
+        let row = document.createElement("tr");
+        let cell = document.createElement("td");
+        if (index % 4 == 3) {
+            row.appendChild(cell);
+            cell.innerHTML = index;
+            outputTable.appendChild(row);
+        }
+        index++
+    } while (index < 50);
+</script>
+</html>
