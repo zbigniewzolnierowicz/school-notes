@@ -1,0 +1,5 @@
+fin = open('input.txt', 'r')
+lines = fin.read().splitlines()
+lines = list(map(lambda x: int(x), lines))
+print(lines)
+fin.close()
