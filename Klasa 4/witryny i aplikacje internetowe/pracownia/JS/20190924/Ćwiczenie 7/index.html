@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20190924 - Ćwiczenie 7</title>
+    <style>
+        #details {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <div>
+            <label for="">Imię:<input type="text" name="firstname" id=""></label>
+        </div>
+        <div>
+            <label for="">Nazwisko: <input type="text" name="lastname" id=""></label>
+        </div>
+        <div>
+            <label for="">Kobieta:<input type="radio" name="sex" value="f" id=""></label>
+        </div>
+        <div>
+            <label for="">Mężczyzna:<input type="radio" name="sex" value="m" id=""></label>
+        </div>
+        <div>
+            <select name="ismarried" id="">
+                <option>--wybierz--</option>
+                <option value="panna">panna</option>
+                <option value="kawaler">kawaler</option>
+                <option value="rozwiedziony/a">rozwiedziony/a</option>
+                <option value="wdowiec">wdowiec</option>
+                <option value="wdowa">wdowa</option>
+            </select>
+        </div>
+        <div>
+            <label>Liczba dzieci: <input type="number" name="kids" id=""></label>
+        </div>
+        <div>
+            <p>Hobby</p>
+            <div><label>komputery<input type="checkbox" name="hobby" value="komputery" id=""></label></div>
+            <div><label>motoryzacja<input type="checkbox" name="hobby" value="motoryzacja" id=""></label></div>
+            <div><label>muzyka<input type="checkbox" name="hobby" value="muzyka" id=""></label></div>
+            <div><label>filmy<input type="checkbox" name="hobby" value="filmy" id=""></label></div>
+            <div><label>moda<input type="checkbox" name="hobby" value="moda" id=""></label></div>
+        </div>
+        <div>
+            <label>Chcesz powiedzieć więcej?<input type="checkbox" name="saymore" id="saymore"></label>
+        </div>
+        <div>
+            <textarea name="details" id="details" cols="30" rows="10"></textarea>
+        </div>
+        <input type="button" value="Podsumuj" id="submitter">
+    </form>
+    <p id="output"></p>
+</body>
+<script>
+    let form = document.querySelector('#form')
+    let output = document.querySelector('#output')
+    let saymore = document.querySelector('#saymore')
+    let submitter = document.querySelector('#submitter')
+    saymore.addEventListener('change', () => {
+        let details = document.querySelector('#details')
+        if (saymore.checked) {
+            details.style.display = 'block';
+        } else {
+            details.style.display = 'none';
+        }
+    })
+    submitter.addEventListener('click', () => {
+        let values = [];
+        let formData = form.hobby;
+        formData.forEach(x => {
+            let { value, checked } = x;
+            if (checked) values.push(value)
+        })
+        let gender;
+        try {
+            if (form.sex.value == 'm') {
+                gender = 'Mężczyzna';
+            } else if (form.sex.value == 'f') {
+                gender = 'Kobieta';
+            } else {
+                throw new Error('Invalid form value');
+            }    
+        } catch (error) {
+            console.error(error);
+            gender = "N/A";
+        }
+        let content = `${form.firstname.value} ${form.lastname.value}, płeć: ${gender}, stan cywilny: ${form.ismarried.value}, liczba dzieci: ${form.kids.value}, zainteresowania: ${values.join(', ')}; dodatkowe informacje: ${form.details.value}.`
+        output.innerHTML = content;
+    })
+</script>
+</html>

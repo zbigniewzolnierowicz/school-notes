@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20190924 - Ćwiczenie 6</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" name="first" id="first">
+        <input type="text" name="second" id="second">
+        <select name="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="*">*</option>
+        </select>
+        <input type="button" value="calculate" id="do">
+        <input type="text" name="output" id="output">
+    </form>
+</body>
+<script>
+    const submitter = document.querySelector('#do');
+    const form = document.querySelector('#form')
+    const first = form.first;
+    const second = form.second;
+    const output = form.output;
+    const operator = form.operator;
+    submitter.addEventListener('click', () => {
+        eval(`output.value = (${first.value}${operator.value}${second.value})`)
+    })
+</script>
+</html>
