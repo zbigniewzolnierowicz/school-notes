@@ -1,0 +1,35 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,english,polish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage{float}
+\usepackage{indentfirst}
+\useunder{\uline}{\ul}{}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\begin{document}
+\title{{\huge Lekcja 04} \\
+    {\Large Typy zmiennych\linebreak Wartości typów podstawowych (string, number),\linebreak ich metody i atrybuty}}
+\author{Zbigniew Żołnierowicz}
+\date{30.09.2019}
+\maketitle
+Wartości typów podstawowych takich jak string czy number nie posiadają swoich metod i atrybutów, ponieważ nie są obiektami. JavaScript pozwala jednak wywoływać metody i atrybuty na tych wartościach, wtedy traktowane są jak obiekty.
+\begin{minted}{javascript}
+let text = "Ala ma Kota";
+text.length // 11
+text.indexOf('a') // 2
+text.search('ma') // 4
+text.lastIndexOf('a') // 10
+text.substr(2, 3) // a m
+text.slice(2, 8) // a ma K
+text.replace('A','U') // Alu ma Kota
+text.toUpperCase() // ALA MA KOTA
+text.toLowerCase() // ala ma kota
+text.concat(' a Jasio ma psa') // Ala ma Kota a Jasio ma psa
+text.charAt(0) // A
+text.charCodeAt(0) // 65
+text.split(' ') // [ 'Ala', 'ma', 'Kota' ]
+\end{minted}
+\end{document}
