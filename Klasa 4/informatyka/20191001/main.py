@@ -1,8 +1,8 @@
-from string import ascii_uppercase
+from string import ascii_letters
 word = 'The quick brown fox jumps over the lazy dog'
-alphabet = list(ascii_uppercase)
+alphabet = list(ascii_letters)
 def prepareWord(word):
-    return word.upper().replace(' ', '')
+    return word.replace(' ', '')
 
 def generateCipher(offset):
     cryptoalphabet = list(alphabet)
