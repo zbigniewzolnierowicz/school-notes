@@ -16,20 +16,34 @@
 \date{30.09.2019}
 \maketitle
 Wartości typów podstawowych takich jak string czy number nie posiadają swoich metod i atrybutów, ponieważ nie są obiektami. JavaScript pozwala jednak wywoływać metody i atrybuty na tych wartościach, wtedy traktowane są jak obiekty.
+\section{String}
 \begin{minted}{javascript}
-let text = "Ala ma Kota";
-text.length // 11
-text.indexOf('a') // 2
-text.search('ma') // 4
-text.lastIndexOf('a') // 10
-text.substr(2, 3) // a m
-text.slice(2, 8) // a ma K
-text.replace('A','U') // Alu ma Kota
-text.toUpperCase() // ALA MA KOTA
-text.toLowerCase() // ala ma kota
-text.concat(' a Jasio ma psa') // Ala ma Kota a Jasio ma psa
-text.charAt(0) // A
-text.charCodeAt(0) // 65
-text.split(' ') // [ 'Ala', 'ma', 'Kota' ]
+    let text = "Ala ma Kota";
+    text.length // 11
+    text.indexOf('a') // 2
+    text.search('ma') // 4
+    text.lastIndexOf('a') // 10
+    text.substr(2, 3) // a m
+    text.slice(2, 8) // a ma K
+    text.replace('A','U') // Alu ma Kota
+    text.toUpperCase() // ALA MA KOTA
+    text.toLowerCase() // ala ma kota
+    text.concat(' a Jasio ma psa') // Ala ma Kota a Jasio ma psa
+    text.charAt(0) // A
+    text.charCodeAt(0) // 65
+    text.split(' ') // [ 'Ala', 'ma', 'Kota' ]
+\end{minted}
+\section{Number}
+\begin{minted}{javascript}
+    let x = 52;
+    x.toExponential(2) // '5.20e+1'
+    // Zwraca ciąg znaków - notacja wykładnicza
+    x.toFixed(2) // '52.00'
+    // Zwraca ciąg znaków - z 2 miejscami po przecinku
+    let g = 3.14159265;
+    g.toFixed(1) // 3.1
+    // Zaokrągla
+    g.toPrecision(1) // 3
+    // Zaokrągla, nie działa z jednościami
 \end{minted}
 \end{document}
