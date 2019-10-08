@@ -1,0 +1,6 @@
+Wynik do zad. 4.1: 18
+Wynik do zad. 4.2:
+	2
+	145
+	1
+	40585
