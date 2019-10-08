@@ -7,22 +7,19 @@ def prepareWord(word):
 def generateCipher(offset):
     cryptoalphabet = list(alphabet)
     for i in range(0, offset):
-        placeholder = cryptoalphabet.pop(0)
-        cryptoalphabet.append(placeholder)
+        cryptoalphabet.append(cryptoalphabet.pop(0))
     return cryptoalphabet
 
 def encode(word, cipher):
     encodedWordList = []
     for letter in word:
-        letterIndex = alphabet.index(letter)
-        encodedWordList.append(cryptoalphabet[letterIndex])
+        encodedWordList.append(cipher[alphabet.index(letter)])
     return ''.join(encodedWordList)
 
 def decode(word, cipher):
     decodedWordList = []
     for letter in encodedword:
-        letterIndex = cryptoalphabet.index(letter)
-        decodedWordList.append(alphabet[letterIndex])
+        decodedWordList.append(alphabet[cipher.index(letter)])
     return ''.join(decodedWordList)
 
 x = int(input('Choose offset: '))
