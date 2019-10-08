@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E14-06-18.06</title>
+    <style>
+        main {
+            display: flex;
+            width: 50%;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h3>Oblicz koszt dostawy</h3>
+        <form name="formdata">
+            <p><input type="checkbox" name="zg"><label for="zg">Jestem z Zielonej Góry</label></p>
+            <p>albo</p>
+            <p><label for="km">Podaj liczbę kilometrów od Zielonej Góry: </label> <input type="number" name="km"></p>
+            <input type="button" value="Oblicz">
+        </form>
+        <section id="output"></section>
+    </main>
+</body>
+<script>
+    const button = document.querySelector('input[value="Oblicz"]')
+    const output = document.querySelector('#output')
+    const form = document.formdata
+    button.addEventListener('click', () => {
+        output.innerHTML = null
+        let distance = parseInt(form.km.value)
+        let outputText = ''
+        console.log(form.km.value)
+        if (form.zg.checked) {
+            outputText = 'Dowieziemy Twoją 🍕 za darmo!' // ❤️ https://emojipedia.org/slice-of-pizza/
+        } else if (form.km.value) {
+            outputText = `Dowóz twojej 🍕 będzie Cię kosztował ${distance * 2} złotych.` 
+        } else {
+            outputText = 'Nastąpił błąd! Wypełnij formularz poprawnie.'
+        }
+        form.reset()
+        output.innerHTML = outputText
+    })
+</script>
+</html>

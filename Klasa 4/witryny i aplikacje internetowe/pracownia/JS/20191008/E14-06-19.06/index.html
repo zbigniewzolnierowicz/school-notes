@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E14-06-19.06</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        section {
+            display: flex;
+            flex-direction: row;
+        }
+        label, input, select {
+            display: block;
+        }
+        input[type="text"], select {
+            margin-left: 1ch;
+        }
+        input[type="checkbox"] {
+            margin-right: 1ch;
+        }
+    </style>
+</head>
+<body>
+    <form name="formdata">
+        <section class="name">
+            <label for="name">Imię:</label>
+            <input required type="text" name="name" id="name">
+        </section>
+        <section class="surname">
+            <label for="surname">Nazwisko:</label>
+            <input required type="text" name="surname" id="surname">
+        </section>
+        <section class="email">
+            <label for="email">E-mail:</label>
+            <input required type="email" name="email" id="email">
+        </section>
+        <section class="service">
+            <label for="service">Usługa:</label>
+            <select name="service" id="">
+                <option value="repair">naprawa komputera</option>
+                <option value="datarec">odzyskiwanie danych</option>
+                <option value="software">problemy z oprogramowaniem</option>
+                <option value="network">konfiguracja sieci LAN</option>
+                <option value="misc">inne</option>
+            </select>
+        </section>
+        <section class="sendcopy">
+            <input type="checkbox" name="sendcopy" id="sendcopy">
+            <label for="sendcopy">Wyślij kopię wiadomości</label>
+        </section>
+        <section class="buttons">
+            <input type="button" value="Resetuj" id="resetForm">
+            <input type="button" value="Prześlij" id="submitForm">
+        </section>
+    </form>
+    <main id="output">
+    </main>
+</body>
+<script>
+    function output() {
+        const output = document.querySelector('#output');
+        const formData = document.formdata;
+        const services = {
+            repair: 'naprawa komputera',
+            datarec: 'odzyskiwanie danych',
+            software: 'problemy z oprogramowaniem',
+            network: 'konfiguracja sieci LAN',
+            misc: 'inne'
+        };
+        output.innerHTML = `${formData.name.value} ${formData.surname.value}<br/>${formData.email.value.toLocaleLowerCase()}<br/>Usługa: ${services[formData.service.value]}`;
+    }
+    const resetButton = document.querySelector('#resetForm');
+    const submitButton = document.querySelector('#submitForm');
+    submitButton.addEventListener('click', () => output());
+    resetButton.addEventListener('click', () => document.formdata.reset());
+</script>
+</html>

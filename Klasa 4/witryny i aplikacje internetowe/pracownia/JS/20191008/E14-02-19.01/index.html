@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E14-02-19.01</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: row;
+        }
+        .colorSwitcher#red {
+            background: red;
+        }
+        .colorSwitcher#green {
+            background: green;
+        }
+        .colorSwitcher#blue {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <form name="formdata">
+        <label for="percentage">Podaj rozmiar tekstu w procentach: <input type="number" name="percentage" id="percentage"></label>
+        <select name="styler" id="styler">
+            <option value="normal">Prosty</option>
+            <option value="italic">Kursywa</option>
+        </select>
+        <section class="buttons">
+            <input type="button" class="colorSwitcher" id="red">
+            <input type="button" class="colorSwitcher" id="green">
+            <input type="button" class="colorSwitcher" id="blue">
+        </section>
+    </form>
+    <p id="formatted">To jest przykład paragrafum który może być dowolnie formatowany przez JavaScript</p>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.colorSwitcher');
+    const toFormat = document.querySelector('#formatted');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            toFormat.style.color = button.id;
+            toFormat.style.fontSize = `${document.formdata.percentage.value || 100 }%`;
+            toFormat.style.fontStyle = document.formdata.styler.value;
+        })
+    })
+</script>
+</html>

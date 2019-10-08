@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E14-08-18.01</title>
+</head>
+<body>
+    <form name="formdata">
+        <ul>
+            <li><label for="polak">Polak<input type="text" id="gpa" name="polak"></label></li>
+            <li><label for="nowak">Nowak<input type="text" id="gpa" name="nowak"></label></li>
+            <li><label for="rysik">Rysik<input type="text" id="gpa" name="rysik"></label></li>
+            <input type="button" value="Wyznacz">
+        </ul>
+    </form>
+</body>
+<script>
+    const button = document.querySelector('input[value=Wyznacz]')
+    const grades = document.querySelectorAll('#gpa')
+    function checkIfAnyAreEmpty(table) {
+        table.forEach(element => {
+            if (element.value) {
+                return true
+            }
+        })
+        return false
+    }
+    button.addEventListener('click', () => {
+        checkIfAnyAreEmpty(grades) ? console.log('All are full') : console.log('Some are not full')
+    })
+</script>
+</html>
