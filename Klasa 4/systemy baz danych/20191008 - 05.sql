@@ -1,3 +1,7 @@
 -- Wypisz 4 pierwsze zapachy
 
-SELECT Zapach FROM zapachy ORDER BY IDZapachu asc LIMIT 4;
+SELECT
+       Zapach
+FROM
+     zapachy
+LIMIT 4;

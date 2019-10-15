@@ -2,4 +2,5 @@ SELECT
     NazwaLacinska
 FROM
     olejki
-WHERE IDOlejku > 10;
+WHERE
+      IDOlejku > 10;
