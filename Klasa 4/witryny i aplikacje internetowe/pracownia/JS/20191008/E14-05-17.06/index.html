@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E14-05-17.06</title>
+</head>
+<body>
+    <form name="formdata">
+        <label for="x">Wymiar x</label>
+        <input type="number" name="x" id="">
+        <label for="y">Wymiar y</label>
+        <input type="number" name="y" id="">
+        <button type="button">Oblicz</button>
+    </form>
+    <p id="output"></p>
+</body>
+<script>
+    const HEIGHT = 2.7
+    const PRICE_PER_METER_SQUARED = 8
+    const submitter = document.querySelector('button[type="button"]')
+    const formData = document.formdata
+    submitter.addEventListener('click', () => {
+        let total = (2 * (formData.x.value) * HEIGHT + 2 * (formData.y.value) * HEIGHT) * PRICE_PER_METER_SQUARED
+        document.querySelector('#output').innerHTML = `Zapłacisz ${total} zł`
+    })
+</script>
+</html>
