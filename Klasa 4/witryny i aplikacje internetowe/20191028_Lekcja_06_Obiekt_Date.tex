@@ -1,0 +1,33 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,english,polish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage{float}
+\usepackage{indentfirst}
+\useunder{\uline}{\ul}{}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\begin{document}
+\title{{\huge Lekcja 04} \\
+    {\Large Obiekt Date}}
+\author{Zbigniew Żołnierowicz}
+\date{28.10.2019}
+\maketitle
+Obiekt \mintinline{javascript}{Date} posiada wiele metod do ustawiania, pobierania i manipulacji datami.
+Nie posiada żadnych właściwości. Należy pamiętać, że czas i data są pobierane z urządzenia końcowego (komputer, smartfon, tablet), a nie z serwera.
+Aby korzystać z \mintinline{javascript}{Date()} w kodzie skryptu należy utworzyć najpierw nowy obiekt.
+\begin{minted}{javascript}
+    let data = new Date();
+    alert(data);
+\end{minted}
+\section{Metody}
+Metody obiektu \mintinline{javascript}{Date} są do obsługi daty i czasu zawartego w tych obszernych kategoriach:
+\begin{description}
+    \item[set] służy do ustawienia wartości daty i czasu w obiektach \mintinline{javascript}{Date}
+    \item[get] służy do pobierania wartości daty i czasu w obiektach \mintinline{javascript}{Date}
+    \item[to] służy do powtórzenia łańcuchów wartości z obiektów \mintinline{javascript}{Date}
+\end{description}
+Parsowanie i metody UTC służą do analizy składniowej łańcuchów \mintinline{javascript}{Date}.
+\end{document}

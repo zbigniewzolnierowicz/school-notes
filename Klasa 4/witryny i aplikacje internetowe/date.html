@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="starter">start</button>
+    <button id="stopper">stop</button>
+    <p id="output"></p>
+</body>
+<script>
+    let buttonStart = document.querySelector('#starter')
+    let buttonStop = document.querySelector('#stopper')
+    let paragraphOutput = document.querySelector('#output')
+    let isCounting = false;
+    let numberStartingTimestamp;
+    buttonStart.addEventListener('click', () => {
+        if (!isCounting) {
+            paragraphOutput.innerHTML = ''
+            buttonStart.style.background = 'green'
+            numberStartingTimestamp = Date.now()
+            isCounting = true
+        }
+    })
+    buttonStop.addEventListener('click', () => {
+        if (isCounting) {
+            buttonStart.style.background = ''
+            paragraphOutput.innerHTML = `Minęło ${(Date.now() - numberStartingTimestamp) / 1000} sekund`;
+            isCounting = false
+        }
+    })
+</script>
+</html>
