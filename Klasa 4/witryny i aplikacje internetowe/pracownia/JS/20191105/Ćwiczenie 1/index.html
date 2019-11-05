@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 1</title>
+</head>
+<body>
+    <ol id="out"></ol>
+</body>
+<script>
+    let toBuy = ['Mleko', 'Jajka', 'Płatki śniadaniowe', 'Salami', 'Sok']
+    let elements = []
+    toBuy.forEach((thing, index) => {
+        elements[index] = document.createElement('li')
+        elements[index].innerHTML = thing
+    })
+    elements.forEach(el => {
+        document.querySelector('#out').appendChild(el)
+    })
+</script>
+</html>

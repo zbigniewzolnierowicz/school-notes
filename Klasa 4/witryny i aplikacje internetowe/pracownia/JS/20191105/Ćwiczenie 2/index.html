@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 2</title>
+</head>
+<body>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="length1"></p>
+    <p id="length2"></p>
+</body>
+<script>
+    let cars = ['BMW','Toyota', 'Opel', 'Skoda']
+    function updateDOM(offset) {
+        document.querySelector(`#output${offset}`).innerHTML = `Lubię samochody marki ${cars[1]} i ${cars[2]}, nie lubię ${cars[0]} i ${cars[3]}.`;
+        document.querySelector(`#length${offset}`).innerHTML = cars.length
+    }
+    updateDOM(1)
+    cars.push('Mazda')
+    cars.unshift('Volvo')
+    updateDOM(2)
+    console.log(cars)
+</script>
+</html>

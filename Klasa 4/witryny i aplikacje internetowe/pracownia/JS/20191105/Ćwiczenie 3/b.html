@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 3B</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead id="headout"></thead>
+        <tbody>
+            <tr id="bodyout"></tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    let fields = [ 'Imię', 'Nazwisko', 'Wiek', 'Wzrost', 'Data urodzenia', 'Klasa' ]
+    let data = []
+    const bodyOutput = document.querySelector('#bodyout')
+    const headOutput = document.querySelector('#headout')
+    for (let i = 0; i < fields.length; i++) {
+        data.push(prompt(`Podaj: ${fields[i]}`))
+    }
+    data.forEach(input => {
+        let temp = document.createElement('td')
+        temp.innerHTML = input
+        bodyOutput.appendChild(temp)
+    })
+    fields.forEach(input => {
+        let temp = document.createElement('th')
+        temp.innerHTML = input
+        headOutput.appendChild(temp)
+    })
+</script>
+</html>

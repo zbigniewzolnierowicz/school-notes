@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 4A</title>
+</head>
+<body>
+    <p id="output"></p>
+</body>
+<script>
+    const AMOUNT_OF_NUMS = 5;
+    let nums = []
+    for (let i = 0; i < AMOUNT_OF_NUMS; i++) {
+        let temp = parseInt(prompt(`Podaj numer: ${i + 1} z ${AMOUNT_OF_NUMS}`))
+        nums.push(isNaN(temp) ? 0 : temp);
+    }
+    document.querySelector('#output').innerHTML = `Suma wszystkich liczb: ${nums.reduce((acc, v) => acc += v)}`
+</script>
+</html>
