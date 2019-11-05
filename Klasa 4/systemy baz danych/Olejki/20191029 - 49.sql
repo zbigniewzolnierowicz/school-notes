@@ -1,5 +1,5 @@
 SELECT
-    NazwaOlejku 'Nazwa olejku'
+    COUNT(NazwaOlejku) 'Ile olejków'
 FROM
     olejki o
     INNER JOIN
