@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 1</title>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+<script>
+const PERSON = {
+    name: 'Zbigniew',
+    surname: 'Żołnierowicz',
+    dob: new Date('2000.11.03')
+}
+console.table({...PERSON, dob: PERSON.dob.toString()})
+document.querySelector('#output').innerHTML = `<p>${PERSON.name} ${PERSON.surname} ${PERSON.dob.toDateString()}</p>`
+</script>
+</html>

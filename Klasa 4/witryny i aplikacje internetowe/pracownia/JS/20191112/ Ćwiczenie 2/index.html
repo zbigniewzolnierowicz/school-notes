@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 2</title>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+<script>
+const PERSON = {
+    name: 'Zbigniew',
+    surname: 'Żołnierowicz',
+    dob: new Date('2000.11.03')
+}
+PERSON.height = 184
+PERSON.eyeColor = 'brown'
+PERSON.dob = new Date('2000.11.02')
+console.table({...PERSON, dob: PERSON.dob.toString()})
+document.querySelector('#output').innerHTML = `<p>${PERSON.name} ${PERSON.surname} ${PERSON.dob.toDateString()} ${PERSON.height} ${PERSON.eyeColor}</p>`
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 5</title>
+</head>
+<body>
+    <ul id="output"></ul>
+</body>
+<script>
+    class Circle {
+        constructor(radius) {
+            this.radius = radius
+            this.field = Math.PI * (this.radius ** 2)
+        }
+    }
+    const circles = []
+    const HOW_MANY_CIRCLES = 2
+    for (let i = 0; i < HOW_MANY_CIRCLES; i++) {
+        circles.push(new Circle(parseFloat(prompt('Circle radius?'))))
+    }
+    circles.forEach((circle, index) => {
+        const circleItem = document.createElement('li')
+        circleItem.innerHTML = `Koło ${index}`
+        const circlePropList = document.createElement('ul')
+        const radiusListItem = document.createElement('li')
+        radiusListItem.innerHTML = `Promień koła: ${circle.radius}`
+        circlePropList.appendChild(radiusListItem)
+        const fieldListItem = document.createElement('li')
+        fieldListItem.innerHTML = `Pole koła: ${circle.field}`
+        circlePropList.appendChild(fieldListItem)
+        circleItem.appendChild(circlePropList)
+        document.querySelector('#output').appendChild(circleItem)
+    })
+</script>
+</html>

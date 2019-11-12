@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 4b</title>
+</head>
+<body>
+    <p id="output0_1"></p>
+    <ul id="output0_2"></ul>
+    <p id="output1_1"></p>
+    <ul id="output1_2"></ul>
+</body>
+<script>
+    class Osoba {
+        constructor(imie, nazwisko, wzrost, waga) {
+            this.imie = imie
+            this.nazwisko = nazwisko
+            this.wzrost = wzrost
+            this.waga = waga
+        }
+        powitanie() {
+            return `Witaj, ${this.imie} ${this.nazwisko}`
+        }
+        informacje() {
+            let list = []
+            list.push(`Imię: ${this.imie}`);
+            list.push(`Nazwisko: ${this.nazwisko}`);
+            list.push(`Wzrost: ${this.wzrost} cm`);
+            list.push(`Waga: ${this.waga} kg`);
+            return list;
+        }
+    }
+    const ludzie = []
+    const HOW_MANY_PEOPLE = 2
+    for (let i = 0; i < HOW_MANY_PEOPLE; i++) {
+        ludzie.push(new Osoba(
+            prompt(`Osoba ${i+1}: Imię?`),
+            prompt(`Osoba ${i+1}: Nazwisko?`),
+            parseInt(prompt(`Osoba ${i+1}: Wzrost?`)),
+            parseInt(prompt(`Osoba ${i+1}: Waga?`)),
+        ))
+    }
+    ludzie.forEach((osoba, index) => {
+        document.querySelector(`#output${index}_1`).innerHTML = osoba.powitanie()
+        osoba.informacje().forEach(element => {
+            let temp = document.createElement('li')
+            temp.innerHTML = element
+            document.querySelector(`#output${index}_1`).appendChild(temp)
+        })
+    })
+</script>
+</html>

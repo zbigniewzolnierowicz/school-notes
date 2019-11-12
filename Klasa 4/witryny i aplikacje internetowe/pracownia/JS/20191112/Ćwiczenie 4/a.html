@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 4a</title>
+</head>
+<body>
+    <p id="output1"></p>
+    <ul id="output2"></ul>
+</body>
+<script>
+    const osoba = {
+        imie: prompt('Imię?'),
+        nazwisko: prompt('Nazwisko?'),
+        wzrost: parseInt(prompt('Wzrost?')),
+        waga: parseInt(prompt('Waga?')),
+        powitanie: function() {
+            return `Witaj, ${this.imie} ${this.nazwisko}`
+        },
+        informacje: function() {
+            let list = []
+            list.push(`Imię: ${this.imie}`);
+            list.push(`Nazwisko: ${this.nazwisko}`);
+            list.push(`Wzrost: ${this.wzrost}`);
+            list.push(`Waga: ${this.waga}`);
+            return list;
+        }
+    }
+    document.querySelector('#output1').innerHTML = osoba.powitanie()
+    osoba.informacje().forEach(element => {
+        let temp = document.createElement('li')
+        temp.innerHTML = element
+        document.querySelector('#output2').appendChild(temp)
+    })
+</script>
+</html>
