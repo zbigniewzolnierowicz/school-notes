@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,english,polish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage{float}
+\usepackage{indentfirst}
+\useunder{\uline}{\ul}{}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usemintedstyle{xcode}
+\begin{document}
+\title{{\huge Lekcja 08} \\
+    {\Large Tablice}}
+\author{Zbigniew Żołnierowicz}
+\date{18.11.2019}
+\maketitle
+\section{Metody tablic}
+\begin{minted}[breaklines, tabsize=2]{javascript}
+    let arr = []
+    arr.push(x) // Dodaje element na koniec tablicy
+    arr.pop() // Zwraca element z końca tablicy i usuwa go z tablicy
+    arr.shift() // Zwraca element z początku tablicy i usuwa go
+    arr.unshift(x) // Dodaje element na początek tablicy
+    let accumulated = arr.reduce((element, accumulator) => {
+        accumulator += element 
+    }) // Skupia wszystkie wartości w jednej zmiennej bazując na funkcji
+    arr.forEach((element, index) => {
+        console.log(`${element} on index ${index}`)
+    }) // Iteruje na tablicy
+    arr.map(element => element += 1) // Zmienia wartość elementów w tablicy używając podanej funkcji
+    arr.sort((a, b) => { // Sortuje tablicę
+        if (a > b) return 1; // Jeżeli pierwsza wartość jest większa niż druga, zwróc liczbę dodatnią
+        else if (a < b) return -1; // Jeżeli druga wartość jest większa niż pierwsza, zwróć liczbę ujemną
+        else return 0; // jeżeli są równe, zwróć 0
+    })
+    arr.join('-') // Zwraca ciąg znaków z elementów tablicy połączony separatorem podanym jako parametr
+    arr.concat(arr2) // Łączy dwie tablice ze sobą
+    arr.find(x => x % 2 === 0) // Zwraca pierwszą wartość dla której funkcja podana jako argument zwraca true
+    arr.reverse() // Odwraca tablicę
+    arr.every(x => x % 2 === 0) // Sprawdza, czy funkcja zwraca true dla każdej wartości, jeśłi tak - zwraca true, w przeciwnym razie - zwraca false
+    arr.some(x => x % 2 === 0) // j.w. ale sprawdza czy przynajmniej jeden element spełnia tę wartość
+    arr.flat(x) // Jeżeli tablica ma inne tablice jako element, zwraca tablicę odniżoną o x wymiarów
+    arr.filter() // Zwraca tablicę wyłącznie z elementami, dla których funkcja podana jako argument zwraca true
+\end{minted}
+\section{Sortowanie tablicy}
+\begin{minted}{javascript}
+    let tab = [15982519, 0, -1, 949494949, 2]
+    tab.sort((a, b) => -1 * (a - b))
+    console.log(tab) // [ -1, 0, 2, 15982519, 949494949 ]
+\end{minted}
+\section{Łączenie tablic}
+\begin{minted}{javascript}
+    let tab1 = [15982519, 0, -1, 949494949, 2]
+    let tab2 = [44444444, 101001010]
+    let tab = tab1.concat(tab2)
+    console.log(tab) // [ 15982519, 0, -1, 949494949, 2, 44444444, 101001010 ]
+\end{minted}
+\section{Przedstawienie tablicy jako ciąg znaków}
+\begin{minted}{javascript}
+    let tab1 = [15982519, 0, -1, 949494949, 2]
+    console.log(tab1.join(', ')) // 15982519, 0, -1, 949494949, 2
+\end{minted}
+\end{document}
