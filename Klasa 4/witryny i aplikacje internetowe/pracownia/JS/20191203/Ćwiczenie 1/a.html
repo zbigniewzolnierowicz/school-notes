@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 1</title>
+</head>
+<body>
+    <p class="odd">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa beatae ipsum in animi velit nemo debitis rem excepturi veritatis! Illum maiores rem exercitationem ipsam aliquid eius eos! Illo, odit cumque.</p>
+    <p class="even">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rem, odit qui et ex amet! Assumenda eveniet veniam eaque, magnam corporis repellendus! Mollitia qui, omnis ad inventore adipisci voluptates iure.</p>
+    <p class="odd">Laboriosam est blanditiis nemo tempora fugit, odit quia dolore, sed quasi perspiciatis odio. Nulla maiores rem voluptas similique accusantium amet qui accusamus reiciendis aliquam dicta adipisci nobis, atque sed magni!</p>
+    <p class="even">Dolores quasi debitis, consequuntur tenetur, sapiente, quibusdam praesentium veritatis temporibus quae iste totam inventore cum voluptatum quidem explicabo impedit cupiditate eum eius! Qui neque unde possimus porro quo odio quod?</p>
+    <p class="odd">Modi esse, placeat nobis nemo earum a unde tempora repudiandae sapiente dolorem aperiam voluptatem itaque. Laborum architecto fugit beatae blanditiis voluptate a nulla, enim necessitatibus, dolore quam nostrum aliquid labore?</p>
+    <p class="even">Dolore facilis reprehenderit saepe nisi itaque odit nesciunt ea mollitia. Deserunt mollitia deleniti eum numquam modi, sint qui enim! Adipisci iusto qui temporibus corrupti, explicabo ea id rerum vel sit?</p>
+    <button id="odder">odd</button>
+    <button id="evener">even</button>
+    <button id="firstthirder">first third</button>
+    <button id="laster">last</button>
+</body>
+<script>
+const formatterOne = (els) => {
+    els.forEach(el => {
+        el.style.textAlign = "center"
+        el.style.background = "pink"
+        el.style.color = "red"
+        el.style.fontFamily = "'Comic Sans MS', serif"
+    })
+}
+document.getElementById("odder").addEventListener("click", () => {
+    let els = [ ...document.getElementsByClassName("odd")];
+    formatterOne(els);
+})
+document.getElementById("evener").addEventListener("click", () => {
+    let els = [ ...document.getElementsByClassName("even")];
+    formatterOne(els);
+})
+document.getElementById("firstthirder").addEventListener("click", () => {
+    let els = [ ...document.getElementsByTagName("p")];
+    els = els.slice(0, 3)
+    formatterOne(els);
+})
+document.getElementById("laster").addEventListener("click", () => {
+    let els = document.getElementsByTagName("p");
+    els[els.length - 1].style.letterSpacing = "10px"
+    els[els.length - 1].style.fontFamily = "monospace"
+})
+</script>
+</html>
