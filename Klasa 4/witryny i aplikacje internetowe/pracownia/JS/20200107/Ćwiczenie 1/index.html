@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20200107 - Ćwiczenie 1</title>
+    <style>
+        #root {
+            display: flex;
+            flex-direction: column;
+        }
+        #root img {
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <button id="activator">Load</button>
+</body>
+<script>
+    const output = document.querySelector('#root')
+    const activator = document.querySelector('#activator')
+    let linkData = [
+        {
+            type: 'h1',
+            innerText: 'Polecane strony'
+        },
+        {
+            type: 'a',
+            innerText: 'Placekitten',
+            href: 'https://placekitten.com'
+        },
+        {
+            type: 'a',
+            innerText: 'TheRussianBadger',
+            href: 'https://www.youtube.com/therussianbadger'
+        },
+        {
+            type: 'img',
+            src: 'https://placekitten.com/640/480'
+        }
+    ]
+    const loader = () => {
+        linkData.forEach(el => {
+            let temp = document.createElement(el.type)
+            Object.assign(temp, el)
+            output.appendChild(temp)
+        })
+        activator.removeEventListener('click', loader)
+    }
+    activator.addEventListener('click', loader)
+</script>
+</html>

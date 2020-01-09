@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20200107 - Ćwiczenie 3</title>
+    <style>
+        html, body, main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        body * {
+            box-sizing: border-box;
+        }
+        h1 {
+            margin: 0;
+        }
+        main, main svg {
+            transition: all 500ms ease;
+        }
+        #root {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: 1fr 2fr 1fr;
+        }
+        #root.off .lightbulbControl {
+            color: white;
+        }
+        #root.on .lightbulbControl {
+            color: black;
+        }
+        .lightbulbControl {
+            grid-column: 1 / 1;
+            grid-row: 1 / 1;
+        }
+        .lightbulb {
+            display: grid;
+            justify-self: center;
+            align-self: center;
+            grid-column: 2 / 2;
+            grid-row: 2 / 2;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
+        .lightbulb svg {
+            grid-column: 1 / 1;
+            grid-row: 1 / 1;
+            height: 10vh;
+            width: auto;
+        }
+        #root.off {
+            background: rgb(37, 37, 37);
+        }
+        #root.off .lightbulbOff {
+            opacity: 1;
+            fill: white;   
+        }
+        #root.off .lightbulbOn {
+            opacity: 0;
+        }
+        #root.on {
+            background: white;
+        }
+        #root.on .lightbulbOn {
+            opacity: 1;
+        }
+        #root.on .lightbulbOff {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <main id="root" class="off">
+        <div class="lightbulbControl">
+            <button id="lightToggle">Włącz światło</button>
+            <h1 id="lightToggleText">Ciemno...</h1>
+        </div>
+        <div class="lightbulb">
+            <svg class="lightbulbOff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.741 17h-1.991c0-.17-.016-.338-.035-.506l1.703-1.548c.197.653.323 1.332.323 2.054zm-.04 6.659c.19.216.465.341.753.341h1.093c.288 0 .562-.125.752-.341l1.451-1.659h-5.5l1.451 1.659zm3.799-3.659h-5c-.276 0-.5.224-.5.5s.224.5.5.5h5c.276 0 .5-.224.5-.5s-.224-.5-.5-.5zm0-2h-5c-.276 0-.5.224-.5.5s.224.5.5.5h5c.276 0 .5-.224.5-.5s-.224-.5-.5-.5zm1.707-8.315c-1.104 2.28-2.948 4.483-2.949 7.315h1.992c0-3.169 3.479-5.906 3.726-9.832l-2.769 2.517zm6.793-8.201l-20.654 18.75-1.346-1.5 6.333-5.728c-1.062-1.873-2.333-3.843-2.333-6.272 0-4.343 3.498-6.734 6.996-6.734 2.408 0 4.798 1.146 6.064 3.267l3.598-3.267 1.342 1.484zm-14.147 10.142l7.676-6.969c-.833-1.742-2.682-2.657-4.533-2.657-2.483 0-4.996 1.626-4.996 4.734 0 1.713.907 3.246 1.853 4.892z"/></svg>
+            <svg class="lightbulbOn" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.734c0 4.164-3.75 6.98-3.75 10.266h-1.992c.001-2.079.997-3.826 1.968-5.513.912-1.585 1.774-3.083 1.774-4.753 0-3.108-2.517-4.734-5.004-4.734-2.483 0-4.996 1.626-4.996 4.734 0 1.67.862 3.168 1.774 4.753.971 1.687 1.966 3.434 1.967 5.513h-1.991c0-3.286-3.75-6.103-3.75-10.266 0-4.343 3.498-6.734 6.996-6.734 3.502 0 7.004 2.394 7.004 6.734zm-4 11.766c0 .276-.224.5-.5.5h-5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h5c.276 0 .5.224.5.5zm0 2c0 .276-.224.5-.5.5h-5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h5c.276 0 .5.224.5.5zm-1.701 3.159c-.19.216-.465.341-.753.341h-1.093c-.288 0-.562-.125-.752-.341l-1.451-1.659h5.5l-1.451 1.659z"/></svg>
+        </div>
+    </main>
+</body>
+<script>
+    const lightToggle = document.querySelector("#lightToggle")
+    const lightToggleText = document.querySelector("#lightToggleText")
+    const root = document.querySelector("#root")
+    lightToggle.addEventListener('click', () => {
+        if (root.classList.contains('on')) {
+            root.classList.remove('on')
+            root.classList.add('off')
+            lightToggleText.innerText = 'Ciemno...'
+            lightToggle.innerText = 'Włącz światło'
+        } else {
+            root.classList.remove('off')
+            root.classList.add('on')
+            lightToggleText.innerText = 'Stała się jasność'
+            lightToggle.innerText = 'Wyłącz światło'
+        }
+    })
+</script>
+</html>
