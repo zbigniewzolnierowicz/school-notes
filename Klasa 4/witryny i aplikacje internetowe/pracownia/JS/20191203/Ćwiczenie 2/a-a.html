@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 2A</title>
+    <style>
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #wrapper a {
+            display: block;
+            color: pink;
+            width: 20ch;
+            height: 4em;
+            background: chocolate;
+            padding: 1em 1ch;
+            text-decoration: none;
+        }
+        #buttons {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <a href="">Element #1</a>
+        <a href="">Element #2</a>
+        <a href="">Element #3</a>
+    </div>
+    <div id="buttons">
+        <button id="position">Zmień położenie</button>
+        <button id="color">Zmień kolor</button>
+    </div>
+</body>
+<script>
+    document.getElementById("position").addEventListener("click", (event) => {
+        let wrapperEl = document.getElementById("wrapper")
+        wrapperEl.style.flexDirection = "row"
+        wrapperEl.style.left = "unset"
+        wrapperEl.style.right = 0
+    })
+    document.getElementById("color").addEventListener("click", (event) => {
+        let wrapperEl = document.getElementById("wrapper")
+        for (el of wrapperEl.children) {
+            el.style.background = "red"
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 3</title>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+<script>
+function Person(name, surname, dob) {
+    this.name = name
+    this.surname = surname
+    this.dob = dob
+}
+
+const PERSON = new Person('Zbigniew', 'Żołnierowicz', new Date('2000.11.03'))
+
+PERSON.height = 184
+PERSON.eyeColor = 'brown'
+PERSON.dob = new Date('2000.11.02')
+PERSON.address = {
+    street: 'Kolejowa',
+    homeNumber: '5a',
+    flatNumber: '24',
+    zipCode: '60-716',
+    city: 'Poznań'
+}
+console.table({...PERSON, dob: PERSON.dob.toString()})
+document.querySelector('#output').innerHTML = `<p>${PERSON.name} ${PERSON.surname} ${PERSON.dob.toDateString()} ${PERSON.height} ${PERSON.eyeColor} ${PERSON.address.street} ${PERSON.address.homeNumber} ${PERSON.address.flatNumber} ${PERSON.address.zipCode} ${PERSON.address.city}</p>`
+</script>
+</html>

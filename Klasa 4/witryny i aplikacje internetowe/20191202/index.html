@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20191202</title>
+    <style>
+        body, html {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            align-items: center;
+            justify-content: center;
+        }
+        img.active {
+            filter: blur(2px);
+        }
+    </style>
+</head>
+<body>
+    <img id="fancyImage">
+</body>
+<script>
+class FancyImage {
+    constructor(url, ref) {
+        this.url = url
+        this.ref = ref
+    }
+    changeUrl(url) {
+        this.url = url
+        this.setImage()
+    }
+    setImage() {
+        this.ref.src = this.url;
+    }
+    changeStyle(isActive) {
+        if (this.ref.classList.length === 0) this.ref.classList.add("active");
+        else this.ref.classList.remove("active");
+    }
+}
+let imageRef = document.querySelector("img#fancyImage")
+let image = new FancyImage("https://placekitten.com/640/480", imageRef)
+image.setImage()
+let handler = function(event) {
+    if (event.target.classList.item(0) === "active") {
+        image.changeUrl("https://placekitten.com/640/480")
+        image.changeStyle()
+        event.target.removeEventListener("click", handler)
+        return;
+    }
+    image.changeUrl("https://source.unsplash.com/random/640x480")
+    image.changeStyle()
+}
+imageRef.addEventListener("click", handler)
+
+</script>
+</html>

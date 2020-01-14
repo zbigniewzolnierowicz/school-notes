@@ -10,7 +10,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{minted}
 \begin{document}
-\title{{\huge Lekcja 04} \\
+\title{{\huge Lekcja 05} \\
     {\Large Obiekty}}
 \author{Zbigniew Żołnierowicz}
 \date{07.10.2019}
@@ -19,7 +19,7 @@
 W języku JavaScript wszystko poza prymitywnymi wartościami ({\tt string}, {\tt boolean}, {\tt number}, {\tt null} i {\tt undefined}) jest obiektem. Obiekt to struktura danych złożona z zera, jednej lub wielu nazwanych zmiennych, przechowujących wartości (atrybuty i właściwości) i funkcje (metody).
 
 \subsection*{JSON}
-W języku JavaScript do definiowania obiektów wykorzystuje się notację JSON (\emph{JavaScript Object Notation}). Obiekty nie są strukturami stałymi.
+W języku JavaScript do definiowania obiektów wykorzystuje się notację JSON (\emph{JavaScript Object Notation}). Obiekty nie są strukturami stałymi. Można je rozszerzać o atrybuty i metody w dowolnym momencie.
 \begin{minted}{javascript}
     let car = {
         color: 'Red',
@@ -49,4 +49,24 @@ W języku JavaScript do definiowania obiektów wykorzystuje się notację JSON (
     car.hello();
     // Hello. You have a Red Mazda made in 1991
 \end{minted}
+W języku JavaScript słowo kluczowe {\tt this} jest referencją do obiektu macierzystego względem metody, w której jest wywoływane.
+
+Język JavaScript umożliwia tworzenie prototypów (konstruktorów) obiektów w postaci funkcji generujących obiekty.
+\begin{minted}[tabsize=2,breaklines]{javascript}
+    class Uczen {
+        constructor(imie, oceny, znajomi) {
+            this.imie = imie;
+            this.oceny = oceny;
+            this.znajomi = znajomi;
+        }
+        srednia = () => this.oceny.reduce((a, b) => a + b) / this.oceny.length;
+    }
+\end{minted}
+\begin{description}
+    \item[\mintinline{javascript}{Math.LN10}] stała wartość; logarytm naturalny z 10
+    \item[\mintinline{javascript}{Math.LN2}] stała wartość; logarytm naturalny z 2
+    \item[\mintinline{javascript}{Math.PI}] stała wartość; liczba $\pi$
+    \item[\mintinline{javascript}{Math.SQRT1_2}] stała wartość; pierwiastek kwadratowy z $\frac{1}{2}$
+    \item[\mintinline{javascript}{Math.SQRT2}] stała wartość; pierwiastek kwadratowy z 2   
+\end{description}
 \end{document}

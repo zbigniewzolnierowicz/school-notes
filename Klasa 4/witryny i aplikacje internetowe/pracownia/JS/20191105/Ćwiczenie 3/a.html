@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 3A</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+            <th>Wzrost</th>
+            <th>Data urodzenia</th>
+            <th>Klasa</th>
+        </thead>
+        <tbody>
+            <tr id="out">
+                
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    let data = ['Zbigniew', 'Żołnierowicz', 18, 184, '2000.11.03', '4D']
+    const output = document.querySelector('#out')
+    data.forEach(input => {
+        let temp = document.createElement('td')
+        temp.innerHTML = input
+        output.appendChild(temp)
+    })
+</script>
+</html>

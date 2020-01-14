@@ -1,0 +1,8 @@
+SELECT
+    MONTHNAME(OrderDate),
+    COUNT(OrderID)
+FROM
+    orders
+GROUP BY MONTH(OrderDate)
+ORDER BY 2 DESC
+LIMIT 1;

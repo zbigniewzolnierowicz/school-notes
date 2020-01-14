@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 6</title>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+<script>
+    class Osoba {
+        constructor(imie, nazwisko, wiek) {
+            this.imie = imie
+            this.nazwisko = nazwisko
+            this.wiek = wiek
+        }
+    }
+    class Szkola {
+        constructor(nauczyciel, przedmiot, klasa, uczen) {
+            this.nauczyciel = nauczyciel
+            this.przedmiot = przedmiot
+            this.klasa = klasa
+            this.uczen = uczen
+        }
+    }
+    const ZSK = new Szkola(
+        new Osoba('Jan', 'Kowalski', 51),
+        'tworzenie stron',
+        '4D',
+        new Osoba('Adam', 'Nowak', 19)
+    )
+    console.log(`Nauczyciel ${ZSK.nauczyciel.imie} ${ZSK.nauczyciel.nazwisko} uczy przedmiotu ${ZSK.przedmiot}.Uczeń ${ZSK.uczen.imie} ${ZSK.uczen.nazwisko} chodzi do klasy ${ZSK.klasa}, której wychowawcą jest ${ZSK.nauczyciel.imie} ${ZSK.nauczyciel.nazwisko}`)
+    document.querySelector('#output').innerHTML = `
+    <p>Nauczyciel ${ZSK.nauczyciel.imie} ${ZSK.nauczyciel.nazwisko} uczy przedmiotu ${ZSK.przedmiot}.</p>
+    <p>Uczeń ${ZSK.uczen.imie} ${ZSK.uczen.nazwisko} chodzi do klasy ${ZSK.klasa}, której wychowawcą jest ${ZSK.nauczyciel.imie} ${ZSK.nauczyciel.nazwisko}</p>
+    `
+</script>
+</html>

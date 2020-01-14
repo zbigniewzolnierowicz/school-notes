@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E14-06-17.06</title>
+</head>
+<body>
+    <form name="formdata">
+        <label for="amount">Liczba ogłoszeń:</label>
+        <input type="number" name="amount" min="1" value="1">
+        <label for="frequentclient">Jestem stałym klientem</label>
+        <input type="checkbox" name="frequentclient">
+        <button type="button" id="submitter">Kalkulacja</button>
+    </form>
+    <h3 id="output"></h3>
+</body>
+<script>
+    let submitter = document.querySelector('#submitter')
+    let formData = document.formdata
+    submitter.addEventListener('click', () => {
+        let amountOfOrders = formData.amount.value
+        let isFrequentClient = formData.frequentclient.checked
+        let endValue = 0
+        let discount = isFrequentClient ? 0.3 : 0
+        if (amountOfOrders <= 40) {
+            endValue += amountOfOrders * (3 - discount)
+        } else {
+            let cheapAmount = amountOfOrders - 40
+            let expensiveAmount = amountOfOrders - cheapAmount
+            endValue += cheapAmount * (2 - discount)
+            endValue += expensiveAmount * (3 - discount)
+        }
+        document.querySelector('#output').innerHTML = `Twoje ogłoszenia będą kosztować ${endValue} PLN`
+    })
+</script>
+</html>

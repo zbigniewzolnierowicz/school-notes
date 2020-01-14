@@ -1,0 +1,111 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,english,polish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage{float}
+\usepackage{indentfirst}
+\useunder{\uline}{\ul}{}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usemintedstyle{xcode}
+\begin{document}
+\title{{\huge Lekcja 07} \\
+    {\Large Zmienne}}
+\author{Zbigniew Żołnierowicz}
+\date{04.11.2019}
+\maketitle
+\section{Zasięg zmiennych}
+\mintinline{javascript}{let} i \mintinline{javascript}{const} jest w zakresie blokowym zmiennych (i zakresie funkcji), \mintinline{javascript}{var} jest w zakresie funkcji bez zakresu blokowego.
+\begin{minted}{javascript}
+    var a = "a - zakres globalny";
+    let b = "b - zakres globalny";
+    const c = "c - zakres globalny";
+    // Blok: {
+    var a = "a - zakres lokalny";
+    let b = "b - zakres lokalny";
+    const c = "c - zakres lokalny";
+    console.log(a); // "a - zakres lokalny"
+    console.log(b); // "b - zakres lokalny"
+    console.log(c); // "c - zakres lokalny"
+    // }
+    console.log(a); // "a - zakres lokalny"
+    console.log(b); // "b - zakres globalny"
+    console.log(c); // "c - zakres globalny"
+\end{minted}
+\subsection{Deklaracja funkcji z \mintinline{javascript}{var}}
+\begin{minted}{javascript}
+    function test() {
+        var a = true;
+        if (true) {
+            var a = false;
+            console.log(a);
+        }
+        console.log(a);
+    }
+    test();
+    /*
+        false
+        false
+    */
+\end{minted}
+\pagebreak
+\subsection{Deklaracja funkcji z \mintinline{javascript}{let}}
+\begin{minted}{javascript}
+    function test() {
+        let a = true;
+        if (true) {
+            let a = false;
+            console.log(a);
+        }
+        console.log(a);
+    }
+    test();
+    /*
+        false
+        true
+    */
+\end{minted}
+\subsection{Porównanie \mintinline{javascript}{var} i \mintinline{javascript}{let}}
+\begin{minted}{javascript}
+    var i = 5;
+    for (let i = 0; i < 10; i++) {
+        console.log(i);
+    }
+    console.log(i);
+    /*
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    5
+    */
+\end{minted}
+\begin{minted}{javascript}
+    let i = 5;
+    for (let i = 0; i < 10; i++) {
+        console.log(i);
+    }
+    console.log(i);
+    /*
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    5
+    */
+\end{minted}
+\end{document}

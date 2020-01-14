@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ćwiczenie 8</title>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+<script>
+    const OUTPUT = document.querySelector('#output')
+    const PEOPLE = [
+        [
+            'Zbigniew',
+            'Żołnierowicz',
+            19,
+            new Date('2000.11.03'),
+            '4D'
+        ],
+        [
+            'Jan',
+            'Kowalski',
+            19,
+            new Date('2000.01.01'),
+            '4A'
+        ],
+        [
+            'Adam',
+            'Nowak',
+            18,
+            new Date('2001.06.06'),
+            '3D'
+        ]
+    ]
+    PEOPLE.forEach(person => {
+        const el = document.createElement('p')
+        el.innerHTML = person.join(' ')
+        OUTPUT.appendChild(el)
+    })
+</script>
+</html>

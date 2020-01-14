@@ -1,0 +1,1 @@
+SELECT (DATE(CURDATE() + 2)) AS 'Pojutrze';

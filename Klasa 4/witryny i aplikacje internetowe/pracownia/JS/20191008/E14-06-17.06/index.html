@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E14-06-17.06</title>
+</head>
+<body>
+    <form action="" name="formdata">
+        <label for="area">Powierzchnia w m^2</label>
+        <input type="number" min="1" name="area">
+        <label>
+            Kafelki 20 x 20
+            <input type="radio" name="tiles" id="" value="twentytwenty" checked>
+        </label>
+        <label>
+            Kafelki 25 x 12
+            <input type="radio" name="tiles" id="" value="twentyfivetwelve">
+        </label>
+        <button type="button">Oblicz</button>
+    </form>
+    <p id="output"></p>
+</body>
+<script>
+    const submitter = document.querySelector('button[type="button"]')
+    const formData = document.formdata
+    const output = document.querySelector('#output')
+    submitter.addEventListener('click', () => {
+        let total = 0
+        switch (formData.tiles.value) {
+            case "twentytwenty":
+                total = formData.area.value * 70
+                break;
+            case "twentyfivetwelve":
+                total = formData.area.value * 80
+                break;
+            default:
+                break;
+        }
+        output.innerHTML = `Zapłacisz ${total} zł`
+    })
+</script>
+</html>
