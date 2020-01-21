@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20200114 - Zadanie 1</title>
+    <style>
+        #wow {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="wow"></div>
+    <button id="activator">GO!</button>
+</body>
+<script>
+    const div = document.querySelector("#wow");
+    const activator = document.querySelector("#activator");
+    const elements = [
+        {
+            type: 'h1',
+            innerText: 'Polecane strony'
+        },
+        {
+            type: 'a',
+            innerText: 'TheRussianBadger',
+            href: 'https://youtube.com/therussianbadger'
+        },
+        {
+            type: 'a',
+            innerText: 'SovietWomble',
+            href: 'https://youtube.com/sovietwomble'
+        },
+        {
+            type: 'img',
+            src: 'https://placekitten.com/300/300',
+            alt: 'Placekitten'
+        }
+    ]
+    activator.addEventListener("click", () => {
+        elements.forEach(element => {
+            let temp = document.createElement(element.type)
+            temp.src = element.src
+            temp.href = element.href
+            temp.innerText = element.innerText
+            div.appendChild(temp)
+        });
+    })
+</script>
+</html>

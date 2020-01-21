@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20200114 - Zadanie 3</title>
+    <style>
+        html, body {
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+        #errors {
+            color: red;
+            background: rgb(255, 193, 193);
+            padding: 1ch 1em;
+        }
+        .hidden {
+            display: none;
+        }
+        #output table td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #output table :first-child {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabliczka mnożenia</h1>
+    <form name="formData">
+        <label for="a">Tabelka mnożenia od:</label>
+        <input type="number" name="a">
+        <label for="b">Tabelka mnożenia do:</label>
+        <input type="number" name="b">
+        <button type="button" id="generator">Generuj</button>
+    </form>
+    <p id="errors" class="hidden">Test</p>
+    <div id="output"></div>
+</body>
+<script>
+    const button = document.querySelector("#generator")
+    const OUTPUT = document.querySelector("#output")
+    const errors = document.querySelector("#errors")
+    const generator = (event) => {
+        let tabela = document.createElement('table');
+        const formData = new FormData(event.target.parentNode)
+        if (!errors.classList.contains("hidden")) {
+            errors.classList.add("hidden")
+        }
+        try {
+            let a = parseInt(formData.get("a"))
+            let b = parseInt(formData.get("b"))
+            if (a === 0 || b === 0) {
+                throw "Wartości nie mogą równać się 0!"
+            }
+            if (a > b) {
+                throw "Początek musi być większy od końca!"
+            }
+            let header = document.createElement('tr');
+            let padder = document.createElement('th');
+            header.appendChild(padder)
+            for (let i = a; i < b; i++) {
+                let temp = document.createElement('th');
+                temp.innerText = i;
+                header.appendChild(temp)
+            }
+            tabela.appendChild(header)
+            for (let y = a; y < b; y++) {
+                let row = document.createElement('tr')
+                let rowHead = document.createElement('td')
+                rowHead.innerText = y
+                row.appendChild(rowHead)
+                for (let x = a; x < b; x++) {
+                    let cell = document.createElement('td')
+                    cell.innerText = x * y
+                    row.appendChild(cell)
+                }
+                tabela.appendChild(row)
+            }
+            return tabela
+        } catch (e) {
+            errors.classList.remove("hidden")
+            errors.innerText = e
+        }
+    }
+    button.addEventListener("click", event => OUTPUT.appendChild(generator(event)))
+</script>
+</html>

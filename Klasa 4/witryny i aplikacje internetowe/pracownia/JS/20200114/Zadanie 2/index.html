@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadanie 2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+        }
+        .painted {
+            display: flex;
+            flex-direction: row;
+            background: #696969;
+            min-height: 200px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .drawn {
+            width: 400px;
+            height: 400px;
+            background: red;
+            border: 5px solid yellow;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .photoFixer {
+            width: 50%;
+            height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pudełka niespodzianek</h1>
+    <div id="out" class="painted"></div>
+    <button type="button" id="emptydiv">Pusty &lt;div&gt;</button>
+    <button type="button" id="deleter">Usuń pierwszy &lt;div&gt;</button>
+    <form action="" name="formdata">
+        <label for="photo">Link do zdjęcia</label>
+        <input type="text" name="photo">
+        <label for="para">Paragraf</label>
+        <textarea name="para" id="para" cols="30" rows="10"></textarea>
+        <button type="button" id="contentful">Zapełnij ostatni &lt;div&gt;</button>
+    </form>
+</body>
+<script>
+    const div = document.querySelector("#out")
+    const emptyDiv = document.querySelector("#emptydiv")
+    const contentful = document.querySelector("#contentful")
+    const deleter = document.querySelector("#deleter")
+    const formData = document.formdata
+    const emptyDivver = (parent) => {
+        const temp = document.createElement("div")
+        temp.classList.add("drawn")
+        parent.appendChild(temp)
+    }
+    const contentDivver = (event, output) => {
+        try {
+            event.preventDefault()
+            let formData = new FormData(event.target.parentNode)
+            if (output.lastChild) {
+                let paragraphText = formData.get("para")
+                let paragraphElement = document.createElement('p')
+                paragraphElement.innerText = paragraphText
+                let photoSrc = formData.get("photo") || "https://placekitten.com/300/300"
+                let photoElement = document.createElement('img')
+                photoElement.classList.add("photoFixer")
+                photoElement.src = photoSrc
+                output.lastChild.appendChild(paragraphElement)
+                output.lastChild.appendChild(photoElement)
+            } else {
+                throw "Brak elementu do zapełnienia lub element nie jest <div>!"
+            }
+        } catch (e) {
+            alert(e)
+        }
+    }
+    const divDeleter = (output) => output.firstChild.remove()
+    emptyDiv.addEventListener("click", () => emptyDivver(div))
+    contentful.addEventListener("click", (event) => contentDivver(event, div))
+    deleter.addEventListener("click", () => divDeleter(div))
+</script>
+</html>
