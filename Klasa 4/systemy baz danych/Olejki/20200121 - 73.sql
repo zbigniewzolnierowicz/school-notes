@@ -35,4 +35,19 @@ WHERE IDOlejku IN (
     WHERE IDTypuRosliny = (
         SELECT IDTypuRosliny FROM roslinytypy WHERE TypRosliny = 'Drzewo'
     )
-)
+);
+
+-- Zadanie 4
+
+UPDATE olejkiceny
+SET Cena = Cena * 1.65
+WHERE IDOlejku IN (SELECT IdOlejku
+                   FROM olejki
+                   WHERE IDTypuRosliny =
+                         (SELECT IDSkladnikaRosliny FROM roslinyskladniki WHERE SkladnikRosliny = 'Kwiaty'));
+
+-- Zadanie 5
+
+UPDATE olejkiilosci
+SET IloscOpakowan = IloscOpakowan * 1.1
+WHERE IloscOpakowan < 35;
