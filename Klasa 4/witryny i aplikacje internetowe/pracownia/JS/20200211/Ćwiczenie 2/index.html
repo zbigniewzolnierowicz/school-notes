@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20200211 - Ćwiczenie 2</title>
+    <style>
+        body, html {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        #box {
+            height: 255px;
+            width: 255px;
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #colorInfo, #mousePosition {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #colorInfo div, #mousePosition div {
+            border: 3px inset gray;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mousePos"></h1>
+    <div id="box">
+    </div>
+</body>
+<script>
+    const position = {
+        x: 0,
+        y: 0
+    }
+    const color = {
+        r: 0,
+        g: 0,
+        b: 0
+    }
+    const box = document.querySelector("#box")
+    const mousePos = document.querySelector("#mousePos")
+    function hoverHandler(event) {
+        event.stopPropagation()
+        position.x = event.offsetX
+        position.y = event.offsetY
+        color.r = position.x
+        color.g = position.y
+        color.b = Math.round((color.r + color.g) / 2)
+        document.querySelector("body").style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`
+        this.innerText = `R = ${color.r}; G = ${color.g}; B = ${color.b}`
+        mousePos.innerText = `MouseX = ${position.x}; MouseY = ${position.y}`
+    }
+    box.addEventListener("mousemove", hoverHandler)
+</script>
+</html>
