@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20200309</title>
+  </head>
+  <body>
+    <main>
+      <ul id="output"></ul>
+      <form id="input">
+        <input type="text" name="name" />
+        <button type="submit">Dopisz do listy</button>
+      </form>
+    </main>
+  </body>
+  <script>
+    const names = [
+      "Doris",
+      "Nicholson",
+      "Doris",
+      "Monica",
+      "Doris",
+      "Jacqueline",
+      "Nicholson"
+    ];
+    class Database {
+      names = new Map()
+      constructor(outputContainer, nameArr = []) {
+        this.output = outputContainer
+        for (const name of nameArr) {
+          this.add(name)
+        }
+        this.updateDisplay()
+      }
+      add(name) {
+        this.names.set(name, this.names.has(name) ? this.names.get(name) + 1 : 1)
+      }
+      clearDisplay() {
+        while (this.output.childElementCount > 0) {
+          this.output.children[0].remove()
+        }
+      }
+      updateDisplay() {
+        this.clearDisplay();
+        for (const [name, occurences] of this.names) {
+          const outString = `${name} występuje ${occurences === 1 ? "raz" : occurences + " razy"}`
+          const tempEl = document.createElement("li")
+          tempEl.innerText = outString
+          this.output.appendChild(tempEl)
+        }
+      }
+    }
+    const output = document.querySelector("#output")
+    const DB = new Database(output, names)
+    const formData = document.querySelector("#input")
+    formData.addEventListener("submit", (event) => {
+      event.preventDefault()
+      const data = new FormData(event.srcElement)
+      DB.add(data.get("name"))
+      DB.updateDisplay()
+    })
+  </script>
+</html>
