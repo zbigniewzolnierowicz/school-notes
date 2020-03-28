@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onSubmit</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #form {
+            display: flex;
+            flex-direction: column;
+            width: 30%
+        }
+
+        #form label {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr auto;
+            margin-block-start: .5em;
+            margin-block-end: .5em;
+        }
+        #form label p.error {
+            color: red;
+            grid-row: 2 / 2;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <label id="firstnameWrapper">
+            Imię
+            <input required name="firstname" id="firstname" type="text">
+            <p class="error"></p>
+        </label>
+        <label id="lastnameWrapper">
+            Nazwisko
+            <input required name="lastname" id="lastname" type="text">
+            <p class="error"></p>
+        </label>
+        <label id="phoneWrapper">
+            Numer telefonu
+            <input required name="phone" id="phone" type="tel">
+            <p class="error"></p>
+        </label>
+        <label id="emailWrapper">
+            Adres email
+            <input required name="email" id="email" type="email">
+            <p class="error"></p>
+        </label>
+        <label id="passWrapper">
+            Hasło
+            <input required name="pass" id="pass" type="password">
+            <p class="error"></p>
+        </label>
+        <label id="repeatpassWrapper">
+            Powtórz hasło
+            <input required name="repeatpass" id="repeatpass" type="password">
+            <p class="error"></p>
+        </label>
+        <label id="addinfWrapper">
+            Dodatkowe informacje
+            <textarea name="addinf" id="addinf" cols="30" rows="10"></textarea>
+        </label>
+        <button type="submit">Wyślij</button>
+    </form>
+</body>
+<script>
+    const formEl = document.querySelector("form#form")
+    const phoneValid = (phone) => /^\+?\d{0,2}\s?\d{3}\s?\d{3}\s?\d{3}$/.test(phone)
+    const lengthValid = text => text.length >= 3
+    const emailValid = email => /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(email)
+    const passwordValid = pass => /^(?=.*?[A-ZĘÓĄŚŁŻŹĆŃ])(?=.*?[a-zęóąśłżźćń])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/.test(pass)
+    const validate = e => {
+        const formData = new FormData(formEl);
+        const formDataObj = Object.fromEntries(formData)
+        console.groupCollapsed("Form Data");
+        console.table(formDataObj)
+        console.groupEnd();
+        if (!phoneValid(formDataObj.phone)) {
+            e.preventDefault()
+            formEl.querySelector("#phoneWrapper p.error").innerText = "Nieprawidłowy numer telefonu. Wpisz numer pasujący do tych przykładów: 000000000, 000 000 000, +48 000 000 000 lub +48000000000"
+        }
+        const lengthChecker = (e, formEl, nameOfProp) => {
+            if (!lengthValid(formDataObj[nameOfProp])) {
+                e.preventDefault()
+                formEl.querySelector(`#${nameOfProp}Wrapper p.error`).innerText = "Nieprawidłowa długość. Pole musi mieć minimum 3 znaki."
+            }
+        }
+        lengthChecker(e, formEl, "firstname")
+        lengthChecker(e, formEl, "lastname")
+        lengthChecker(e, formEl, "email")
+        if (!passwordValid(formDataObj.pass)) {
+            e.preventDefault()
+            formEl.querySelector(`#passWrapper p.error`).innerText = "Hasło jest za słabe. Musi mieć co najmniej 8 znaków, co najmniej jedną dużą literę, jedną cyfrę i jeden znak specjalny (#?!@$ %^&*-)."
+        }
+        if (formDataObj.pass !== formDataObj.repeatpass) {
+            e.preventDefault()
+            formEl.querySelector(`#repeatpassWrapper p.error`).innerText = "Hasło musi być identyczne w obu polach."
+        }
+        if (!emailValid(formDataObj.email)) {
+            e.preventDefault()
+            formEl.querySelector(`#emailWrapper p.error`).innerText = "Email jest nieprawidłowy."
+        }
+    }
+    formEl.addEventListener("submit", validate)
+</script>
+
+</html>
